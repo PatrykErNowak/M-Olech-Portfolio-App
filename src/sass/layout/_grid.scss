@@ -1,0 +1,54 @@
+// Grid system for overview page
+.grid-overview {
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 40fr 60fr;
+    height: 100vh;
+  }
+}
+
+// Grid for overview header container
+.overview {
+  &__main-container {
+    display: grid;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: auto 1fr auto auto;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  &__logo-box {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+
+  &__gallery-link {
+    grid-column: 3/4;
+    grid-row: 1/2;
+  }
+
+  &__header {
+    grid-column: 1/3;
+    grid-row: 2/3;
+  }
+
+  &__profession {
+    grid-column: 3/4;
+    grid-row: 2/3;
+  }
+
+  &__socials-box {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+
+  &__carousel-info {
+    grid-column: 2/4;
+    grid-row: 3/4;
+  }
+
+  &__tech-stack {
+    grid-column: 1/-1;
+    grid-row: 4/5;
+  }
+}
