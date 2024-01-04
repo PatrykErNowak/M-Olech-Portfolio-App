@@ -1,20 +1,28 @@
 // Grid system for overview page
 .grid-overview {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
+
   @media screen and (min-width: 768px) {
     display: grid;
-    grid-template-columns: 40fr 60fr;
+    grid-template-columns: 35fr 65fr;
     height: 100vh;
   }
 }
 
 // Grid for overview header container
 .overview {
+  display: flex;
+  flex-direction: column;
+
   &__main-container {
+    flex: 1;
     display: grid;
     grid-template-columns: max-content 1fr max-content;
-    grid-template-rows: auto 1fr auto auto;
-    gap: 2rem;
+    grid-template-rows: auto 1fr auto;
     align-items: center;
+    column-gap: 2rem;
   }
 
   &__logo-box {
@@ -25,15 +33,11 @@
   &__gallery-link {
     grid-column: 3/4;
     grid-row: 1/2;
+    justify-self: end;
   }
 
   &__header {
-    grid-column: 1/3;
-    grid-row: 2/3;
-  }
-
-  &__profession {
-    grid-column: 3/4;
+    grid-column: 1/-1;
     grid-row: 2/3;
   }
 
@@ -45,10 +49,6 @@
   &__carousel-info {
     grid-column: 2/4;
     grid-row: 3/4;
-  }
-
-  &__tech-stack {
-    grid-column: 1/-1;
-    grid-row: 4/5;
+    justify-self: end;
   }
 }

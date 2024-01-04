@@ -1,6 +1,24 @@
+$overview-bg: linear-gradient(180deg, #ffffef, #fff3e6);
+$tech-stack-bg: #2a2a25;
+
+$link-color: #afaffd;
+$text-secondary-color: #808070;
+
+$social-icon-size: 3rem;
+$tech-icon-size: 3.4rem;
+
+$progress-bar-bg: #d4d4bb;
+$progress-bar-value-bg: #808070;
+
+.grid-overview {
+  height: 100vh;
+  overflow: clip;
+}
+
 .overview {
   &__main-container {
     padding: 2rem;
+    background-image: $overview-bg;
   }
 
   &__logo-box {
@@ -10,73 +28,75 @@
   }
 
   &__gallery-link {
+    color: $link-color;
     font-size: 1.4rem;
+    font-weight: 600;
     text-transform: uppercase;
-    text-decoration: none;
-    justify-self: end;
   }
 
   &__header {
-    padding: 5rem 1rem;
+    position: relative;
+    padding: 2rem 3rem;
+    margin-top: 1rem;
     font-weight: 600;
     font-style: italic;
-  }
 
-  &__profession {
-    justify-self: end;
-    align-self: 30%;
-    color: #cacaca;
+    .subheader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 1.6rem;
+      font-style: normal;
+      color: $text-secondary-color;
+    }
   }
 
   &__socials-box {
     display: flex;
     gap: 2rem;
-    font-size: 1.5rem;
 
     .icon {
-      width: 3rem;
-      height: 3rem;
+      width: $social-icon-size;
+      height: $social-icon-size;
     }
   }
-
-  // &__slide-counter {
-
-  // }
 
   &__tech-stack {
     display: flex;
     gap: 2rem;
     padding: 2rem;
-    background: #181819;
+    background: $tech-stack-bg;
     .icon {
-      width: 5rem;
-      height: 5rem;
+      width: $tech-icon-size;
+      height: $tech-icon-size;
     }
-  }
-
-  // Small items
-
-  &__social-link {
-    display: flex;
-    align-items: center;
-    gap: 0.5em;
-    text-transform: uppercase;
   }
 }
 
 .carousel-info {
   padding-left: 2rem;
-  // &__counter {
-  // }
+  width: 100%;
+  max-width: 30rem;
+
+  &__counter {
+    margin-bottom: 0.7em;
+    font-size: 1.1em;
+    font-weight: 600;
+  }
+
   &__progress-bar {
     width: 100%;
-    background-color: #eee;
+    background-color: $progress-bar-bg;
     .value {
       height: 5px;
-      background-color: #ccc;
-      width: 70%;
+      background-color: $progress-bar-value-bg;
+      width: 70%; // TODO Delete
     }
   }
   &__slide-name {
+    margin-top: 0.5em;
+    font-size: 0.9em;
+    color: $text-secondary-color;
+    font-style: italic;
   }
 }
