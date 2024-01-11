@@ -1,17 +1,19 @@
+@use '../abstracts/breakpoints' as b;
+
 // Grid system for overview page
 .grid-overview {
   display: grid;
   grid-template-rows: 1fr auto;
   grid-template-columns: 1fr;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: b.$large) {
     display: grid;
-    grid-template-columns: 35fr 65fr;
+    grid-template-columns: 40fr 60fr;
     height: 100vh;
   }
 }
 
-// Grid for overview header container
+// Grid for overview header container - left side of page
 .overview {
   display: flex;
   flex-direction: column;

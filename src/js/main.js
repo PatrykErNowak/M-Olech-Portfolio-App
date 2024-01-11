@@ -1,9 +1,9 @@
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   loop: true,
-  autoplay: {
-    delay: 3000,
-  },
+  // autoplay: {
+  //   delay: 3000,
+  // },
 
   // Navigation arrows
   navigation: {
@@ -28,7 +28,7 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
-// Event lister fired when slide change
+// Event listener fired when slide change
 swiper.on('slideChange', function () {
   console.log(swiper.realIndex); // TODO chagne value in DOM
 });

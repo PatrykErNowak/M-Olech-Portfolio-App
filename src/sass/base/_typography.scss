@@ -1,3 +1,5 @@
+@use '../abstracts/colors' as c;
+
 html {
   font-size: 62.5%;
 }
@@ -5,10 +7,25 @@ html {
 body {
   font-family: 'Playfair Display', serif;
   font-size: 1.6rem;
-  color: #222;
+  color: c.$text-dark-color;
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: clamp(3.8rem, 3rem + 2.5vw, 10rem);
+  font-weight: 600;
+  font-style: italic;
   line-height: 1.4;
+  span {
+    font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
+    font-style: normal;
+    color: c.$text-light-color;
+  }
+}
+
+h2 {
+  font-size: clamp(2rem, 1rem + 2.2vw, 5rem);
+}
+
+p {
+  font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
 }

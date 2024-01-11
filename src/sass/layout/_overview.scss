@@ -1,24 +1,23 @@
-$overview-bg: linear-gradient(180deg, #ffffef, #fff3e6);
-$tech-stack-bg: #2a2a25;
+@use '../abstracts/colors' as c;
+@use '../abstracts/breakpoints' as b;
 
-$link-color: #afaffd;
-$text-secondary-color: #808070;
+// SETUP
+$overview-bg: c.$gradient;
+$tech-stack-bg: c.$bg-dark;
 
-$social-icon-size: 3rem;
-$tech-icon-size: 3.4rem;
+$social-icon-size: clamp(3rem, 2rem + 2vw, 4.5rem);
+$tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
 
-$progress-bar-bg: #d4d4bb;
-$progress-bar-value-bg: #808070;
-
+// --------------------------------------------
 .grid-overview {
   height: 100vh;
   overflow: clip;
+  background-image: $overview-bg;
 }
 
 .overview {
   &__main-container {
     padding: 2rem;
-    background-image: $overview-bg;
   }
 
   &__logo-box {
@@ -27,27 +26,15 @@ $progress-bar-value-bg: #808070;
     font-weight: 500;
   }
 
-  &__gallery-link {
-    color: $link-color;
-    font-size: 1.4rem;
-    font-weight: 600;
-    text-transform: uppercase;
-  }
-
   &__header {
     position: relative;
-    padding: 2rem 3rem;
+    padding: 2rem 3rem 0;
     margin-top: 1rem;
-    font-weight: 600;
-    font-style: italic;
 
     .subheader {
       position: absolute;
       top: 0;
       left: 0;
-      font-size: 1.6rem;
-      font-style: normal;
-      color: $text-secondary-color;
     }
   }
 
@@ -62,13 +49,33 @@ $progress-bar-value-bg: #808070;
   }
 
   &__tech-stack {
-    display: flex;
-    gap: 2rem;
-    padding: 2rem;
+    padding: 1.5rem;
     background: $tech-stack-bg;
-    .icon {
-      width: $tech-icon-size;
-      height: $tech-icon-size;
+    .title {
+      display: none;
+      margin-bottom: 2rem;
+      font-size: clamp(3rem, 2rem + 1vw, 3.3rem);
+      color: c.$text-white;
+      font-weight: 500;
+      letter-spacing: -1px;
+    }
+
+    .icon-box {
+      display: flex;
+      gap: 2rem;
+
+      .icon {
+        width: $tech-icon-size;
+        height: $tech-icon-size;
+      }
+    }
+
+    @media screen and (min-width: b.$large) {
+      padding: 5rem 3rem;
+
+      .title {
+        display: block;
+      }
     }
   }
 }
@@ -76,27 +83,18 @@ $progress-bar-value-bg: #808070;
 .carousel-info {
   padding-left: 2rem;
   width: 100%;
-  max-width: 30rem;
+  max-width: 40rem;
 
   &__counter {
     margin-bottom: 0.7em;
-    font-size: 1.1em;
+    font-size: clamp(1.6rem, 0.5rem + 1vw, 2.3rem);
     font-weight: 600;
   }
 
-  &__progress-bar {
-    width: 100%;
-    background-color: $progress-bar-bg;
-    .value {
-      height: 5px;
-      background-color: $progress-bar-value-bg;
-      width: 70%; // TODO Delete
-    }
-  }
   &__slide-name {
     margin-top: 0.5em;
-    font-size: 0.9em;
-    color: $text-secondary-color;
+    font-size: clamp(1.5rem, 0.5rem + 1vw, 2rem);
+    color: c.$text-light-color;
     font-style: italic;
   }
 }

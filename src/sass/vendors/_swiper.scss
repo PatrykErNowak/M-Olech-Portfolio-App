@@ -1,0 +1,32 @@
+// Settings for navigation buttons
+:root {
+  --swiper-navigation-size: 34px;
+  --swiper-navigation-top-offset: 50%;
+  --swiper-navigation-sides-offset: 30px;
+  --swiper-navigation-color: #333;
+}
+
+// -------------------------------------------------------
+// Settings for pagination/progress bar
+:root {
+  --swiper-pagination-color: #808070;
+  --swiper-pagination-left: auto;
+  --swiper-pagination-right: 8px;
+  --swiper-pagination-bottom: 8px;
+  --swiper-pagination-top: auto;
+  --swiper-pagination-fraction-color: inherit;
+  --swiper-pagination-progressbar-bg-color: rgba(0, 0, 0, 0.25);
+  --swiper-pagination-progressbar-size: 4px;
+  --swiper-pagination-bullet-size: 8px;
+  --swiper-pagination-bullet-width: 8px;
+  --swiper-pagination-bullet-height: 8px;
+  --swiper-pagination-bullet-inactive-color: #000;
+  --swiper-pagination-bullet-inactive-opacity: 0.2;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
+  --swiper-pagination-bullet-vertical-gap: 6px;
+}
+
+.swiper-pagination {
+  position: static;
+}
