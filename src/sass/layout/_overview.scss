@@ -10,8 +10,6 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
 
 // --------------------------------------------
 .grid-overview {
-  height: 100vh;
-  overflow: clip;
   background-image: $overview-bg;
 }
 
@@ -21,9 +19,12 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
   }
 
   &__logo-box {
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    font-weight: 500;
+    width: 12rem;
+    margin: -3rem 0;
+    margin-left: -2rem;
+    @media screen and (min-width: b.$large) {
+      width: 18rem;
+    }
   }
 
   &__header {
@@ -49,6 +50,9 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
   }
 
   &__tech-stack {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 1.5rem;
     background: $tech-stack-bg;
     .title {
@@ -71,7 +75,7 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
     }
 
     @media screen and (min-width: b.$large) {
-      padding: 5rem 3rem;
+      padding: 2rem;
 
       .title {
         display: block;
