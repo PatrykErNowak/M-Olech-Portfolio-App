@@ -1,3 +1,46 @@
+// Main scripts to dynamically change content
+// DOM Elements
+const dashboardCounter = {
+  actual: document.querySelector('.js-counter-actual'),
+  ofAll: document.querySelector('.js-counter-of-all'),
+  title: document.querySelector('.js-counter-title'),
+};
+const dashboardInfo = {
+  title: document.querySelector('.js-info-title'),
+  desc: document.querySelector('.js-info-desc'),
+};
+const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+const displayDashboards = function (dashboards, numSys) {
+  const { actual, ofAll } = dashboardCounter;
+
+  actual.textContent = numSys[0];
+  ofAll.textContent = numSys[dashboards.length - 1];
+
+  // Clear swiper container
+  swiperWrapper.innerHTML = '';
+
+  //Add dashboards to swiper container
+  dashboards.forEach((dash) => {
+    const {
+      img: { src, alt },
+    } = dash;
+    const html = `
+    <div class="swiper-slide carousel__slide">
+    <div class="carousel__img-box">
+    <img src="${src}" alt="${alt}" />
+    </div>
+    </div>`;
+
+    swiperWrapper.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayDashboards(dashboards, romanNumerals);
+
+// ------------------------------------------------------------------
+// Swiper settings
+
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   loop: true,
@@ -30,7 +73,11 @@ const swiper = new Swiper('.swiper', {
 
 // Event listener fired when slide change
 swiper.on('slideChange', function () {
-  console.log(swiper.realIndex); // TODO chagne value in DOM
-});
+  const { actual, title } = dashboardCounter;
+  const { title: infoTitle, desc: infoDesc } = dashboardInfo;
+  const targetIndex = swiper.realIndex;
 
-const numberOfSlides = swiper.slides.length;
+  actual.textContent = romanNumerals[targetIndex];
+  title.textContent = infoTitle.textContent = dashboards[targetIndex].title;
+  infoDesc.textContent = dashboards[targetIndex].desc;
+});

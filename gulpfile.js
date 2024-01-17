@@ -12,6 +12,7 @@ const cssnano = require('cssnano');
 // JS
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
+const concat = require('gulp-concat');
 // Others
 const sourcemaps = require('gulp-sourcemaps');
 const rename = require('gulp-rename');
@@ -46,6 +47,7 @@ function javascript(done) {
   gulp
     .src(options.paths.js)
     .pipe(sourcemaps.init())
+    .pipe(concat('all.js'))
     .pipe(
       babel({
         presets: ['@babel/env'],

@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,600;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,600;1,500&display=swap&family=Raleway:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -21,6 +21,10 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.min.css" />
     <!-- JS -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+    ></script>
     <script defer src="./js/script.min.js"></script>
   </head>
 
@@ -54,27 +58,19 @@
               </svg>
             </a>
           </div>
-          <div class="overview__carousel-info carousel-info">
-            <p class="carousel-info__counter">
-              <span class="actual">III</span> / <span class="of-all">IV</span>
+          <div class="overview__carousel-counter carousel-counter">
+            <p class="carousel-counter__counter">
+              <span class="js-counter-actual">III</span> /
+              <span class="js-counter-of-all">IV</span>
             </p>
 
             <div class="swiper-pagination"></div>
 
-            <p class="carousel-info__slide-name">Dashboard</p>
+            <p class="carousel-counter__slide-name js-counter-title">
+              Dashboard
+            </p>
           </div>
         </div>
-        <section class="overview__tech-stack" aria-label="Known technologies">
-          <h2 class="title">Technologies</h2>
-          <div class="icon-box">
-            <svg class="icon">
-              <use xlink:href="./img/icons.svg#icon-powerbi"></use>
-            </svg>
-            <svg class="icon">
-              <use xlink:href="./img/icons.svg#icon-mssql"></use>
-            </svg>
-          </div>
-        </section>
       </header>
 
       <div class="swiper carousel">
@@ -85,23 +81,11 @@
             <div class="carousel__img-box">
               <img src="./img/dashboard-2.png" alt="" />
             </div>
-            <!-- <h2 class="carousel__title">Airline passengers satisfaction</h2>
-            <p class="carousel__desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              libero enim id quo voluptates praesentium porro sint? Commodi,
-              reprehenderit corrupti.
-            </p> -->
           </div>
           <div class="swiper-slide carousel__slide">
             <div class="carousel__img-box">
               <img src="./img/dashboard-1.png" alt="" />
             </div>
-            <!-- <h2 class="carousel__title">Northwind traders</h2>
-            <p class="carousel__desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam
-              libero enim id quo voluptates praesentium porro sint? Commodi,
-              reprehenderit corrupti.
-            </p> -->
           </div>
         </div>
 
@@ -109,7 +93,17 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
+
+      <div class="carousel-info">
+        <h2 class="carousel-info__title js-info-title">
+          Airline passengers satisfaction
+        </h2>
+        <p class="carousel-info__desc js-info-desc">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam libero
+          enim id quo voluptates praesentium porro sint? Commodi, reprehenderit
+          corrupti.
+        </p>
+      </div>
     </main>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </body>
 </html>

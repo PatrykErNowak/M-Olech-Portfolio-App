@@ -1,51 +1,63 @@
 @use '../abstracts/colors' as c;
 @use '../abstracts/breakpoints' as b;
 
-$btn-icon-size: clamp(2rem, 1rem + 2vw, 3rem);
+$btn-icon-size: clamp(2rem, 1rem + 2vw, 2.5rem);
 
 .btn {
-  .icon {
-    width: $btn-icon-size;
-    height: $btn-icon-size;
-    transition: transform 0.5s ease;
-  }
-
   &:link,
   &:visited {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 0.5rem;
-    color: c.$text-dark-color;
-    font-size: clamp(1.4rem, 1rem + 1vw, 1.8rem);
-    font-weight: 600;
-    text-transform: capitalize;
+    padding: 0.8em 1em;
+    font-family: 'Raleway', sans-serif;
+    color: #5a4924;
+    font-size: clamp(1.3rem, 1rem + 1vw, 1.4rem);
+    font-weight: 500;
     letter-spacing: 1px;
-    box-shadow: 10px 18px 34px -26px hsla(0, 0%, 0%, 0.2);
-    border-radius: 255px 20px 225px 20px/20px 225px 20px 255px;
-    border: solid 2px c.$text-dark-color;
+    text-transform: uppercase;
+    border: solid 1px #715b2d;
+    outline: transparent;
     transition:
-      box-shadow 0.5s ease,
-      transform 0.5s ease;
-    -webkit-font-smoothing: subpixel-antialiased;
+      box-shadow 0.5s ease-in-out,
+      transform 0.4s ease-in-out;
 
     @media screen and (min-width: b.$large) {
-      padding: 1rem;
-      border: solid 4px c.$text-dark-color;
+      padding: 1em 1.2em;
+      border: solid 2px #715b2d;
     }
-  }
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 2px 10px 25px -6px hsla(0, 0%, 0%, 0.3);
 
     .icon {
-      transform: translateX(4px);
+      width: $btn-icon-size;
+      height: $btn-icon-size;
+      fill: currentColor;
+      animation: slide 1.5s ease-in-out infinite;
     }
-  }
 
-  &:active {
-    transform: translateY(0);
-    box-shadow: 2px 5px 20px -6px hsla(0, 0%, 0%, 0.3);
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #eed39b, $alpha: 1);
+      top: 0;
+      left: 0;
+      transform: translate(7px, 7px);
+      transition: transform 0.5s ease-in-out;
+    }
+
+    &:hover {
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+    &:active {
+      transform: translate(0, 2px);
+    }
+
+    &:hover::before,
+    &:focus::before {
+      transform: translate(0, 0);
+    }
   }
 }
