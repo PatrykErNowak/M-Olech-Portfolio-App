@@ -81,3 +81,8 @@ swiper.on('slideChange', function () {
   title.textContent = infoTitle.textContent = dashboards[targetIndex].title;
   infoDesc.textContent = dashboards[targetIndex].desc;
 });
+
+// GIF Handler
+
+const gif = document.querySelector('.js-gif');
+setTimeout(() => (gif.src = './img/arrow-gif.png'), 3000);

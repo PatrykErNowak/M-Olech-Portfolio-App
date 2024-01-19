@@ -82,4 +82,15 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
       }
     }
   }
+  &__bg-animation {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    height: 80%;
+    width: 80%;
+    filter: drop-shadow(16px 16px 20px rgba(0, 0, 0, 0.1)) invert(100%);
+    opacity: 0.02;
+    overflow: hidden;
+  }
 }
