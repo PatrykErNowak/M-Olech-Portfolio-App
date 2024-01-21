@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,600;1,500&display=swap&family=Raleway:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Raleway:ital,wght@0,400;0,500;0,600;1,400&display=swap"
       rel="stylesheet"
     />
 
@@ -29,52 +29,60 @@
   </head>
 
   <body>
-    <main class="grid-overview">
+    <main class="grid-mainpage">
       <header class="overview">
-        <div class="overview__main-container">
-          <img
-            src="./img/arrow-gif.gif"
-            alt=""
-            class="overview__bg-animation js-gif"
-          />
-          <div class="overview__logo-box">
-            <img src="./img/logo.svg" alt="Logo" />
+        <img
+          src="./img/arrow-gif.gif"
+          alt=""
+          class="overview__bg-animation js-gif"
+          aria-hidden="true"
+        />
+        <div class="overview__logo-box">
+          <img src="./img/logo.svg" alt="Logo" />
+        </div>
+        <a href="#" class="overview__gallery-link btn"
+          >all my projects
+          <svg class="icon">
+            <use xlink:href="./img/icons.svg#icon-arrow-right"></use>
+          </svg>
+        </a>
+        <div class="overview__header header">
+          <div class="header__img-box">
+            <img src="./img/portrait.png" alt="" />
           </div>
-          <a href="#" class="overview__gallery-link btn"
-            >all my projects
+          <div class="header__content-box">
+            <h1 class="header__title">
+              <span class="subheader">Hi there ! <br /></span>
+              I'm Magdalena Olech, <br />a
+              <span class="highlight">BI Developer</span>.
+            </h1>
+            <p class="header__desc">
+              Analyzing data is like solving puzzles with insights as the
+              reward.
+            </p>
+          </div>
+        </div>
+        <div class="overview__socials-box">
+          <a href="#" class="overview__social-link">
             <svg class="icon">
-              <use xlink:href="./img/icons.svg#icon-arrow-right"></use>
+              <use xlink:href="./img/icons.svg#icon-github"></use>
             </svg>
           </a>
-          <h1 class="overview__header">
-            <span class="subheader">BI Developer <br /></span>
-            Magdalena <br />
-            Olech
-          </h1>
-          <div class="overview__socials-box">
-            <a href="#" class="overview__social-link">
-              <svg class="icon">
-                <use xlink:href="./img/icons.svg#icon-github"></use>
-              </svg>
-            </a>
-            <a href="#" class="overview__social-link">
-              <svg class="icon">
-                <use xlink:href="./img/icons.svg#icon-linkedin"></use>
-              </svg>
-            </a>
-          </div>
-          <div class="overview__carousel-counter carousel-counter">
-            <p class="carousel-counter__counter">
-              <span class="js-counter-actual">III</span> /
-              <span class="js-counter-of-all">IV</span>
-            </p>
+          <a href="#" class="overview__social-link">
+            <svg class="icon">
+              <use xlink:href="./img/icons.svg#icon-linkedin"></use>
+            </svg>
+          </a>
+        </div>
+        <div class="overview__carousel-counter carousel-counter">
+          <p class="carousel-counter__counter">
+            <span class="js-counter-actual">III</span> /
+            <span class="js-counter-of-all">IV</span>
+          </p>
 
-            <div class="swiper-pagination"></div>
+          <div class="swiper-pagination"></div>
 
-            <p class="carousel-counter__slide-name js-counter-title">
-              Dashboard
-            </p>
-          </div>
+          <p class="carousel-counter__slide-name js-counter-title">Dashboard</p>
         </div>
       </header>
 

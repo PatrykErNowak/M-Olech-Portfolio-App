@@ -81,6 +81,7 @@
 }
 
 .carousel-counter {
+  font-family: 'Playfair Display', serif;
   padding-left: 2rem;
   width: 100%;
   max-width: 40rem;
@@ -95,6 +96,5 @@
     margin-top: 0.5em;
     font-size: clamp(1.5rem, 0.5rem + 1vw, 2rem);
     color: c.$text-light-color;
-    font-style: italic;
   }
 }

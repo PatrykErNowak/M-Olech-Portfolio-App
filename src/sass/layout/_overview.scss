@@ -1,5 +1,6 @@
 @use '../abstracts/colors' as c;
 @use '../abstracts/breakpoints' as b;
+@use '../abstracts/variables' as v;
 
 // SETUP
 $overview-bg: c.$gradient;
@@ -9,34 +10,25 @@ $social-icon-size: clamp(3rem, 2rem + 2vw, 4.5rem);
 $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
 
 // --------------------------------------------
-.grid-overview {
+.grid-mainpage {
   background-image: $overview-bg;
 }
 
 .overview {
-  &__main-container {
-    position: relative;
-    z-index: 0;
-    padding: 2rem;
-  }
+  position: relative;
+  z-index: 0;
+  padding: 2rem;
 
   &__logo-box {
     width: 4rem;
+
     @media screen and (min-width: b.$large) {
       width: 6rem;
     }
   }
 
   &__header {
-    position: relative;
-    padding: 2rem 3rem 0;
-    margin-top: 1rem;
-
-    .subheader {
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+    padding: 2rem 0;
   }
 
   &__socials-box {
@@ -49,39 +41,7 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
     }
   }
 
-  &__tech-stack {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 1.5rem;
-    background: $tech-stack-bg;
-    .title {
-      display: none;
-      margin-bottom: 2rem;
-      font-size: clamp(3rem, 2rem + 1vw, 3.3rem);
-      color: c.$text-white;
-      font-weight: 500;
-      letter-spacing: -1px;
-    }
-
-    .icon-box {
-      display: flex;
-      gap: 2rem;
-
-      .icon {
-        width: $tech-icon-size;
-        height: $tech-icon-size;
-      }
-    }
-
-    @media screen and (min-width: b.$large) {
-      padding: 2rem;
-
-      .title {
-        display: block;
-      }
-    }
-  }
+  // GIF animation styles
   &__bg-animation {
     position: absolute;
     z-index: -1;
@@ -92,5 +52,90 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
     filter: drop-shadow(16px 16px 20px rgba(0, 0, 0, 0.1)) invert(100%);
     opacity: 0.02;
     overflow: hidden;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media screen and (min-width: b.$x-large) {
+    flex-direction: row;
+  }
+
+  &__img-box {
+    max-width: 20rem;
+    border: 5px solid transparent;
+    border-radius: 50%;
+    box-shadow:
+      inset 0 0 10px 5px rgba($color: c.$portrait-shadow, $alpha: 1),
+      0 0 10px 3px rgba($color: c.$portrait-shadow, $alpha: 1),
+      0 0 20px rgba($color: c.$portrait-shadow, $alpha: 1);
+    overflow: hidden;
+
+    @media screen and (min-width: b.$large) {
+      max-width: 30rem;
+    }
+    @media screen and (min-width: b.$x-large) {
+      margin-bottom: 5rem;
+    }
+
+    img {
+      transition: transform v.$transition-dur ease-in-out;
+    }
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__content-box {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 60rem;
+  }
+
+  &__title {
+    position: relative;
+    padding: 0.8em 3rem 0;
+    margin-top: 1rem;
+    max-width: max-content;
+    text-align: center;
+    white-space: nowrap;
+
+    .subheader {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__desc {
+    position: relative;
+    align-self: flex-end;
+    padding-right: 10rem;
+    margin-bottom: 5rem;
+    width: 70%;
+    color: c.$text-light-color;
+    font-style: italic;
+    text-align: center;
+    line-height: 1.6;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 15rem;
+      height: 15rem;
+      transform: translateY(50%);
+      background-image: url(../img/promyczki.svg);
+      background-size: contain;
+      background-position: center;
+    }
   }
 }

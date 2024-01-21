@@ -1,7 +1,11 @@
 @use '../abstracts/colors' as c;
 @use '../abstracts/breakpoints' as b;
+@use '../abstracts/variables' as v;
 
 $btn-icon-size: clamp(2rem, 1rem + 2vw, 2.5rem);
+$btn-text-color: c.$third-color-dark;
+$btn-border-color: c.$third-color-dark;
+$btn-bg-color: c.$third-color;
 
 .btn {
   &:link,
@@ -11,13 +15,12 @@ $btn-icon-size: clamp(2rem, 1rem + 2vw, 2.5rem);
     align-items: center;
     gap: 1rem;
     padding: 0.8em 1em;
-    font-family: 'Raleway', sans-serif;
-    color: #5a4924;
-    font-size: clamp(1.3rem, 1rem + 1vw, 1.4rem);
+    color: $btn-text-color;
+    font-size: clamp(1.2rem, 0.9rem + 1vw, 1.4rem);
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border: solid 1px #715b2d;
+    border: solid 1px $btn-border-color;
     outline: transparent;
     transition:
       box-shadow 0.5s ease-in-out,
@@ -25,7 +28,7 @@ $btn-icon-size: clamp(2rem, 1rem + 2vw, 2.5rem);
 
     @media screen and (min-width: b.$large) {
       padding: 1em 1.2em;
-      border: solid 2px #715b2d;
+      border-width: 2px;
     }
 
     .icon {
@@ -35,19 +38,6 @@ $btn-icon-size: clamp(2rem, 1rem + 2vw, 2.5rem);
       animation: slide 1.5s ease-in-out infinite;
     }
 
-    &::before {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      width: 100%;
-      height: 100%;
-      background-color: rgba($color: #eed39b, $alpha: 1);
-      top: 0;
-      left: 0;
-      transform: translate(7px, 7px);
-      transition: transform 0.5s ease-in-out;
-    }
-
     &:hover {
       box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     }
@@ -55,6 +45,18 @@ $btn-icon-size: clamp(2rem, 1rem + 2vw, 2.5rem);
       transform: translate(0, 2px);
     }
 
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: $btn-bg-color, $alpha: 0.7);
+      transform: translate(7px, 7px);
+      transition: transform v.$transition-dur ease-in-out;
+    }
     &:hover::before,
     &:focus::before {
       transform: translate(0, 0);

@@ -5,20 +5,23 @@ html {
 }
 
 body {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 1.6rem;
   color: c.$text-dark-color;
 }
 
 h1 {
-  font-size: clamp(3.8rem, 3rem + 2.5vw, 10rem);
-  font-weight: 600;
-  font-style: italic;
+  color: c.$text-light-color;
+  font-size: clamp(2rem, 1.5rem + 1vw, 5rem);
+  font-weight: 500;
   line-height: 1.4;
-  span {
-    font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
-    font-style: normal;
-    color: c.$text-light-color;
+
+  .subheader {
+    font-size: clamp(1.5rem, 1rem + 1vw, 2.2rem);
+  }
+  .highlight {
+    font-size: inherit;
+    color: c.$third-color;
   }
 }
 
