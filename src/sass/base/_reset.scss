@@ -1,3 +1,5 @@
+@use '../abstracts/colors' as c;
+
 *,
 *::before,
 *::after {
@@ -8,6 +10,8 @@
 
 body {
   line-height: 1;
+  background-image: c.$gradient;
+  overflow-x: clip;
 }
 
 a {

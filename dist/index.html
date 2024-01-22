@@ -29,7 +29,7 @@
   </head>
 
   <body>
-    <main class="grid-mainpage">
+    <div class="grid-mainpage">
       <header class="overview">
         <img
           src="./img/arrow-gif.gif"
@@ -37,32 +37,35 @@
           class="overview__bg-animation js-gif"
           aria-hidden="true"
         />
-        <div class="overview__logo-box">
+        <div class="overview__logo-box" data-anime="all">
           <img src="./img/logo.svg" alt="Logo" />
         </div>
-        <a href="#" class="overview__gallery-link btn"
+        <a
+          href="#"
+          class="overview__gallery-link btn btn--primary"
+          data-anime="all"
           >all my projects
           <svg class="icon">
             <use xlink:href="./img/icons.svg#icon-arrow-right"></use>
           </svg>
         </a>
         <div class="overview__header header">
-          <div class="header__img-box">
+          <div class="header__img-box" data-anime="portrait">
             <img src="./img/portrait.png" alt="" />
           </div>
           <div class="header__content-box">
-            <h1 class="header__title">
+            <h1 class="header__title" data-anime="title">
               <span class="subheader">Hi there ! <br /></span>
               I'm Magdalena Olech, <br />a
-              <span class="highlight">BI Developer</span>.
+              <span class="highlight">Data Analyst</span>.
             </h1>
-            <p class="header__desc">
+            <p class="header__desc" data-anime="desc">
               Analyzing data is like solving puzzles with insights as the
               reward.
             </p>
           </div>
         </div>
-        <div class="overview__socials-box">
+        <div class="overview__socials-box" data-anime="all">
           <a href="#" class="overview__social-link">
             <svg class="icon">
               <use xlink:href="./img/icons.svg#icon-github"></use>
@@ -74,49 +77,57 @@
             </svg>
           </a>
         </div>
-        <div class="overview__carousel-counter carousel-counter">
-          <p class="carousel-counter__counter">
-            <span class="js-counter-actual">III</span> /
-            <span class="js-counter-of-all">IV</span>
-          </p>
-
-          <div class="swiper-pagination"></div>
-
-          <p class="carousel-counter__slide-name js-counter-title">Dashboard</p>
-        </div>
+        <a
+          href="#"
+          class="overview__resume-link btn btn--secondary"
+          data-anime="all"
+          >View Resume</a
+        >
       </header>
 
-      <div class="swiper carousel">
-        <!-- Additional required wrapper -->
-        <div class="swiper-wrapper">
-          <!-- Slides -->
-          <div class="swiper-slide carousel__slide">
-            <div class="carousel__img-box">
-              <img src="./img/dashboard-2.png" alt="" />
+      <main class="main-content">
+        <div class="carousel-box">
+          <div class="swiper carousel">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+              <!-- Slides -->
+              <div class="swiper-slide carousel__slide">
+                <div class="carousel__img-box">
+                  <img src="./img/dashboard-2.png" alt="" />
+                </div>
+              </div>
+              <div class="swiper-slide carousel__slide">
+                <div class="carousel__img-box">
+                  <img src="./img/dashboard-1.png" alt="" />
+                </div>
+              </div>
             </div>
           </div>
-          <div class="swiper-slide carousel__slide">
-            <div class="carousel__img-box">
-              <img src="./img/dashboard-1.png" alt="" />
+
+          <div class="carousel-info">
+            <h2 class="carousel-info__title js-info-title">
+              Northwind Traders
+            </h2>
+            <p class="carousel-info__desc js-info-desc">
+              A top-level KPI dashboard made to help Northwind Traders'
+              executives quickly understand the company's performance in key
+              areas.
+            </p>
+            <a
+              href="#"
+              class="carousel-info__link btn btn--secondary btn--white"
+              >See more</a
+            >
+            <div class="carousel-info__counter">
+              <p class="num-of-slide">
+                <span class="js-counter-actual">I</span> /
+                <span class="js-counter-of-all">II</span>
+              </p>
+              <div class="swiper-pagination"></div>
             </div>
           </div>
         </div>
-
-        <!-- If we need navigation buttons -->
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-
-      <div class="carousel-info">
-        <h2 class="carousel-info__title js-info-title">
-          Airline passengers satisfaction
-        </h2>
-        <p class="carousel-info__desc js-info-desc">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam libero
-          enim id quo voluptates praesentium porro sint? Commodi, reprehenderit
-          corrupti.
-        </p>
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>

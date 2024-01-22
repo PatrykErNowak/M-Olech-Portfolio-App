@@ -1,0 +1,124 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/breakpoints' as b;
+
+//  INFO
+// Other styles and settings are available in vendors/swiper.scss
+.carousel-box {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: c.$bg-dark;
+}
+
+.carousel {
+  min-width: 100%;
+  max-width: 100%;
+
+  @media screen and (min-width: b.$large) {
+    max-width: 60rem;
+  }
+
+  &__img-box {
+    @media screen and (min-width: b.$large) {
+      img {
+        filter: grayscale(100%) sepia(10%);
+        box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+        transition:
+          filter 0.5s ease,
+          box-shadow 0.5s;
+
+        &:hover {
+          filter: none;
+          box-shadow: 0 0 70px rgba(255, 255, 255, 0.2);
+        }
+      }
+    }
+  }
+}
+
+.carousel-info {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2rem;
+  color: c.$text-white;
+
+  @media screen and (min-width: b.$x-large) {
+    padding: 3rem;
+
+    // Illustration background
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('../img/carousel-info-bg.svg');
+      background-repeat: no-repeat;
+      background-position: 95% 45%;
+      background-size: 25%;
+      filter: grayscale(100%) sepia(40%);
+    }
+  }
+
+  &__title {
+    position: relative;
+    padding: 1rem;
+    padding-left: 5%;
+    margin-bottom: 1rem;
+    width: 100%;
+    font-weight: 500;
+    text-transform: capitalize;
+
+    @media screen and (min-width: b.$large) {
+      margin-bottom: 2rem;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      height: 7px;
+      width: 65%;
+      border: solid 2px #000;
+      border-color: rgba($color: #e2b659, $alpha: 0.8) transparent transparent
+        transparent;
+      border-radius: 50%;
+    }
+  }
+
+  &__desc {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    line-height: 1.5;
+    font-size: clamp(1.5rem, 1rem + 1vw, 2.2rem);
+    @media screen and (min-width: b.$x-large) {
+      width: 65%;
+    }
+  }
+
+  &__link {
+    margin-left: auto;
+    @media screen and (min-width: b.$x-large) {
+      margin-left: 50%;
+    }
+  }
+
+  &__counter {
+    margin-top: auto;
+    font-family: 'Playfair Display', serif;
+    width: 100%;
+    transition: all 0.5s;
+
+    .num-of-slide {
+      margin-bottom: 0.7em;
+      font-size: clamp(1.6rem, 0.5rem + 1vw, 2.8rem);
+      font-weight: 600;
+    }
+  }
+}

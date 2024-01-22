@@ -6,8 +6,7 @@
 $overview-bg: c.$gradient;
 $tech-stack-bg: c.$bg-dark;
 
-$social-icon-size: clamp(3rem, 2rem + 2vw, 4.5rem);
-$tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
+$social-icon-size: clamp(3.8rem, 2rem + 1.6vw, 6rem);
 
 // --------------------------------------------
 .grid-mainpage {
@@ -18,10 +17,12 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
   position: relative;
   z-index: 0;
   padding: 2rem;
+  @media screen and (min-width: b.$x-large) {
+    padding: 3rem;
+  }
 
   &__logo-box {
     width: 4rem;
-
     @media screen and (min-width: b.$large) {
       width: 6rem;
     }
@@ -38,6 +39,10 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
     .icon {
       width: $social-icon-size;
       height: $social-icon-size;
+      transition: fill v.$transition-dur ease-in-out;
+      &:hover {
+        fill: c.$third-color;
+      }
     }
   }
 
@@ -58,6 +63,7 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
 .header {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   @media screen and (min-width: b.$x-large) {
@@ -66,7 +72,7 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
 
   &__img-box {
     max-width: 20rem;
-    border: 5px solid transparent;
+    border: 7px solid transparent;
     border-radius: 50%;
     box-shadow:
       inset 0 0 10px 5px rgba($color: c.$portrait-shadow, $alpha: 1),
@@ -75,10 +81,14 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
     overflow: hidden;
 
     @media screen and (min-width: b.$large) {
-      max-width: 30rem;
+      max-width: 20rem;
     }
     @media screen and (min-width: b.$x-large) {
       margin-bottom: 5rem;
+      max-width: 22rem;
+    }
+    @media screen and (min-width: b.$xl-large) {
+      max-width: 27rem;
     }
 
     img {
@@ -119,11 +129,17 @@ $tech-icon-size: clamp(3.4rem, 2rem + 2vw, 5rem);
     align-self: flex-end;
     padding-right: 10rem;
     margin-bottom: 5rem;
-    width: 70%;
+    width: 90%;
+    max-width: 42rem;
+
     color: c.$text-light-color;
     font-style: italic;
     text-align: center;
     line-height: 1.6;
+
+    @media screen and (min-width: b.$large) {
+      max-width: 42rem;
+    }
 
     &::after {
       content: '';

@@ -3,7 +3,6 @@
 const dashboardCounter = {
   actual: document.querySelector('.js-counter-actual'),
   ofAll: document.querySelector('.js-counter-of-all'),
-  title: document.querySelector('.js-counter-title'),
 };
 const dashboardInfo = {
   title: document.querySelector('.js-info-title'),
@@ -38,30 +37,75 @@ const displayDashboards = function (dashboards, numSys) {
 
 displayDashboards(dashboards, romanNumerals);
 
+// --------------------------------------------------------------------
+// Animations
+
+// Animation for carousel/swiper utilitiy function
+const carouselAnimationHandle = function (element, animeClass, duration) {
+  element.classList.add(animeClass);
+  element.style.animationDuration = duration + 'ms';
+  element.addEventListener('animationend', () => {
+    element.classList.remove(animeClass);
+  });
+};
+
+// Animations fired only when user open page
+const animation = function () {
+  const isMobile = window.navigator.userAgentData.mobile;
+
+  if (isMobile) return;
+  const gif = document.querySelector('.js-gif');
+  // Stop playing gif
+  gif.src = '';
+
+  const gifAnimation = function (delay = 0) {
+    //Delay
+    setTimeout(() => (gif.src = './img/arrow-gif.gif'), delay);
+    //Stop After
+    setTimeout(() => (gif.src = './img/arrow-gif.png'), delay + 3000);
+  };
+
+  const displayGifAnimationOnce = function () {
+    gifAnimation(0);
+    this.removeEventListener('animationend', displayGifAnimationOnce);
+  };
+
+  const header = {
+    portrait: document.querySelector('[data-anime="portrait"]'),
+    h1: document.querySelector('[data-anime="title"]'),
+    desc: document.querySelector('[data-anime="desc"]'),
+    other: document.querySelectorAll('[data-anime="all"]'),
+  };
+  const main = document.querySelector('.main-content');
+
+  header.portrait.classList.add('slide-in-left');
+  header.h1.classList.add('slide-in-top');
+  header.desc.classList.add('fade-in');
+  header.other.forEach((el) => el.classList.add('fade-in'));
+  main.classList.add('slide-in-right');
+
+  header.h1.style.animationDelay = '500ms';
+  header.desc.style.animationDelay = '1000ms';
+  header.other.forEach((el) => (el.style.animationDelay = '1500ms'));
+  main.style.animationDelay = '1500ms';
+
+  main.addEventListener('animationend', displayGifAnimationOnce);
+};
+
+animation();
+
 // ------------------------------------------------------------------
 // Swiper settings
 
 const swiper = new Swiper('.swiper', {
   // Optional parameters
   loop: true,
-  // autoplay: {
-  //   delay: 3000,
-  // },
+  speed: 1000,
+  autoplay: {
+    pauseOnMouseEnter: true,
+    delay: 7000,
+  },
 
-  // Navigation arrows
-  navigation: {
-    enabled: false,
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-  breakpoints: {
-    // when window width is >= 320px
-    768: {
-      navigation: {
-        enabled: true,
-      },
-    },
-  },
   pagination: {
     el: '.swiper-pagination',
     type: 'progressbar',
@@ -73,16 +117,23 @@ const swiper = new Swiper('.swiper', {
 
 // Event listener fired when slide change
 swiper.on('slideChange', function () {
-  const { actual, title } = dashboardCounter;
+  const { actual } = dashboardCounter;
   const { title: infoTitle, desc: infoDesc } = dashboardInfo;
-  const targetIndex = swiper.realIndex;
+  const currentIndex = swiper.realIndex;
 
-  actual.textContent = romanNumerals[targetIndex];
-  title.textContent = infoTitle.textContent = dashboards[targetIndex].title;
-  infoDesc.textContent = dashboards[targetIndex].desc;
+  // actual.textContent = romanNumerals[currentIndex];
+  infoTitle.textContent = dashboards[currentIndex].title;
+  infoDesc.textContent = dashboards[currentIndex].desc;
+
+  carouselAnimationHandle(infoTitle, 'fade-in', 2000);
+  carouselAnimationHandle(infoDesc, 'fade-in', 2000);
+
+  // TESTING TODO
+  // carouselAnimationHandle(actual, 'test-anime', 2000);
+  if (currentIndex === 0) {
+    actual.innerHTML = 'I';
+  }
+  if (currentIndex === 1) {
+    actual.innerHTML = 'I<span class="fade-in">I</span>';
+  }
 });
-
-// GIF Handler
-
-const gif = document.querySelector('.js-gif');
-setTimeout(() => (gif.src = './img/arrow-gif.png'), 3000);
