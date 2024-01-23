@@ -45,7 +45,13 @@ function buildStyles(done) {
 
 function javascript(done) {
   gulp
-    .src(options.paths.js)
+    // .src(options.paths.js)
+    .src([
+      './src/js/data/*.js',
+      './src/js/pages/*.js',
+      './src/js/other/*.js',
+      './src/js/*.js',
+    ])
     .pipe(sourcemaps.init())
     .pipe(concat('all.js'))
     .pipe(
@@ -72,7 +78,12 @@ function startBrowserSync(done) {
   browserSync.init({
     server: {
       baseDir: options.paths.dist,
+      routes: {
+        '/about': options.paths.dist,
+        '/projects': options.paths.dist,
+      },
     },
+    single: true,
     open: true,
     browser: 'chrome',
   });

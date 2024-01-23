@@ -26,6 +26,14 @@ $social-icon-size: clamp(3.8rem, 2rem + 1.6vw, 6rem);
     @media screen and (min-width: b.$large) {
       width: 6rem;
     }
+    img {
+      pointer-events: none;
+    }
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
   }
 
   &__header {

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>M-OLECH</title>
+    <link rel="icon" type="image/x-icon" href="./img/logo.svg" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -38,17 +39,33 @@
           aria-hidden="true"
         />
         <div class="overview__logo-box" data-anime="all">
-          <img src="./img/logo.svg" alt="Logo" />
+          <a href="/" aria-label="Go back to home page" data-link="changePage">
+            <img src="./img/logo.svg" alt="Logo" />
+          </a>
         </div>
-        <a
-          href="#"
-          class="overview__gallery-link btn btn--primary"
-          data-anime="all"
-          >all my projects
-          <svg class="icon">
-            <use xlink:href="./img/icons.svg#icon-arrow-right"></use>
-          </svg>
-        </a>
+        <nav class="overview__nav">
+          <a
+            href="/about"
+            class="btn btn--primary js-aboutme"
+            data-anime="all"
+            data-link="changePage"
+            >About me
+            <svg class="icon">
+              <use xlink:href="./img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </a>
+          <a
+            href="/projects"
+            class="btn btn--primary"
+            data-anime="all"
+            data-link="changePage"
+            >all my projects
+            <svg class="icon">
+              <use xlink:href="./img/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </a>
+        </nav>
+
         <div class="overview__header header">
           <div class="header__img-box" data-anime="portrait">
             <img src="./img/portrait.png" alt="" />
@@ -81,12 +98,12 @@
           href="#"
           class="overview__resume-link btn btn--secondary"
           data-anime="all"
-          >View Resume</a
+          >view resume</a
         >
       </header>
 
-      <main class="main-content">
-        <div class="carousel-box">
+      <main class="main-content" id="root">
+        <div class="carousel-box" style="display: none">
           <div class="swiper carousel">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
