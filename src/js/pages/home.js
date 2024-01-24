@@ -35,7 +35,7 @@ const home = {
       >
       <div class="carousel-info__counter">
         <p class="num-of-slide">
-          <span class="js-counter-actual">I</span> /
+          <span class="js-counter-actual"></span> /
           <span class="js-counter-of-all">II</span>
         </p>
         <div class="swiper-pagination"></div>
@@ -114,21 +114,15 @@ const home = {
       const { title: infoTitle, desc: infoDesc } = dashboardInfo;
       const currentIndex = swiper.realIndex;
 
-      // actual.textContent = romanNumerals[currentIndex];
-      infoTitle.textContent = dashboards[currentIndex].title;
-      infoDesc.textContent = dashboards[currentIndex].desc;
+      carouselAnimationHandle(infoTitle, 'fade-out-in', 1000);
+      carouselAnimationHandle(infoDesc, 'fade-out-in', 1000);
+      carouselAnimationHandle(actual, 'fade-out-in', 1000);
 
-      carouselAnimationHandle(infoTitle, 'fade-in', 2000);
-      carouselAnimationHandle(infoDesc, 'fade-in', 2000);
-
-      // TESTING TODO
-      // carouselAnimationHandle(actual, 'test-anime', 2000);
-      if (currentIndex === 0) {
-        actual.innerHTML = 'I';
-      }
-      if (currentIndex === 1) {
-        actual.innerHTML = 'I<span class="fade-in">I</span>';
-      }
+      setTimeout(() => {
+        infoTitle.textContent = dashboards[currentIndex].title;
+        infoDesc.textContent = dashboards[currentIndex].desc;
+        actual.textContent = romanNumerals[currentIndex];
+      }, 500);
     });
   },
 

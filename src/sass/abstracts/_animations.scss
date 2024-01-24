@@ -21,6 +21,37 @@
     opacity: 1;
   }
 }
+// Fade-out
+
+.fade-out {
+  animation: fade-out 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+// Fade-out
+
+.fade-out-in {
+  animation: fade-out-in 1.2s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@keyframes fade-out-in {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 // -------------------------------------------
 // Slide animations
