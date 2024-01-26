@@ -3,9 +3,9 @@ const urlRouting = function (mainContent) {
 
   const urlRoutes = {
     404: notFound404,
-    '/': home,
-    '/about': about,
-    '/projects': projects,
+    '/M-Olech-Portfolio-App/': home,
+    '/M-Olech-Portfolio-App/about': about,
+    '/M-Olech-Portfolio-App/projects': projects,
   };
 
   const renderContent = function (route) {
