@@ -14,12 +14,13 @@ const animation = function () {
     setTimeout(() => (gif.src = './img/arrow-gif.png'), delay + 3000);
   };
 
-  const displayGifAnimationOnce = function () {
+  const displayGifAnimationOnce = function (e) {
+    const { target } = e;
+    if (!target.classList.contains('slide-in-right')) return;
+
     this.removeEventListener('animationend', displayGifAnimationOnce);
-    setTimeout(() => {
-      this.classList.remove('slide-in-right');
-      gifAnimation(0);
-    }, 500);
+    this.classList.remove('slide-in-right');
+    gifAnimation(0);
   };
 
   const header = {
@@ -30,16 +31,16 @@ const animation = function () {
   };
   const main = document.querySelector('.main-content');
 
+  header.h1.style.animationDelay = '500ms';
+  header.desc.style.animationDelay = '1000ms';
+  header.other.forEach((el) => (el.style.animationDelay = '1500ms'));
+  main.style.animationDelay = '1500ms';
+
   header.portrait.classList.add('slide-in-left');
   header.h1.classList.add('slide-in-top');
   header.desc.classList.add('fade-in');
   header.other.forEach((el) => el.classList.add('fade-in'));
   main.classList.add('slide-in-right');
-
-  header.h1.style.animationDelay = '500ms';
-  header.desc.style.animationDelay = '1000ms';
-  header.other.forEach((el) => (el.style.animationDelay = '1500ms'));
-  main.style.animationDelay = '1500ms';
 
   main.addEventListener('animationend', displayGifAnimationOnce);
 };
