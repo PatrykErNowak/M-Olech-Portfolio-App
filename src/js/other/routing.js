@@ -1,4 +1,9 @@
-const urlRouting = function (mainContent) {
+import {notFound404} from '../pages/404.js'
+import {about} from '../pages/about.js'
+import {home} from '../pages/home.js'
+import {projects} from '../pages/projects.js'
+
+export const urlRouting = function (mainContent) {
   const urlPageTitle = document.title;
 
   const urlRoutes = {

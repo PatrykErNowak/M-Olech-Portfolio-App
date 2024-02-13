@@ -1,4 +1,5 @@
-const romanNumerals = [
+
+export const romanNumerals = [
   'I',
   'II',
   'III',
@@ -21,12 +22,12 @@ const romanNumerals = [
   'XX',
 ];
 
-const dashboards = [
+export const dashboards = [
   {
     title: 'Northwind Traders',
     desc: "A top-level KPI dashboard made to help Northwind Traders' executives quickly understand the company's performance in key areas.",
     img: {
-      src: './img/dashboard-2.png',
+      src: new URL('../../img/dashboard-2.png', import.meta.url),
       alt: 'KPI Dashboard for Northwind Traders',
     },
   },
@@ -34,7 +35,7 @@ const dashboards = [
     title: 'Airline Passengers Satisfaction',
     desc: 'Report based on passenger survey results prepared to recommend a data-driven strategy for an airline to increase their customer satisfaction ratings.',
     img: {
-      src: './img/dashboard-1.png',
+      src: new URL('../../img/dashboard-1.png', import.meta.url),
       alt: '',
     },
   },

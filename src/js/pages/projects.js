@@ -1,4 +1,4 @@
-const projects = {
+export const projects = {
   title: 'Projects',
   html: 'Projects',
 };

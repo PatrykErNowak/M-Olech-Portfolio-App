@@ -1,4 +1,6 @@
-const home = {
+import {dashboards, romanNumerals} from '../data/data.js'
+
+export const home = {
   title: 'Home',
   html: `
   <div class="carousel-box">

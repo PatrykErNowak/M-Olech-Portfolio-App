@@ -1,5 +1,5 @@
 // Animations fired once only when user open page
-const animation = function () {
+export const animation = function () {
   const isMobile = window.navigator.userAgentData.mobile;
 
   if (isMobile) return;
@@ -44,3 +44,4 @@ const animation = function () {
 
   main.addEventListener('animationend', displayGifAnimationOnce);
 };
+

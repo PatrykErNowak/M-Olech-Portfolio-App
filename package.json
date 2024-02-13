@@ -1,41 +1,45 @@
 {
-  "name": "basic-build",
+  "name": "parcel-basic",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "makeFiles": "mkdir src dist && mkdir src\\js src\\img src\\html && npx touch src\\index.html src\\scss\\main.scss src\\js\\main.js",
-    "mkSass": "mkdir  src\\sass && mkdir src\\sass\\abstracts src\\sass\\base src\\sass\\layout src\\sass\\components && npx touch src\\sass\\main.scss src\\sass\\abstracts\\_index.scss src\\sass\\base\\_index.scss src\\sass\\layout\\_index.scss src\\sass\\components\\_index.scss"
-  },
-  "keywords": [],
-  "author": "pendev",
-  "license": "ISC",
   "browserslist": [
     "defaults and fully supports es6-module",
     "maintained node versions"
   ],
-  "devDependencies": {
-    "@babel/preset-env": "^7.23.7",
-    "autoprefixer": "^10.4.13",
-    "browser-sync": "^2.29.3",
-    "cssnano": "^5.1.15",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-clean": "^0.4.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-file-include": "^2.3.0",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-postcss": "^9.0.1",
-    "gulp-rename": "^2.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-sourcemaps": "^3.0.0",
-    "gulp-uglify": "^3.0.2",
-    "postcss": "^8.4.21",
-    "prettier": "^3.1.1",
-    "sass": "^1.69.5"
+  "source": "src/index.html",
+  "scripts": {
+    "clean:output": "rimraf dist",
+    "start": "npm run clean:output && parcel  --open chrome",
+    "build": "npm run clean:output && parcel build --public-url ./"
   },
-  "dependencies": {
-    "libgif": "^0.0.3"
+  "author": "pendev",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.11.0",
+    "parcel": "^2.11.0",
+    "parcel-namer-custom": "^0.2.0",
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "sharp": "^0.31.3"
+  },
+  "parcel-namer-custom": {
+    ".scss$": "css/[name].min.[hash].[type]",
+    ".js$": "js/[name].min.[hash].[type]",
+    ".png$|.jpg$|.svg$|.jpg2$|.gif$|.bmp$|.webm$": "[folder]/[name].[hash].[type]"
+  },
+  "htmlnano": {
+    "collapseAttributeWhitespace": false,
+    "collapseBooleanAttributes": false,
+    "collapseWhitespace": false,
+    "custom": [],
+    "deduplicateAttributeValues": false,
+    "mergeScripts": false,
+    "mergeStyles": false,
+    "removeUnusedCss": false,
+    "minifyJson": false,
+    "minifySvg": false,
+    "removeEmptyAttributes": false,
+    "removeRedundantAttributes": false,
+    "removeComments": false
   }
 }
