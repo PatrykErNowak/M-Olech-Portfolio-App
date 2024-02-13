@@ -1,8 +1,8 @@
-import {dashboards, romanNumerals} from '../data/data.js'
+import PageView from './PageView.js';
 
-export const home = {
-  title: 'Home',
-  html: `
+class Home extends PageView {
+  pageTitle = 'Home';
+  _html = `
   <div class="carousel-box">
     <div class="swiper carousel">
       <!-- Additional required wrapper -->
@@ -43,8 +43,8 @@ export const home = {
         <div class="swiper-pagination"></div>
       </div>
     </div>
-  </div>`,
-  renderDashboards(dashboards, numSys) {
+  </div>`;
+  _renderDashboards({ dashboards, numericSystem }) {
     const dashboardCounter = {
       actual: document.querySelector('.js-counter-actual'),
       ofAll: document.querySelector('.js-counter-of-all'),
@@ -53,8 +53,8 @@ export const home = {
     const swiperWrapper = document.querySelector('.swiper-wrapper');
     const { actual, ofAll } = dashboardCounter;
 
-    actual.textContent = numSys[0];
-    ofAll.textContent = numSys[dashboards.length - 1];
+    actual.textContent = numericSystem[0];
+    ofAll.textContent = numericSystem[dashboards.length - 1];
 
     // Clear swiper container
     swiperWrapper.innerHTML = '';
@@ -73,8 +73,8 @@ export const home = {
 
       swiperWrapper.insertAdjacentHTML('afterbegin', html);
     });
-  },
-  createSwiper() {
+  }
+  _createSwiper({ dashboards, numericSystem }) {
     const dashboardCounter = {
       actual: document.querySelector('.js-counter-actual'),
       ofAll: document.querySelector('.js-counter-of-all'),
@@ -123,13 +123,15 @@ export const home = {
       setTimeout(() => {
         infoTitle.textContent = dashboards[currentIndex].title;
         infoDesc.textContent = dashboards[currentIndex].desc;
-        actual.textContent = romanNumerals[currentIndex];
+        actual.textContent = numericSystem[currentIndex];
       }, 500);
     });
-  },
+  }
 
-  init() {
-    this.renderDashboards(dashboards, romanNumerals);
-    this.createSwiper();
-  },
-};
+  _init(data) {
+    this._renderDashboards(data);
+    this._createSwiper(data);
+  }
+}
+
+export default new Home();
