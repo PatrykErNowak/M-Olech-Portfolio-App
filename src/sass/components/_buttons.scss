@@ -46,6 +46,7 @@ $btn-bg-color: rgba(c.$third-color, 0.4);
         height: $btn-icon-size;
         fill: currentColor;
         animation: slide 1.5s ease-in-out infinite;
+        pointer-events: none;
       }
 
       &::before {

@@ -206,6 +206,7 @@ p {
 
 .btn--primary:link .icon, .btn--primary:visited .icon {
   fill: currentColor;
+  pointer-events: none;
   width: clamp(2rem, 1rem + 2vw, 2.5rem);
   height: clamp(2rem, 1rem + 2vw, 2.5rem);
   animation: 1.5s ease-in-out infinite slide;
