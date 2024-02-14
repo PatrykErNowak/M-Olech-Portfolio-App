@@ -1,7 +1,17 @@
+import { changePageAnimation as anime, initAnimation } from '../config.js';
+
+/**
+ * Parent class for all pages views. Is responsible for rendering and handling animations.
+ */
 export default class PageView {
-  _mainTitle = 'M-OLECH';
+  // _mainTitle = 'M-OLECH';
+  _mainTitle = document.title;
   _parentElement = document.querySelector('#root');
 
+  /**
+   * Render page and additional content received from object.
+   * @param {object} data The data to be rendered (e.g. dashboards)
+   */
   _render(data) {
     this._parentElement.innerHTML = this._html;
 
@@ -16,12 +26,12 @@ export default class PageView {
   }
 
   postRender(data) {
-    this._parentElement.style.transition = 'transform 1000ms ease-in-out';
+    this._parentElement.style.transition = `transform ${anime.duration}ms ${anime.timingFunction}`;
     this._parentElement.style.transform = 'translateX(100%)';
     setTimeout(() => {
       this._render(data);
       this._parentElement.style.transform = 'translateX(0)';
-    }, 1000);
+    }, anime.duration);
   }
   _updatePageTitle() {
     document.title = this.pageTitle + ' | ' + this._mainTitle;
@@ -37,13 +47,11 @@ export default class PageView {
 
     const gifAnimation = function (delay = 0) {
       //Delay
-      // setTimeout(() => (gif.src = './img/arrow-gif.gif'), delay);
       setTimeout(
         () => (gif.src = new URL('../../img/arrow-gif.gif', import.meta.url)),
         delay,
       );
       //Stop After
-      // setTimeout(() => (gif.src = './img/arrow-gif.png'), delay + 3000);
       setTimeout(
         () => (gif.src = new URL('../../img/arrow-gif.png', import.meta.url)),
         delay + 3000,
@@ -67,10 +75,13 @@ export default class PageView {
     };
     const main = document.querySelector('.main-content');
 
-    header.h1.style.animationDelay = '500ms';
-    header.desc.style.animationDelay = '1000ms';
-    header.other.forEach((el) => (el.style.animationDelay = '1500ms'));
-    main.style.animationDelay = '1500ms';
+    header.h1.style.animationDelay = initAnimation.headerDelay + 'ms';
+    header.desc.style.animationDelay = initAnimation.descDelay + 'ms';
+    header.other.forEach(
+      (el) =>
+        (el.style.animationDelay = initAnimation.otherElementsDelay + 'ms'),
+    );
+    main.style.animationDelay = initAnimation.mainContentDelay + 'ms';
 
     header.portrait.classList.add('slide-in-left');
     header.h1.classList.add('slide-in-top');
