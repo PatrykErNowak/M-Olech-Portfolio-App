@@ -887,9 +887,15 @@ class Home extends (0, _pageViewJsDefault.default) {
       </p>
       <a
         href="#"
-        class="carousel-info__link btn btn--secondary btn--white"
+        class="carousel-info__link btn btn--secondary btn--white js-info-btn"
         >See more</a
       >
+      <div class="carousel-info__background-img"> 
+      <img
+      src= ${new URL(require("d6022dd66dc58fe8"))}
+      alt=""
+      />
+      </div>
       <div class="carousel-info__counter">
         <p class="num-of-slide">
           <span class="js-counter-actual"></span> /
@@ -929,7 +935,8 @@ class Home extends (0, _pageViewJsDefault.default) {
         };
         const dashboardInfo = {
             title: document.querySelector(".js-info-title"),
-            desc: document.querySelector(".js-info-desc")
+            desc: document.querySelector(".js-info-desc"),
+            btn: document.querySelector(".js-info-btn")
         };
         const carouselAnimationHandle = function(element, animeClass, duration) {
             element.classList.add(animeClass);
@@ -952,10 +959,11 @@ class Home extends (0, _pageViewJsDefault.default) {
         // Event listener fired when slide change
         swiper.on("slideChange", function() {
             const { actual } = dashboardCounter;
-            const { title: infoTitle, desc: infoDesc } = dashboardInfo;
+            const { title: infoTitle, desc: infoDesc, btn: infoBtn } = dashboardInfo;
             const currentIndex = swiper.realIndex;
             carouselAnimationHandle(infoTitle, (0, _configJs.dashboardsBoxInfoAnimation).name, (0, _configJs.dashboardsBoxInfoAnimation).duration);
             carouselAnimationHandle(infoDesc, (0, _configJs.dashboardsBoxInfoAnimation).name, (0, _configJs.dashboardsBoxInfoAnimation).duration);
+            carouselAnimationHandle(infoBtn, (0, _configJs.dashboardsBoxInfoAnimation).name, (0, _configJs.dashboardsBoxInfoAnimation).duration);
             carouselAnimationHandle(actual, (0, _configJs.dashboardsBoxInfoAnimation).name, (0, _configJs.dashboardsBoxInfoAnimation).duration);
             setTimeout(()=>{
                 infoTitle.textContent = dashboards[currentIndex].title;
@@ -971,7 +979,10 @@ class Home extends (0, _pageViewJsDefault.default) {
 }
 exports.default = new Home();
 
-},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../config.js":"k5Hzs"}],"dy8QD":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../config.js":"k5Hzs","d6022dd66dc58fe8":"kuHwX"}],"kuHwX":[function(require,module,exports) {
+module.exports = require("69827a629e47f2bb").getBundleURL("hWUTQ") + "../img/carousel-info-bg.520ff734.svg" + "?" + Date.now();
+
+},{"69827a629e47f2bb":"lgJ39"}],"dy8QD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");

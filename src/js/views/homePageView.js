@@ -37,9 +37,15 @@ class Home extends PageView {
       </p>
       <a
         href="#"
-        class="carousel-info__link btn btn--secondary btn--white"
+        class="carousel-info__link btn btn--secondary btn--white js-info-btn"
         >See more</a
       >
+      <div class="carousel-info__background-img"> 
+      <img
+      src= ${new URL('../../img/carousel-info-bg.svg', import.meta.url)}
+      alt=""
+      />
+      </div>
       <div class="carousel-info__counter">
         <p class="num-of-slide">
           <span class="js-counter-actual"></span> /
@@ -87,6 +93,7 @@ class Home extends PageView {
     const dashboardInfo = {
       title: document.querySelector('.js-info-title'),
       desc: document.querySelector('.js-info-desc'),
+      btn: document.querySelector('.js-info-btn'),
     };
 
     const carouselAnimationHandle = function (element, animeClass, duration) {
@@ -113,11 +120,12 @@ class Home extends PageView {
     // Event listener fired when slide change
     swiper.on('slideChange', function () {
       const { actual } = dashboardCounter;
-      const { title: infoTitle, desc: infoDesc } = dashboardInfo;
+      const { title: infoTitle, desc: infoDesc, btn: infoBtn } = dashboardInfo;
       const currentIndex = swiper.realIndex;
 
       carouselAnimationHandle(infoTitle, anime.name, anime.duration);
       carouselAnimationHandle(infoDesc, anime.name, anime.duration);
+      carouselAnimationHandle(infoBtn, anime.name, anime.duration);
       carouselAnimationHandle(actual, anime.name, anime.duration);
 
       setTimeout(() => {
