@@ -3,20 +3,21 @@
 
 //  INFO
 // Other styles and settings are available in vendors/swiper.scss
+
 .carousel-box {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr;
   background-color: c.$bg-dark;
+  height: 100vh;
+  @media screen and (min-width: b.$large) {
+    max-height: 100vh;
+    overflow-x: hidden;
+  }
 }
 
 .carousel {
-  min-width: 100%;
-  max-width: 100%;
-
-  @media screen and (min-width: b.$large) {
-    max-width: 60rem;
-  }
+  width: 100%;
+  overflow-y: auto;
 
   &__img-box {
     @media screen and (min-width: b.$large) {
@@ -38,19 +39,15 @@
 
 .carousel-info {
   position: relative;
-  flex: 1;
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-template-rows: auto auto auto 1fr;
+  // grid-template-rows: auto 1fr auto auto;
   row-gap: 1rem;
-  column-gap: 2rem;
+  align-items: center;
   padding: 2rem;
   color: c.$text-white;
 
   &__title {
     position: relative;
-    grid-row: 1/2;
-    grid-column: 1/-1;
     padding: 1rem;
     padding-left: 5%;
     margin-bottom: 1rem;
@@ -77,40 +74,24 @@
   }
 
   &__desc {
-    grid-row: 2/3;
-    grid-column: 1/-1;
     padding: 1rem;
     line-height: 1.5;
-    font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
+    font-size: clamp(1.5rem, 0.8rem + 0.6vw, 2.4rem);
     @media screen and (min-width: b.$x-large) {
-      grid-column: 1/2;
+      width: 75%;
     }
   }
 
   &__link {
-    grid-row: 3/4;
-    grid-column: 1/-1;
     margin-left: auto;
     margin-right: 10%;
     margin-bottom: auto;
     @media screen and (min-width: b.$x-large) {
-      grid-column: 1/2;
-    }
-  }
-
-  &__background-img {
-    display: none;
-    filter: grayscale(100%) sepia(40%);
-    @media screen and (min-width: b.$x-large) {
-      display: block;
-      grid-row: 2/4;
-      grid-column: 2/3;
+      margin-right: 20%;
     }
   }
 
   &__counter {
-    grid-row: 4/5;
-    grid-column: 1/-1;
     margin-top: auto;
     font-family: 'Playfair Display', serif;
     width: 100%;

@@ -166,7 +166,7 @@ h1 .highlight {
 }
 
 h2 {
-  font-size: clamp(2rem, 1rem + 2vw, 4.4rem);
+  font-size: clamp(2rem, 1rem + 1.5vw, 4.6rem);
 }
 
 p {
@@ -368,7 +368,7 @@ p {
 
 @media screen and (width >= 64em) {
   .overview {
-    grid-area: 1 / 1 / -1 / 2;
+    grid-area: 1 / 1 / 2 / 2;
     min-height: auto;
   }
 }
@@ -397,7 +397,7 @@ p {
 }
 
 .main-content {
-  grid-area: 1 / 2 / -1 / 3;
+  grid-area: 1 / 2 / 2 / 3;
 }
 
 .grid-mainpage {
@@ -572,21 +572,24 @@ p {
 
 .carousel-box {
   background-color: #2a2a25;
-  flex-direction: column;
-  height: 100%;
-  display: flex;
-}
-
-.carousel {
-  min-width: 100%;
-  max-width: 100%;
+  grid-template-rows: auto 1fr;
+  height: 100vh;
+  display: grid;
 }
 
 @media screen and (width >= 64em) {
-  .carousel {
-    max-width: 60rem;
+  .carousel-box {
+    max-height: 100vh;
+    overflow-x: hidden;
   }
+}
 
+.carousel {
+  width: 100%;
+  overflow-y: auto;
+}
+
+@media screen and (width >= 64em) {
   .carousel__img-box img {
     filter: grayscale() sepia(10%);
     transition: filter .5s, box-shadow .5s;
@@ -601,10 +604,8 @@ p {
 
 .carousel-info {
   color: #fff3e6;
-  flex: 1;
-  grid-template-rows: auto auto auto 1fr;
-  grid-template-columns: 2fr 1fr;
-  gap: 1rem 2rem;
+  align-items: center;
+  row-gap: 1rem;
   padding: 2rem;
   display: grid;
   position: relative;
@@ -612,7 +613,6 @@ p {
 
 .carousel-info__title {
   text-transform: capitalize;
-  grid-area: 1 / 1 / 2 / -1;
   width: 100%;
   margin-bottom: 1rem;
   padding: 1rem 1rem 1rem 5%;
@@ -639,20 +639,18 @@ p {
 }
 
 .carousel-info__desc {
-  grid-area: 2 / 1 / 3 / -1;
   padding: 1rem;
-  font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
+  font-size: clamp(1.5rem, .8rem + .6vw, 2.4rem);
   line-height: 1.5;
 }
 
 @media screen and (width >= 80em) {
   .carousel-info__desc {
-    grid-column: 1 / 2;
+    width: 75%;
   }
 }
 
 .carousel-info__link {
-  grid-area: 3 / 1 / 4 / -1;
   margin-bottom: auto;
   margin-left: auto;
   margin-right: 10%;
@@ -660,24 +658,11 @@ p {
 
 @media screen and (width >= 80em) {
   .carousel-info__link {
-    grid-column: 1 / 2;
-  }
-}
-
-.carousel-info__background-img {
-  filter: grayscale() sepia(40%);
-  display: none;
-}
-
-@media screen and (width >= 80em) {
-  .carousel-info__background-img {
-    grid-area: 2 / 2 / 4 / 3;
-    display: block;
+    margin-right: 20%;
   }
 }
 
 .carousel-info__counter {
-  grid-area: 4 / 1 / 5 / -1;
   width: 100%;
   margin-top: auto;
   font-family: Playfair Display, serif;
@@ -697,12 +682,13 @@ p {
 
 @media screen and (width >= 64em) {
   .about {
-    grid-template-rows: auto auto auto auto;
     grid-template-columns: 1fr auto;
-    gap: 2rem;
+    gap: 1rem;
     height: 100vh;
+    max-height: 100vh;
     padding: 3rem;
     display: grid;
+    overflow: auto;
   }
 
   .about__title {

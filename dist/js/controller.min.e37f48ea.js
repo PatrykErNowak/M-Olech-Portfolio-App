@@ -934,12 +934,6 @@ class Home extends (0, _pageViewJsDefault.default) {
         class="carousel-info__link btn btn--secondary btn--white js-info-btn"
         >See more</a
       >
-      <div class="carousel-info__background-img"> 
-      <img
-      src= ${new URL(require("d6022dd66dc58fe8"))}
-      alt=""
-      />
-      </div>
       <div class="carousel-info__counter">
         <p class="num-of-slide">
           <span class="js-counter-actual"></span> /
@@ -1023,10 +1017,7 @@ class Home extends (0, _pageViewJsDefault.default) {
 }
 exports.default = new Home();
 
-},{"./PageView.js":"4GbzM","../config.js":"k5Hzs","d6022dd66dc58fe8":"kuHwX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kuHwX":[function(require,module,exports) {
-module.exports = require("69827a629e47f2bb").getBundleURL("hWUTQ") + "../img/carousel-info-bg.520ff734.svg" + "?" + Date.now();
-
-},{"69827a629e47f2bb":"lgJ39"}],"dy8QD":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","../config.js":"k5Hzs","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"dy8QD":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");

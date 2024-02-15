@@ -40,12 +40,6 @@ class Home extends PageView {
         class="carousel-info__link btn btn--secondary btn--white js-info-btn"
         >See more</a
       >
-      <div class="carousel-info__background-img"> 
-      <img
-      src= ${new URL('../../img/carousel-info-bg.svg', import.meta.url)}
-      alt=""
-      />
-      </div>
       <div class="carousel-info__counter">
         <p class="num-of-slide">
           <span class="js-counter-actual"></span> /
