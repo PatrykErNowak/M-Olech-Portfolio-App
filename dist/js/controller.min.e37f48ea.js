@@ -624,7 +624,7 @@ const init = function() {
 };
 init();
 
-},{"./views/404PageView.js":"1Xu4a","./views/aboutPageView.js":"d4vEX","./views/homePageView.js":"abVm0","./views/projectsPageView.js":"dy8QD","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/PageView.js":"4GbzM"}],"1Xu4a":[function(require,module,exports) {
+},{"./views/404PageView.js":"1Xu4a","./views/aboutPageView.js":"d4vEX","./views/homePageView.js":"abVm0","./views/projectsPageView.js":"dy8QD","./views/PageView.js":"4GbzM","./model.js":"Y4A21","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"1Xu4a":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");
@@ -714,78 +714,7 @@ class PageView {
 }
 exports.default = PageView;
 
-},{"7ab1481618936942":"euINo","8301c89008fcf430":"7Ls5e","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../config.js":"k5Hzs"}],"euINo":[function(require,module,exports) {
-module.exports = require("2fef29f727ee99f7").getBundleURL("hWUTQ") + "../img/arrow-gif.3e92df1d.gif" + "?" + Date.now();
-
-},{"2fef29f727ee99f7":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"7Ls5e":[function(require,module,exports) {
-module.exports = require("d3300cad8399870e").getBundleURL("hWUTQ") + "../img/arrow-gif.723a5389.png" + "?" + Date.now();
-
-},{"d3300cad8399870e":"lgJ39"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"k5Hzs":[function(require,module,exports) {
+},{"../config.js":"k5Hzs","7ab1481618936942":"euINo","8301c89008fcf430":"7Ls5e","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"k5Hzs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "numericSystem", ()=>numericSystem);
@@ -838,18 +767,133 @@ const initAnimation = {
     mainContentDelay: 1500
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d4vEX":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"euINo":[function(require,module,exports) {
+module.exports = require("2fef29f727ee99f7").getBundleURL("hWUTQ") + "../img/arrow-gif.3e92df1d.gif" + "?" + Date.now();
+
+},{"2fef29f727ee99f7":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"7Ls5e":[function(require,module,exports) {
+module.exports = require("d3300cad8399870e").getBundleURL("hWUTQ") + "../img/arrow-gif.723a5389.png" + "?" + Date.now();
+
+},{"d3300cad8399870e":"lgJ39"}],"d4vEX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");
 var _pageViewJsDefault = parcelHelpers.interopDefault(_pageViewJs);
 class About extends (0, _pageViewJsDefault.default) {
     pageTitle = "About Me";
-    _html = `<h2>About Me</h2>`;
+    _html = `
+  <div class="about">
+          <h2 class="about__title">About Me</h2>
+          <p class="about__desc">
+            I am passionate and committed data analyst with a flait for
+            uncovering <strong>hidden patterns</strong> and
+            <strong>valuable insights</strong>.
+          </p>
+          <p class="about__desc">
+            Through mu technical expertise, analytical mindset and adept
+            communication skills, I am primed to create a substantial
+            <strong>impact</strong> in the field of data analysis.
+          </p>
+
+          <div class="about__awards">
+            <div class="about__award">
+              <img src=${new URL(require("5a47699ce8b33375"))} alt="" />
+            </div>
+            <div class="about__award">
+            <img src=${new URL(require("b7f31b1dd2aba51b"))} alt="" />
+            </div>
+          </div>
+
+          <div class="about__timeline timeline">
+            <ul class="timeline__list">
+              <li class="timeline__item role">Mathematics student at UMCS</li>
+              <li class="timeline__item tech">Excel</li>
+              <li class="timeline__item tech">Statistica</li>
+              <li class="timeline__item tech">SQL</li>
+              <li class="timeline__item role">Math &amp; IT Teacher</li>
+              <li class="timeline__item tech">Power Query</li>
+              <li class="timeline__item tech">DAX</li>
+              <li class="timeline__item tech">Power BI</li>
+              <li class="timeline__item role">Analyst in PWC</li>
+              <li class="timeline__item tech">Python</li>
+            </ul>
+          </div>
+        </div>
+  `;
 }
 exports.default = new About();
 
-},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"abVm0":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0"}],"02Y3B":[function(require,module,exports) {
+module.exports = require("903412daf98d06a0").getBundleURL("hWUTQ") + "../img/chatgpt.3b03e9d1.png" + "?" + Date.now();
+
+},{"903412daf98d06a0":"lgJ39"}],"2UuD0":[function(require,module,exports) {
+module.exports = require("140c5ea83a822196").getBundleURL("hWUTQ") + "../img/powerbi.410fd3cf.png" + "?" + Date.now();
+
+},{"140c5ea83a822196":"lgJ39"}],"abVm0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");
@@ -979,7 +1023,7 @@ class Home extends (0, _pageViewJsDefault.default) {
 }
 exports.default = new Home();
 
-},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../config.js":"k5Hzs","d6022dd66dc58fe8":"kuHwX"}],"kuHwX":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","../config.js":"k5Hzs","d6022dd66dc58fe8":"kuHwX","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"kuHwX":[function(require,module,exports) {
 module.exports = require("69827a629e47f2bb").getBundleURL("hWUTQ") + "../img/carousel-info-bg.520ff734.svg" + "?" + Date.now();
 
 },{"69827a629e47f2bb":"lgJ39"}],"dy8QD":[function(require,module,exports) {

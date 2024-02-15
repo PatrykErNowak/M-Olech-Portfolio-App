@@ -1,0 +1,84 @@
+@use '../abstracts/breakpoints' as b;
+
+$distance-from-center: 30px;
+$line-thickness: 3px;
+$line-color: #aaa;
+$arrow-color: #666;
+
+$item-border-color: #666;
+
+.timeline {
+  width: 100%;
+  margin: 5rem 0;
+  padding: 0 1rem;
+  text-align: center;
+
+  &__list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0;
+    list-style: none;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 3%;
+      height: 100%;
+      width: $line-thickness;
+      background-color: $line-color;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2%;
+      width: 50px;
+      height: 50px;
+      margin-bottom: -30px;
+      background-color: $arrow-color;
+      clip-path: polygon(100% 0, 0 0, 50% 100%);
+    }
+  }
+
+  &__item {
+    position: relative;
+    margin: 0.5rem 0;
+    padding: 0.8em 1em;
+    font-size: clamp(1.4rem, 1rem + 1vw, 1.6rem);
+    font-weight: 600; // FIXME
+    line-height: 1.2;
+    border: 1px solid $item-border-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      height: $line-thickness;
+      width: $distance-from-center;
+      background-color: $line-color;
+    }
+
+    &.role {
+      margin: -0.5em 0;
+      width: clamp(100px, 40%, 20em);
+      right: 0;
+      transform: translateX(calc(-50% - $distance-from-center));
+      &::before {
+        left: 100%;
+      }
+    }
+
+    &.tech {
+      transform: translateX(calc(+50% + $distance-from-center));
+      left: 0;
+      width: clamp(100px, 35%, 10em);
+      border-radius: 1000px;
+      &::before {
+        left: unset;
+        right: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@use '../abstracts/breakpoints' as b;
+
+.about {
+  text-align: center;
+  padding: 1rem;
+
+  @media screen and (min-width: b.$large) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto auto auto;
+    gap: 2rem;
+    height: 100vh;
+    padding: 3rem;
+  }
+
+  &__title {
+    @media screen and (min-width: b.$large) {
+      grid-column: 1/3;
+      grid-row: 1/2;
+    }
+  }
+  &__desc {
+    @media screen and (min-width: b.$large) {
+      grid-column: 1/3;
+    }
+  }
+  &__desc:nth-child(2) {
+    @media screen and (min-width: b.$large) {
+      grid-row: 2/3;
+    }
+  }
+  &__desc:nth-child(3) {
+    @media screen and (min-width: b.$large) {
+      grid-row: 3/4;
+    }
+  }
+
+  &__awards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (min-width: b.$large) {
+      grid-column: 2/3;
+      grid-row: 4/5;
+      flex-direction: column;
+    }
+  }
+
+  &__award {
+    flex: 1;
+    @media screen and (min-width: b.$large) {
+      max-width: 150px;
+      flex: 0;
+    }
+  }
+
+  &__timeline {
+    @media screen and (min-width: b.$large) {
+      grid-column: 1/2;
+    }
+  }
+}
