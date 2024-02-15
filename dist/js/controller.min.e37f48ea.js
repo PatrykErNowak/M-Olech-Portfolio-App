@@ -629,13 +629,31 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");
 var _pageViewJsDefault = parcelHelpers.interopDefault(_pageViewJs);
+var _iconsSvg = require("../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class NotFound404 extends (0, _pageViewJsDefault.default) {
     pageTitle = "404";
-    _html = "Page not found";
+    _html = `
+  <div class="error-page">
+  <div class='error'>
+    <div class="error__illustration">
+      <div class="error__msg-box">
+        <p class="number">404</p>
+        <p class="info">Page not found</p>
+      </div>
+      <img src=${new URL(require("f992afeb4983abaa"))} class="error__img">
+      <a href='/' class="btn  btn--primary btn--primary-reversed error__btn" data-link="changePage">        <svg class="icon">
+      <use xlink:href="${0, _iconsSvgDefault.default}#icon-arrow-left"></use>
+    </svg> Back Home
+      </a>
+    </div>
+  </div>
+</div>
+`;
 }
 exports.default = new NotFound404();
 
-},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"4GbzM":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../img/icons.svg":"172kW","f992afeb4983abaa":"lMTo7"}],"4GbzM":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _configJs = require("../config.js");
@@ -838,7 +856,13 @@ exports.getOrigin = getOrigin;
 },{}],"7Ls5e":[function(require,module,exports) {
 module.exports = require("d3300cad8399870e").getBundleURL("hWUTQ") + "../img/arrow-gif.723a5389.png" + "?" + Date.now();
 
-},{"d3300cad8399870e":"lgJ39"}],"d4vEX":[function(require,module,exports) {
+},{"d3300cad8399870e":"lgJ39"}],"172kW":[function(require,module,exports) {
+module.exports = require("ab13a26c8783cc56").getBundleURL("hWUTQ") + "../img/icons.21bad73c.svg" + "?" + Date.now();
+
+},{"ab13a26c8783cc56":"lgJ39"}],"lMTo7":[function(require,module,exports) {
+module.exports = require("2e002c9883967473").getBundleURL("hWUTQ") + "../img/cat404.1575ddad.png" + "?" + Date.now();
+
+},{"2e002c9883967473":"lgJ39"}],"d4vEX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");
@@ -866,6 +890,9 @@ class About extends (0, _pageViewJsDefault.default) {
             <div class="about__award">
             <img src=${new URL(require("b7f31b1dd2aba51b"))} alt="" />
             </div>
+            <div class="about__award">
+            <img src=${new URL(require("1261a238363e9283"))} alt="" />
+            </div>
           </div>
 
           <div class="about__timeline timeline">
@@ -878,7 +905,7 @@ class About extends (0, _pageViewJsDefault.default) {
               <li class="timeline__item tech">Power Query</li>
               <li class="timeline__item tech">DAX</li>
               <li class="timeline__item tech">Power BI</li>
-              <li class="timeline__item role">Analyst in PWC</li>
+              <li class="timeline__item role">Analyst in PwC</li>
               <li class="timeline__item tech">Python</li>
             </ul>
           </div>
@@ -887,13 +914,16 @@ class About extends (0, _pageViewJsDefault.default) {
 }
 exports.default = new About();
 
-},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0"}],"02Y3B":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0","1261a238363e9283":"hcYFm"}],"02Y3B":[function(require,module,exports) {
 module.exports = require("903412daf98d06a0").getBundleURL("hWUTQ") + "../img/chatgpt.3b03e9d1.png" + "?" + Date.now();
 
 },{"903412daf98d06a0":"lgJ39"}],"2UuD0":[function(require,module,exports) {
 module.exports = require("140c5ea83a822196").getBundleURL("hWUTQ") + "../img/powerbi.410fd3cf.png" + "?" + Date.now();
 
-},{"140c5ea83a822196":"lgJ39"}],"abVm0":[function(require,module,exports) {
+},{"140c5ea83a822196":"lgJ39"}],"hcYFm":[function(require,module,exports) {
+module.exports = require("3006cc1a55dbafb7").getBundleURL("hWUTQ") + "../img/thinking.9303d4a7.png" + "?" + Date.now();
+
+},{"3006cc1a55dbafb7":"lgJ39"}],"abVm0":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");

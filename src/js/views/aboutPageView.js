@@ -23,6 +23,9 @@ class About extends PageView {
             <div class="about__award">
             <img src=${new URL('../../img/powerbi.png', import.meta.url)} alt="" />
             </div>
+            <div class="about__award">
+            <img src=${new URL('../../img/thinking.png', import.meta.url)} alt="" />
+            </div>
           </div>
 
           <div class="about__timeline timeline">
@@ -35,7 +38,7 @@ class About extends PageView {
               <li class="timeline__item tech">Power Query</li>
               <li class="timeline__item tech">DAX</li>
               <li class="timeline__item tech">Power BI</li>
-              <li class="timeline__item role">Analyst in PWC</li>
+              <li class="timeline__item role">Analyst in PwC</li>
               <li class="timeline__item tech">Python</li>
             </ul>
           </div>

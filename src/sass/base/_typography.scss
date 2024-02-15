@@ -30,5 +30,6 @@ h2 {
 }
 
 p {
-  font-size: clamp(1.5rem, 1rem + 1vw, 2rem);
+  font-size: clamp(1.5rem, 1rem + 0.4vw, 2.3rem);
+  line-height: 1.5;
 }

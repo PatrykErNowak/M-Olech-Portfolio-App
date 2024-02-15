@@ -11,6 +11,7 @@ $btn-bg-color: rgba(c.$third-color, 0.4);
   &:link,
   &:visited {
     position: relative;
+    z-index: 0;
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -64,6 +65,15 @@ $btn-bg-color: rgba(c.$third-color, 0.4);
       &:hover::before,
       &:focus::before {
         transform: translate(0, 0);
+      }
+    }
+  }
+
+  &--primary-reversed {
+    &:link,
+    &:visited {
+      .icon {
+        animation: slide 1.5s ease-in-out infinite reverse;
       }
     }
   }

@@ -1,0 +1,59 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/breakpoints' as b;
+
+.error-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0 4rem;
+  // background: c.$bg-dark;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+.error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+
+  &__illustration {
+    position: relative;
+    width: 100%;
+  }
+
+  &__msg-box {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-family: 'Protest Revolution', sans-serif;
+    color: c.$text-white;
+
+    .number {
+      font-size: clamp(4rem, 3rem + 3.5vw, 12rem);
+    }
+    .info {
+      font-size: 2rem;
+      font-size: clamp(1.8rem, 1rem + 2vw, 4rem);
+    }
+  }
+
+  &__btn:link,
+  &__btn:visited {
+    position: absolute;
+    top: 90%;
+    left: 30%;
+    width: max-content;
+    transform: translate(-50%, -50%);
+
+    @media screen and (min-width: b.$medium) {
+      top: 70%;
+      left: 50%;
+    }
+  }
+  &__img {
+    filter: hue-rotate(290deg) drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.1));
+  }
+}
