@@ -351,6 +351,60 @@ p {
   right: 100%;
 }
 
+.qualities {
+  text-align: center;
+}
+
+.qualities__list {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem 10vw;
+  list-style: none;
+  display: flex;
+}
+
+.qualities__item {
+  perspective: 10em;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  max-width: 100px;
+  display: flex;
+}
+
+.qualities__item:hover .qualities__image {
+  transform: rotateX(-20deg);
+}
+
+.qualities__item:hover .qualities__text {
+  transform: translateY(.3em);
+}
+
+.qualities__item:hover .qualities__text:before {
+  transform: scaleX(1);
+}
+
+.qualities__image {
+  transition: transform .4s ease-in-out;
+}
+
+.qualities__text {
+  transition: transform .4s ease-in-out, text-shadow .4s ease-in-out;
+  position: relative;
+}
+
+.qualities__text:before {
+  content: "";
+  background-color: #e2b659;
+  width: 100%;
+  height: 2px;
+  transition: transform .4s ease-in-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: scaleX(0);
+}
+
 .grid-mainpage {
   min-height: 100vh;
 }
@@ -681,22 +735,32 @@ p {
   font-weight: 600;
 }
 
-.about {
+@media screen and (width >= 64em) {
+  .about {
+    height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+  }
+}
+
+.about__page {
   text-align: center;
   color: #222;
+  width: 100%;
+  height: 100vh;
   padding: 1rem;
 }
 
 @media screen and (width >= 64em) {
-  .about {
+  .about__page {
     text-align: start;
+    padding: 3rem;
+  }
+
+  .about__page--first {
     grid-template-rows: repeat(3, auto) 1fr;
     grid-template-columns: 1fr auto;
-    height: 100vh;
-    max-height: 100vh;
-    padding: 3rem;
     display: grid;
-    overflow: auto;
   }
 }
 
@@ -741,6 +805,16 @@ p {
   position: absolute;
   bottom: 2px;
   left: 0;
+}
+
+.about__section-title {
+  color: #5a4924;
+  text-shadow: 2px 2px 5px #5a492433;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 1em;
+  font-weight: 600;
 }
 
 .about__desc {
@@ -790,6 +864,42 @@ p {
     grid-column: 1 / 2;
     align-self: center;
   }
+}
+
+.about__language {
+  background-color: #bbb;
+  width: 100%;
+  height: 1em;
+  font-size: 3rem;
+  position: relative;
+}
+
+.about__language .label {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: .5em;
+  font-weight: 600;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.about__language .skill {
+  background-color: #e2b659;
+  height: 100%;
+}
+
+.about__language--polish .skill {
+  width: 100%;
+}
+
+.about__language--english .skill {
+  width: 80%;
+}
+
+.about__language--french .skill {
+  width: 20%;
 }
 
 .error-page {

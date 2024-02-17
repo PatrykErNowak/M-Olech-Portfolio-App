@@ -2,19 +2,31 @@
 @use '../abstracts/colors' as c;
 
 .about {
-  text-align: center;
-  padding: 1rem;
-  color: c.$text-dark-color;
-
   @media screen and (min-width: b.$large) {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: repeat(3, auto) 1fr;
     height: 100vh;
     max-height: 100vh;
     overflow: auto;
-    padding: 3rem;
-    text-align: start;
+  }
+
+  &__page {
+    text-align: center;
+    padding: 1rem;
+    color: c.$text-dark-color;
+    height: 100vh;
+    width: 100%;
+
+    @media screen and (min-width: b.$large) {
+      padding: 3rem;
+      text-align: start;
+    }
+
+    &--first {
+      @media screen and (min-width: b.$large) {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: repeat(3, auto) 1fr;
+      }
+    }
   }
 
   &__title {
@@ -53,6 +65,16 @@
 
       background-color: c.$third-color;
     }
+  }
+
+  &__section-title {
+    margin-bottom: 1em;
+    color: c.$third-color-dark;
+    text-shadow: 2px 2px 5px rgba($color: c.$third-color-dark, $alpha: 0.2);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
   }
 
   &__desc {
@@ -97,6 +119,53 @@
     @media screen and (min-width: b.$large) {
       grid-column: 1/2;
       align-self: center;
+    }
+  }
+
+  // ----------------------------------------------------------------
+  // PAGE
+
+  // &__languages {
+
+  // }
+
+  &__language {
+    font-size: 3rem;
+    position: relative;
+    width: 100%;
+    height: 1em;
+    background-color: #bbb;
+
+    .label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.5em;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .skill {
+      height: 100%;
+      background-color: c.$third-color;
+    }
+
+    &--polish {
+      .skill {
+        width: 100%;
+      }
+    }
+    &--english {
+      .skill {
+        width: 80%;
+      }
+    }
+    &--french {
+      .skill {
+        width: 20%;
+      }
     }
   }
 }
