@@ -1,0 +1,18 @@
+.scroll-to {
+  position: relative;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-align: center;
+  color: inherit;
+  span {
+    position: absolute;
+    top: -4em;
+    left: 50%;
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    border-bottom: 1px solid currentColor;
+    border-right: 1px solid currentColor;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}

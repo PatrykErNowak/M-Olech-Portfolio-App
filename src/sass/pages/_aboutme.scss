@@ -1,6 +1,13 @@
 @use '../abstracts/breakpoints' as b;
 @use '../abstracts/colors' as c;
 
+// Interests chart colors
+$interest-first: #f3e1b3;
+$interest-second: #f3b3e5;
+$interest-third: #b3f3c1;
+$interest-fourth: #b3c5f3;
+$interest-fivth: #f3c7b3;
+
 .about {
   @media screen and (min-width: b.$large) {
     height: 100vh;
@@ -8,27 +15,19 @@
     overflow: auto;
   }
 
+  // PAGES STYLES
   &__page {
-    text-align: center;
-    padding: 1rem;
+    padding: 2rem;
     color: c.$text-dark-color;
-    height: 100vh;
     width: 100%;
 
     @media screen and (min-width: b.$large) {
       padding: 3rem;
-      text-align: start;
-    }
-
-    &--first {
-      @media screen and (min-width: b.$large) {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-rows: repeat(3, auto) 1fr;
-      }
+      height: 100vh;
     }
   }
 
+  // PAGE TITLE
   &__title {
     position: relative;
     margin-bottom: 1em;
@@ -67,18 +66,33 @@
     }
   }
 
+  // SECTION TITLE
   &__section-title {
     margin-bottom: 1em;
     color: c.$third-color-dark;
-    text-shadow: 2px 2px 5px rgba($color: c.$third-color-dark, $alpha: 0.2);
-    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba($color: c.$third-color-dark, $alpha: 0.1);
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     text-align: center;
   }
 
+  // -------------------------------------------------------------------
+  // PAGE 1
+
+  // GRID
+
+  &__page--first {
+    text-align: center;
+    @media screen and (min-width: b.$large) {
+      text-align: start;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: repeat(3, auto) 1fr;
+    }
+  }
+
   &__desc {
-    margin-bottom: 1em;
     @media screen and (min-width: b.$large) {
       grid-column: 1/3;
       margin-bottom: 0.5em;
@@ -93,6 +107,19 @@
     @media screen and (min-width: b.$large) {
       grid-row: 3/4;
     }
+  }
+  &__scroll-to {
+    display: none;
+    @media screen and (min-width: b.$large) {
+      display: block;
+      grid-column: 1/-1;
+    }
+  }
+
+  // SECTIONS STYLING
+
+  &__desc {
+    margin-bottom: 1em;
   }
 
   &__awards {
@@ -109,7 +136,7 @@
   &__award {
     flex: 1;
     @media screen and (min-width: b.$large) {
-      max-width: clamp(100px, 10vw, 250px);
+      max-width: clamp(100px, 10vw, 200px);
       flex: 0;
       margin-right: 2vw;
     }
@@ -121,35 +148,138 @@
       align-self: center;
     }
   }
+  &__scroll-to {
+    margin-top: 6em;
+  }
 
   // ----------------------------------------------------------------
-  // PAGE
+  // PAGE 2
 
-  // &__languages {
+  // GRID
 
-  // }
+  &__page--second {
+    display: grid;
+    grid-auto-rows: max-content;
+    gap: 3rem;
+    text-align: center;
+
+    @media screen and (min-width: b.$medium) {
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      align-items: center;
+    }
+  }
+
+  @media screen and (min-width: b.$medium) {
+    &__qualities-section {
+      grid-row: 1/2;
+      grid-column: 1/3;
+    }
+    &__languages-section {
+      grid-row: 2/3;
+      grid-column: 1/2;
+    }
+    &__interests-section {
+      grid-row: 2/3;
+      grid-column: 2/3;
+    }
+    &__thankful-section {
+      grid-row: 3/4;
+      grid-column: 1/3;
+    }
+  }
+
+  // ---------------------------
+  // Styling for sections
+
+  // QUALITIES
+
+  &__qualities {
+    text-align: center;
+
+    &__list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 10vw;
+      row-gap: 5rem;
+      list-style: none;
+    }
+    &__item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      width: clamp(8rem, 7vw, 15rem);
+      perspective: 10em;
+      &:hover {
+        .about__qualities__image {
+          transform: rotateX(-20deg);
+        }
+        .about__qualities__text {
+          transform: translateY(0.3em);
+          &::before {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+
+    &__image {
+      transition: transform 0.4s ease-in-out;
+    }
+
+    &__text {
+      position: relative;
+      transition:
+        transform 0.4s ease-in-out,
+        text-shadow 0.4s ease-in-out;
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: c.$third-color;
+        transform: scaleX(0);
+        transition: transform 0.4s ease-in-out;
+      }
+    }
+  }
+
+  // LANGUAGES SECTION
+
+  &__languages {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
 
   &__language {
     font-size: 3rem;
+    font-size: clamp(3rem, 2rem + 1vw, 4rem);
     position: relative;
     width: 100%;
     height: 1em;
-    background-color: #bbb;
+    background-color: #ddd;
 
     .label {
       position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      color: #5a4924;
       font-size: 0.5em;
       font-weight: 600;
       text-transform: uppercase;
+      text-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
       letter-spacing: 4px;
     }
 
     .skill {
       height: 100%;
-      background-color: c.$third-color;
+      background-color: #f3e1b3;
     }
 
     &--polish {
@@ -166,6 +296,70 @@
       .skill {
         width: 20%;
       }
+    }
+  }
+
+  // INTERESTS SECTION
+
+  &__interests {
+    position: relative;
+    width: 100%;
+    padding: 30% 0;
+  }
+  &__interest {
+    position: absolute;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+
+    .label {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #5a4924;
+      font-size: clamp(1.2rem, 0.5rem + 0.5vw, 2rem);
+      font-weight: 700;
+      text-align: center;
+    }
+
+    &:nth-child(1) {
+      top: 42%;
+      left: 47%;
+      padding: 20%;
+      background-color: $interest-first;
+      .label {
+        font-size: 1.2em;
+      }
+    }
+    &:nth-child(2) {
+      top: 74%;
+      left: 79%;
+      padding: 16%;
+      background-color: $interest-second;
+      .label {
+        font-size: 1.1em;
+      }
+    }
+    &:nth-child(3) {
+      top: 22%;
+      left: 79%;
+      padding: 13%;
+      background-color: $interest-third;
+      .label {
+        font-size: 1.05em;
+      }
+    }
+    &:nth-child(4) {
+      top: 84%;
+      left: 29%;
+      padding: 10%;
+      background-color: $interest-fourth;
+    }
+    &:nth-child(5) {
+      top: 54%;
+      left: 17%;
+      padding: 10%;
+      background-color: $interest-fivth;
     }
   }
 }

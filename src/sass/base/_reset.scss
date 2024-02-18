@@ -12,6 +12,7 @@ body {
   line-height: 1;
   background-image: c.$gradient;
   overflow-x: clip;
+  scroll-behavior: smooth;
 }
 
 a {
