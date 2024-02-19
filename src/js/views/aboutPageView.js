@@ -19,14 +19,20 @@ class About extends PageView {
       </p>
 
       <div class="about__awards">
-        <div class="about__award">
-          <img src=${new URL('../../img/chatgpt.png', import.meta.url)} alt="" />
+        <div class="about__award about__award--green">
+          <a href="https://certificates.mavenanalytics.io/6b1260fc-573f-4778-b275-14c20313ce83#gs.4mjpiq">
+            <img src=${new URL('../../img/chatgpt.png', import.meta.url)} alt="" />
+          </a>
         </div>
-        <div class="about__award">
-        <img src=${new URL('../../img/powerbi.png', import.meta.url)} alt="" />
+        <div class="about__award about__award--yellow">
+          <a href="https://www.udemy.com/certificate/UC-6e9bcea7-0975-482c-b89b-d360219c0580/">
+            <img src=${new URL('../../img/powerbi.png', import.meta.url)} alt="" />
+          </a>
         </div>
-        <div class="about__award">
-        <img src=${new URL('../../img/thinking.png', import.meta.url)} alt="" />
+        <div class="about__award about__award--green">
+          <a href="https://certificates.mavenanalytics.io/28e48493-7c69-4ed4-a436-24e60fbc0f50#gs.4pb53r">
+            <img src=${new URL('../../img/thinking.png', import.meta.url)} alt="" />
+          </a>
         </div>
       </div>
 
@@ -151,9 +157,9 @@ class About extends PageView {
   _scrollToNextPage() {
     this._parentElement.addEventListener('click', (e) => {
       const { target } = e;
-      e.preventDefault();
 
       if (target.closest('a[data-scroll-to]')) {
+        e.preventDefault();
         const pageTarget = target
           .closest('a[data-scroll-to]')
           .getAttribute('href');

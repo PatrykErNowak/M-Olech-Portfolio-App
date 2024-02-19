@@ -859,8 +859,12 @@ p {
   transition: filter .4s ease-in-out;
 }
 
-.about__award:hover {
-  filter: drop-shadow(0 0 5px #0006);
+.about__award--green:hover {
+  filter: drop-shadow(0 0 15px #35e5d2);
+}
+
+.about__award--yellow:hover {
+  filter: drop-shadow(0 0 15px #fcbb75);
 }
 
 @media screen and (width >= 64em) {
@@ -943,7 +947,7 @@ p {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  width: clamp(8rem, 7vw, 15rem);
+  width: clamp(8rem, 7vw, 12rem);
   display: flex;
 }
 
@@ -958,6 +962,12 @@ p {
 
 .about__qualities__item:hover .about__qualities__text:before {
   transform: scaleX(1);
+}
+
+@media screen and (width >= 64em) and (height >= 67.5em) {
+  .about__qualities__item {
+    width: clamp(8rem, 7vw, 15rem);
+  }
 }
 
 .about__qualities__image {
@@ -992,9 +1002,15 @@ p {
   background-color: #ddd;
   width: 100%;
   height: 1em;
-  font-size: clamp(3rem, 2rem + 1vw, 4rem);
+  font-size: clamp(3rem, 2rem + 1vw, 3.5rem);
   position: relative;
   overflow: clip;
+}
+
+@media screen and (width >= 64em) and (height >= 67.5em) {
+  .about__language {
+    font-size: clamp(3rem, 2rem + 1vw, 4rem);
+  }
 }
 
 .about__language:hover .label {

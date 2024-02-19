@@ -95,9 +95,11 @@ export default class PageView {
   static addHandlerChangePage(fn) {
     window.addEventListener('click', (e) => {
       const { target } = e;
-      e.preventDefault();
 
-      if (target.closest('a[data-link="changePage"]')) fn(e);
+      if (target.closest('a[data-link="changePage"]')) {
+        e.preventDefault();
+        fn(e);
+      }
     });
   }
 }

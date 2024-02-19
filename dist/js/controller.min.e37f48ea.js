@@ -725,8 +725,10 @@ class PageView {
     static addHandlerChangePage(fn) {
         window.addEventListener("click", (e)=>{
             const { target } = e;
-            e.preventDefault();
-            if (target.closest('a[data-link="changePage"]')) fn(e);
+            if (target.closest('a[data-link="changePage"]')) {
+                e.preventDefault();
+                fn(e);
+            }
         });
     }
 }
@@ -887,14 +889,20 @@ class About extends (0, _pageViewJsDefault.default) {
       </p>
 
       <div class="about__awards">
-        <div class="about__award">
-          <img src=${new URL(require("5a47699ce8b33375"))} alt="" />
+        <div class="about__award about__award--green">
+          <a href="https://certificates.mavenanalytics.io/6b1260fc-573f-4778-b275-14c20313ce83#gs.4mjpiq">
+            <img src=${new URL(require("5a47699ce8b33375"))} alt="" />
+          </a>
         </div>
-        <div class="about__award">
-        <img src=${new URL(require("b7f31b1dd2aba51b"))} alt="" />
+        <div class="about__award about__award--yellow">
+          <a href="https://www.udemy.com/certificate/UC-6e9bcea7-0975-482c-b89b-d360219c0580/">
+            <img src=${new URL(require("b7f31b1dd2aba51b"))} alt="" />
+          </a>
         </div>
-        <div class="about__award">
-        <img src=${new URL(require("1261a238363e9283"))} alt="" />
+        <div class="about__award about__award--green">
+          <a href="https://certificates.mavenanalytics.io/28e48493-7c69-4ed4-a436-24e60fbc0f50#gs.4pb53r">
+            <img src=${new URL(require("1261a238363e9283"))} alt="" />
+          </a>
         </div>
       </div>
 
@@ -1019,8 +1027,8 @@ class About extends (0, _pageViewJsDefault.default) {
     _scrollToNextPage() {
         this._parentElement.addEventListener("click", (e)=>{
             const { target } = e;
-            e.preventDefault();
             if (target.closest("a[data-scroll-to]")) {
+                e.preventDefault();
                 const pageTarget = target.closest("a[data-scroll-to]").getAttribute("href");
                 const page = document.querySelector(pageTarget);
                 page.scrollIntoView({
