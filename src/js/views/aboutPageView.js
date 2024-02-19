@@ -1,4 +1,5 @@
 import PageView from './PageView.js';
+import icons from '../../img/icons.svg';
 
 class About extends PageView {
   pageTitle = 'About Me';
@@ -43,7 +44,9 @@ class About extends PageView {
           <li class="timeline__item tech">Python</li>
         </ol>
       </section>
-      <a href="#page2" class="about__scroll-to scroll-to"><span></span>Scroll</a>
+      <button class="about__scroll-to scroll-to"><svg class="icon">
+      <use xlink:href="${icons}#icon-arrow-down"></use>
+    </svg></button>
     </div>
     <div id="page2" class="about__page about__page--second">
             <section aria-label="Qualities" class="about__qualities-section about__qualities">
@@ -96,15 +99,15 @@ class About extends PageView {
 
               <div class="about__languages">
                 <div class="about__language about__language--polish">
-                  <p class="label">Polish</p>
+                  <p class="label">Polish<span>native</span></p>
                   <div class="skill"></div>
                 </div>
                 <div class="about__language about__language--english">
-                  <p class="label">english</p>
+                  <p class="label">english<span>c1</span></p>
                   <div class="skill"></div>
                 </div>
                 <div class="about__language about__language--french">
-                  <p class="label">french</p>
+                  <p class="label">french<span>a2</span></p>
                   <div class="skill"></div>
                 </div>
               </div>

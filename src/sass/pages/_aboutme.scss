@@ -23,7 +23,7 @@ $interest-fivth: #f3c7b3;
 
     @media screen and (min-width: b.$large) {
       padding: 3rem;
-      height: 100vh;
+      min-height: 100vh;
     }
   }
 
@@ -111,7 +111,9 @@ $interest-fivth: #f3c7b3;
   &__scroll-to {
     display: none;
     @media screen and (min-width: b.$large) {
-      display: block;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       grid-column: 1/-1;
     }
   }
@@ -126,19 +128,31 @@ $interest-fivth: #f3c7b3;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1.5em;
     @media screen and (min-width: b.$large) {
       grid-column: 2/3;
       grid-row: 4/5;
       flex-direction: column;
+      margin-bottom: 0;
     }
   }
 
   &__award {
     flex: 1;
+    max-width: clamp(100px, 20vw, 150px);
+    transition: filter 0.4s ease-in-out;
+
+    &:hover {
+      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+    }
+
     @media screen and (min-width: b.$large) {
-      max-width: clamp(100px, 10vw, 200px);
       flex: 0;
       margin-right: 2vw;
+      max-width: clamp(100px, 10vw, 180px);
+    }
+    @media screen and (min-width: b.$large) and (min-height: b.$high-res) {
+      max-width: clamp(100px, 10vw, 220px);
     }
   }
 
@@ -149,7 +163,14 @@ $interest-fivth: #f3c7b3;
     }
   }
   &__scroll-to {
-    margin-top: 6em;
+    color: c.$third-color-dark;
+    margin: 0 auto;
+    width: max-content;
+    transition: color 0.4s ease-in-out;
+
+    &:hover {
+      color: c.$third-color;
+    }
   }
 
   // ----------------------------------------------------------------
@@ -215,6 +236,7 @@ $interest-fivth: #f3c7b3;
       &:hover {
         .about__qualities__image {
           transform: rotateX(-20deg);
+          filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
         }
         .about__qualities__text {
           transform: translateY(0.3em);
@@ -226,11 +248,14 @@ $interest-fivth: #f3c7b3;
     }
 
     &__image {
-      transition: transform 0.4s ease-in-out;
+      transition:
+        transform 0.4s ease-in-out,
+        filter 0.4s ease-in-out;
     }
 
     &__text {
       position: relative;
+      font-weight: 500;
       transition:
         transform 0.4s ease-in-out,
         text-shadow 0.4s ease-in-out;
@@ -263,11 +288,17 @@ $interest-fivth: #f3c7b3;
     width: 100%;
     height: 1em;
     background-color: #ddd;
+    overflow: clip;
+
+    &:hover .label {
+      transform: translate(-50%, -150%);
+    }
 
     .label {
       position: absolute;
       top: 50%;
       left: 50%;
+      width: 100%;
       transform: translate(-50%, -50%);
       color: #5a4924;
       font-size: 0.5em;
@@ -275,6 +306,14 @@ $interest-fivth: #f3c7b3;
       text-transform: uppercase;
       text-shadow: 0 0 3px rgba(255, 255, 255, 0.7);
       letter-spacing: 4px;
+      transition: transform 0.4s ease-in-out;
+
+      span {
+        position: absolute;
+        left: 50%;
+
+        transform: translate(-50%, 100%);
+      }
     }
 
     .skill {
@@ -329,6 +368,9 @@ $interest-fivth: #f3c7b3;
       background-color: $interest-first;
       .label {
         font-size: 1.2em;
+        @media screen and (min-height: b.$high-res) {
+          font-size: 1.4em;
+        }
       }
     }
     &:nth-child(2) {
@@ -338,6 +380,9 @@ $interest-fivth: #f3c7b3;
       background-color: $interest-second;
       .label {
         font-size: 1.1em;
+        @media screen and (min-height: b.$high-res) {
+          font-size: 1.3em;
+        }
       }
     }
     &:nth-child(3) {
@@ -347,6 +392,9 @@ $interest-fivth: #f3c7b3;
       background-color: $interest-third;
       .label {
         font-size: 1.05em;
+        @media screen and (min-height: b.$high-res) {
+          font-size: 1.1em;
+        }
       }
     }
     &:nth-child(4) {

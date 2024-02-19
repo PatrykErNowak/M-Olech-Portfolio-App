@@ -867,6 +867,8 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");
 var _pageViewJsDefault = parcelHelpers.interopDefault(_pageViewJs);
+var _iconsSvg = require("../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class About extends (0, _pageViewJsDefault.default) {
     pageTitle = "About Me";
     _html = `
@@ -910,7 +912,9 @@ class About extends (0, _pageViewJsDefault.default) {
           <li class="timeline__item tech">Python</li>
         </ol>
       </section>
-      <a href="#page2" class="about__scroll-to scroll-to"><span></span>Scroll</a>
+      <button class="about__scroll-to scroll-to"><svg class="icon">
+      <use xlink:href="${0, _iconsSvgDefault.default}#icon-arrow-down"></use>
+    </svg></button>
     </div>
     <div id="page2" class="about__page about__page--second">
             <section aria-label="Qualities" class="about__qualities-section about__qualities">
@@ -963,15 +967,15 @@ class About extends (0, _pageViewJsDefault.default) {
 
               <div class="about__languages">
                 <div class="about__language about__language--polish">
-                  <p class="label">Polish</p>
+                  <p class="label">Polish<span>native</span></p>
                   <div class="skill"></div>
                 </div>
                 <div class="about__language about__language--english">
-                  <p class="label">english</p>
+                  <p class="label">english<span>c1</span></p>
                   <div class="skill"></div>
                 </div>
                 <div class="about__language about__language--french">
-                  <p class="label">french</p>
+                  <p class="label">french<span>a2</span></p>
                   <div class="skill"></div>
                 </div>
               </div>
@@ -1012,7 +1016,7 @@ class About extends (0, _pageViewJsDefault.default) {
 }
 exports.default = new About();
 
-},{"./PageView.js":"4GbzM","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0","1261a238363e9283":"hcYFm","996d41c64e831608":"9rL5U","2e6290dd1b4a1ece":"24din","6e02de32e51527ba":"ej3ew","10f5736e8708d96d":"1ozac","57d8f1491c4f2ff5":"g8fl2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02Y3B":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0","1261a238363e9283":"hcYFm","996d41c64e831608":"9rL5U","2e6290dd1b4a1ece":"24din","6e02de32e51527ba":"ej3ew","10f5736e8708d96d":"1ozac","57d8f1491c4f2ff5":"g8fl2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../img/icons.svg":"172kW"}],"02Y3B":[function(require,module,exports) {
 module.exports = require("903412daf98d06a0").getBundleURL("hWUTQ") + "../img/chatgpt.3b03e9d1.png" + "?" + Date.now();
 
 },{"903412daf98d06a0":"lgJ39"}],"2UuD0":[function(require,module,exports) {

@@ -1,18 +1,26 @@
 .scroll-to {
-  position: relative;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-align: center;
+  font-size: 4rem;
+  background-color: transparent;
+  border: transparent;
   color: inherit;
-  span {
-    position: absolute;
-    top: -4em;
-    left: 50%;
-    display: block;
-    width: 1.5em;
-    height: 1.5em;
-    border-bottom: 1px solid currentColor;
-    border-right: 1px solid currentColor;
-    transform: translateX(-50%) rotate(45deg);
+  cursor: pointer;
+  animation: scroll-bounc 3s infinite;
+
+  .icon {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+  }
+}
+
+@keyframes scroll-bounc {
+  0% {
+    transform: translateY(0);
+  }
+  20% {
+    transform: translateY(-15px);
+  }
+  40% {
+    transform: translateY(0);
   }
 }

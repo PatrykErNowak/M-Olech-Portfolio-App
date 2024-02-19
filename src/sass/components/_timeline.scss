@@ -9,7 +9,7 @@ $item-border-color: #666;
 
 .timeline {
   width: 100%;
-  margin: 0 0 4rem;
+  margin: 0 0 1rem;
   padding: 0 0 1rem;
   text-align: center;
 
@@ -24,7 +24,7 @@ $item-border-color: #666;
     &::before {
       content: '';
       position: absolute;
-      top: 3%;
+      top: 0;
       height: 100%;
       width: $line-thickness;
       background-color: $line-color;
@@ -32,7 +32,7 @@ $item-border-color: #666;
     &::after {
       content: '';
       position: absolute;
-      bottom: -2%;
+      bottom: 15px;
       width: 30px;
       height: 30px;
       margin-bottom: -30px;
@@ -50,6 +50,10 @@ $item-border-color: #666;
     line-height: 1.2;
     border: 1px solid $item-border-color;
 
+    @media screen and (min-width: b.$large) and (min-height: b.$high-res) {
+      font-size: clamp(1.4rem, 0.8rem + 0.5vw, 2.1rem);
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -61,7 +65,7 @@ $item-border-color: #666;
     }
 
     &.role {
-      margin: -0.5em 0;
+      margin: -0.7em 0;
       width: clamp(100px, 40%, 20em);
       right: 0;
       transform: translateX(calc(-50% - $distance-from-center));
