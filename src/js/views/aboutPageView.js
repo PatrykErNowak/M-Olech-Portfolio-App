@@ -44,9 +44,9 @@ class About extends PageView {
           <li class="timeline__item tech">Python</li>
         </ol>
       </section>
-      <button class="about__scroll-to scroll-to"><svg class="icon">
+      <a href="#page2" class="about__scroll-to scroll-to" data-scroll-to><svg class="icon">
       <use xlink:href="${icons}#icon-arrow-down"></use>
-    </svg></button>
+    </svg></a>
     </div>
     <div id="page2" class="about__page about__page--second">
             <section aria-label="Qualities" class="about__qualities-section about__qualities">
@@ -145,5 +145,25 @@ class About extends PageView {
           </div>
   </div>
   `;
+  _init() {
+    this._scrollToNextPage();
+  }
+  _scrollToNextPage() {
+    this._parentElement.addEventListener('click', (e) => {
+      const { target } = e;
+      e.preventDefault();
+
+      if (target.closest('a[data-scroll-to]')) {
+        const pageTarget = target
+          .closest('a[data-scroll-to]')
+          .getAttribute('href');
+        const page = document.querySelector(pageTarget);
+
+        page.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    });
+  }
 }
 export default new About();
