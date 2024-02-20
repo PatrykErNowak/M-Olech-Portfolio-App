@@ -8,13 +8,16 @@ $mobile-author-color: rgba(c.$text-white, 0.5);
 .footer {
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 1rem;
   padding: 1rem 2rem 1rem;
   background-color: c.$bg-dark;
   color: $text-mobile-color;
 
   @media screen and (min-width: b.$large) {
+    flex-direction: row;
     padding: 0 3rem 1rem;
     background-color: transparent;
     color: c.$text-light-color;

@@ -30,23 +30,29 @@
   &__image-link {
     flex-shrink: 0;
     display: block;
-    width: clamp(25rem, 14vw, 32rem);
-    height: clamp(25rem, 14vw, 32rem);
+    width: clamp(15rem, 17vw, 22rem);
+    aspect-ratio: 1/1;
     overflow: clip;
     border-radius: 50%;
     border: 1px solid #fafafa;
     box-shadow: 0 20px 10px -10px #25293450;
     transition: box-shadow 0.4s ease-in-out;
 
+    @media screen and (min-width: b.$large) and (min-height: b.$high-res) {
+      width: clamp(25rem, 14vw, 32rem);
+    }
+
     img {
       height: 100%;
       object-position: center;
       object-fit: cover;
       transform: scale(1.2);
-      filter: saturate(0);
-      transition:
-        filter 0.4s ease-in-out,
-        transform 0.4s ease-in-out;
+      @media screen and (min-width: b.$large) {
+        filter: saturate(0);
+        transition:
+          filter 0.4s ease-in-out,
+          transform 0.4s ease-in-out;
+      }
     }
 
     &:hover {
@@ -63,7 +69,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     gap: 1rem;
-    // max-width: 50rem;
   }
 
   &__title {

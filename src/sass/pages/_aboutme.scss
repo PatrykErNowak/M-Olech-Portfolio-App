@@ -9,6 +9,7 @@ $interest-fourth: #b3c5f3;
 $interest-fivth: #f3c7b3;
 
 .about {
+  overflow-x: hidden;
   @media screen and (min-width: b.$large) {
     height: 100vh;
     max-height: 100vh;
@@ -300,6 +301,13 @@ $interest-fivth: #f3c7b3;
     position: absolute;
     border-radius: 50%;
     transform: translate(-50%, -50%);
+    background-color: currentColor;
+    transition: box-shadow 0.4s ease-in-out;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0 25px currentColor;
+    }
 
     .label {
       position: absolute;
@@ -307,7 +315,7 @@ $interest-fivth: #f3c7b3;
       left: 50%;
       transform: translate(-50%, -50%);
       color: #5a4924;
-      font-size: clamp(1.2rem, 0.5rem + 0.5vw, 2rem);
+      font-size: clamp(1.2rem, 0.5rem + 0.4vw, 2rem);
       font-weight: 700;
       text-align: center;
     }
@@ -316,7 +324,7 @@ $interest-fivth: #f3c7b3;
       top: 42%;
       left: 47%;
       padding: 20%;
-      background-color: $interest-first;
+      color: $interest-first;
       .label {
         font-size: 1.2em;
         @media screen and (min-height: b.$high-res) {
@@ -328,7 +336,7 @@ $interest-fivth: #f3c7b3;
       top: 74%;
       left: 79%;
       padding: 16%;
-      background-color: $interest-second;
+      color: $interest-second;
       .label {
         font-size: 1.1em;
         @media screen and (min-height: b.$high-res) {
@@ -340,7 +348,7 @@ $interest-fivth: #f3c7b3;
       top: 22%;
       left: 79%;
       padding: 13%;
-      background-color: $interest-third;
+      color: $interest-third;
       .label {
         font-size: 1.05em;
         @media screen and (min-height: b.$high-res) {
@@ -352,13 +360,19 @@ $interest-fivth: #f3c7b3;
       top: 84%;
       left: 29%;
       padding: 10%;
-      background-color: $interest-fourth;
+      color: $interest-fourth;
+      .label {
+        font-size: 1.03em;
+        @media screen and (min-height: b.$high-res) {
+          font-size: 1.04em;
+        }
+      }
     }
     &:nth-child(5) {
-      top: 54%;
-      left: 17%;
-      padding: 10%;
-      background-color: $interest-fivth;
+      top: 56%;
+      left: 19%;
+      padding: 8%;
+      color: $interest-fivth;
     }
   }
 }
