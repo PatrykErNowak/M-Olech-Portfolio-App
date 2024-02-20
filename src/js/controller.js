@@ -49,5 +49,6 @@ const init = function () {
   PageView.addHandlerChangePage(controlURLRoute);
   window.addEventListener('popstate', () => controlURLPageRender());
   window.route = controlURLRoute;
+  PageView.updateFooterYear();
 };
 init();

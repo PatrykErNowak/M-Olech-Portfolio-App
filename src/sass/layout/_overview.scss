@@ -18,7 +18,7 @@ $social-icon-size: clamp(3.8rem, 2rem + 1.6vw, 6rem);
   z-index: 0;
   padding: 2rem;
   @media screen and (min-width: b.$x-large) {
-    padding: 3rem;
+    padding: 3rem 3rem 2rem;
   }
 
   &__logo-box {

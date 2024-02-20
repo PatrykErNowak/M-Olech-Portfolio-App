@@ -98,4 +98,9 @@ export default class PageView {
       }
     });
   }
+  static updateFooterYear() {
+    const span = document.querySelector('[data-js="footer-year"]');
+    const acutalYear = new Date().getFullYear();
+    span.innerHTML = acutalYear;
+  }
 }

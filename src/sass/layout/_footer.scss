@@ -1,0 +1,57 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/breakpoints' as b;
+
+$border-top-color: rgba(c.$text-white, 0.5);
+$text-mobile-color: rgba(c.$text-white, 0.4);
+$mobile-author-color: rgba(c.$text-white, 0.5);
+
+.footer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 2rem 1rem;
+  background-color: c.$bg-dark;
+  color: $text-mobile-color;
+
+  @media screen and (min-width: b.$large) {
+    padding: 0 3rem 1rem;
+    background-color: transparent;
+    color: c.$text-light-color;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: $border-top-color;
+
+    @media screen and (min-width: b.$large) {
+      background-color: transparent;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+    font-size: clamp(1rem, 0.5rem + 1vw, 1.2rem);
+  }
+
+  &__author {
+    a {
+      color: $mobile-author-color;
+      font-weight: 600;
+
+      @media screen and (min-width: b.$large) {
+        color: inherit;
+      }
+
+      &:hover,
+      &:focus {
+        color: c.$third-color;
+      }
+    }
+  }
+}
