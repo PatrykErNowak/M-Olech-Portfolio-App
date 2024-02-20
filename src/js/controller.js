@@ -27,8 +27,6 @@ const controlURLPageRender = function (isInit = false) {
     window.navigator.userAgentData?.mobile ||
     window.matchMedia('(max-width: 768px)').matches;
 
-  console.log(isMobile);
-
   if (isInit && !isMobile) {
     page.initRender(model.data);
   } else {

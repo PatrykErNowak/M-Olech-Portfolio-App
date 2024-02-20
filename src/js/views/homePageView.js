@@ -125,6 +125,7 @@ class Home extends PageView {
       setTimeout(() => {
         infoTitle.textContent = dashboards[currentIndex].title;
         infoDesc.textContent = dashboards[currentIndex].desc;
+        infoBtn.href = dashboards[currentIndex].links.live;
         actual.textContent = numericSystem[currentIndex];
       }, anime.duration * 0.5);
     });
