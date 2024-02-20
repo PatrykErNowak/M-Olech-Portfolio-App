@@ -1,12 +1,4 @@
 [[redirects]]
-  from = "/about"
-  to = "/"
-
-[[redirects]]
-  from = "/projects"
-  to = "/projects"
-
-  [[redirects]]
-from = "/*"
-to = "/404"
-status = 404
+  from = "/*"
+  to = "/index.html"
+  status = 200
