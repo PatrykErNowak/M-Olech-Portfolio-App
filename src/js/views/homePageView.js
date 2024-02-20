@@ -15,12 +15,12 @@ class Home extends PageView {
         <!-- Slides -->
         <div class="swiper-slide carousel__slide">
           <div class="carousel__img-box">
-            <img src="./img/dashboard-2.png" alt="" />
+            <img src="" alt="" />
           </div>
         </div>
         <div class="swiper-slide carousel__slide">
           <div class="carousel__img-box">
-            <img src="./img/dashboard-1.png" alt="" />
+            <img src="" alt="" />
           </div>
         </div>
       </div>

@@ -7,6 +7,14 @@ export const data = {
         src: new URL('../img/dashboard-2.png', import.meta.url),
         alt: 'KPI Dashboard for Northwind Traders',
       },
+      themePhoto: {
+        src: new URL('../img/projects/northwind-photo.jpg', import.meta.url),
+        alt: 'Container ship in the middle of the sea',
+      },
+      links: {
+        live: '#',
+        source: '#',
+      },
     },
     {
       title: 'Airline Passengers Satisfaction',
@@ -14,6 +22,17 @@ export const data = {
       img: {
         src: new URL('../img/dashboard-1.png', import.meta.url),
         alt: '',
+      },
+      themePhoto: {
+        src: new URL(
+          '../img/projects/airlinepassengers-photo.jpg',
+          import.meta.url,
+        ),
+        alt: 'Passenger with suitcase walking through airport, standing passenger aircraft visible in background.',
+      },
+      links: {
+        live: '#',
+        source: '#',
       },
     },
   ],

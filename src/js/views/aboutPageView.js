@@ -5,8 +5,8 @@ class About extends PageView {
   pageTitle = 'About Me';
   _html = `
   <div class="about">
-    <div class="about__page about__page--first"> 
-      <h2 class="about__title">About Me</h2>
+    <div class="about__first-page page"> 
+      <h2 class="about__title page-title">About Me</h2>
       <p class="about__desc">
         I am passionate and committed data analyst with a flait for
         uncovering <strong>hidden patterns</strong> and
@@ -54,9 +54,9 @@ class About extends PageView {
       <use xlink:href="${icons}#icon-arrow-down"></use>
     </svg></a>
     </div>
-    <div id="page2" class="about__page about__page--second">
+    <div id="page2" class="about__second-page page">
             <section aria-label="Qualities" class="about__qualities-section about__qualities">
-              <h3 class="about__section-title">Qualities</h3>
+              <h3 class="about__section-title section-title">Qualities</h3>
               <ul class="about__qualities__list">
                 <li class="about__qualities__item">
                   <img
@@ -101,7 +101,7 @@ class About extends PageView {
               </ul>
             </section>
             <section class="about__languages-section">
-              <h3 class="about__section-title">Languages</h3>
+              <h3 class="about__section-title section-title">Languages</h3>
 
               <div class="about__languages">
                 <div class="about__language about__language--polish">
@@ -119,7 +119,7 @@ class About extends PageView {
               </div>
             </section>
             <section class="about__interests-section">
-              <h3 class="about__section-title">Interests</h3>
+              <h3 class="about__section-title section-title">Interests</h3>
               <div class="about__interests">
                 <div class="about__interest ">
                   <p class="label">traveling</p>

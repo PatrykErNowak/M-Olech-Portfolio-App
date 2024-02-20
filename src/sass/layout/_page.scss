@@ -1,0 +1,13 @@
+@use '../abstracts/colors' as c;
+@use '../abstracts/breakpoints' as b;
+
+.page {
+  padding: 2rem;
+  color: c.$text-dark-color;
+  width: 100%;
+
+  @media screen and (min-width: b.$large) {
+    padding: 3rem;
+    min-height: 100vh;
+  }
+}

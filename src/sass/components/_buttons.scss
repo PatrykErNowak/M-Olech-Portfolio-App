@@ -14,10 +14,11 @@ $btn-bg-color: rgba(c.$third-color, 0.4);
     z-index: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
     padding: 0.8em 1em;
     color: $btn-text-color;
-    font-size: clamp(1.2rem, 0.9rem + 1vw, 1.4rem);
+    font-size: clamp(1.2rem, 0.9rem + 0.15vw, 1.4rem);
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -25,7 +26,15 @@ $btn-bg-color: rgba(c.$third-color, 0.4);
     outline: transparent;
     transition:
       box-shadow v.$transition-dur ease-in-out,
-      transform v.$transition-dur ease-in-out;
+      transform v.$transition-dur ease-in-out,
+      background-color v.$transition-dur ease-in-out;
+
+    .icon {
+      width: $btn-icon-size;
+      height: $btn-icon-size;
+      fill: currentColor;
+      pointer-events: none;
+    }
 
     @media screen and (min-width: b.$large) {
       padding: 1em 1.2em;
@@ -43,11 +52,7 @@ $btn-bg-color: rgba(c.$third-color, 0.4);
     &:link,
     &:visited {
       .icon {
-        width: $btn-icon-size;
-        height: $btn-icon-size;
-        fill: currentColor;
         animation: slide 1.5s ease-in-out infinite;
-        pointer-events: none;
       }
 
       &::before {
@@ -117,6 +122,19 @@ $btn-bg-color: rgba(c.$third-color, 0.4);
       &:hover,
       &:focus {
         color: c.$text-dark-color;
+      }
+    }
+  }
+
+  &--cta {
+    &:link,
+    &:visited {
+      background-color: #444;
+      color: c.$text-white;
+
+      &:hover,
+      &:focus {
+        background-color: #555;
       }
     }
   }

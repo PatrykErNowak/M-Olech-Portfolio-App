@@ -658,7 +658,6 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _configJs = require("../config.js");
 class PageView {
-    // _mainTitle = 'M-OLECH';
     _mainTitle = document.title;
     _parentElement = document.querySelector("#root");
     /**
@@ -875,8 +874,8 @@ class About extends (0, _pageViewJsDefault.default) {
     pageTitle = "About Me";
     _html = `
   <div class="about">
-    <div class="about__page about__page--first"> 
-      <h2 class="about__title">About Me</h2>
+    <div class="about__first-page page"> 
+      <h2 class="about__title page-title">About Me</h2>
       <p class="about__desc">
         I am passionate and committed data analyst with a flait for
         uncovering <strong>hidden patterns</strong> and
@@ -924,9 +923,9 @@ class About extends (0, _pageViewJsDefault.default) {
       <use xlink:href="${0, _iconsSvgDefault.default}#icon-arrow-down"></use>
     </svg></a>
     </div>
-    <div id="page2" class="about__page about__page--second">
+    <div id="page2" class="about__second-page page">
             <section aria-label="Qualities" class="about__qualities-section about__qualities">
-              <h3 class="about__section-title">Qualities</h3>
+              <h3 class="about__section-title section-title">Qualities</h3>
               <ul class="about__qualities__list">
                 <li class="about__qualities__item">
                   <img
@@ -971,7 +970,7 @@ class About extends (0, _pageViewJsDefault.default) {
               </ul>
             </section>
             <section class="about__languages-section">
-              <h3 class="about__section-title">Languages</h3>
+              <h3 class="about__section-title section-title">Languages</h3>
 
               <div class="about__languages">
                 <div class="about__language about__language--polish">
@@ -989,7 +988,7 @@ class About extends (0, _pageViewJsDefault.default) {
               </div>
             </section>
             <section class="about__interests-section">
-              <h3 class="about__section-title">Interests</h3>
+              <h3 class="about__section-title section-title">Interests</h3>
               <div class="about__interests">
                 <div class="about__interest ">
                   <p class="label">traveling</p>
@@ -1040,7 +1039,7 @@ class About extends (0, _pageViewJsDefault.default) {
 }
 exports.default = new About();
 
-},{"./PageView.js":"4GbzM","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0","1261a238363e9283":"hcYFm","996d41c64e831608":"9rL5U","2e6290dd1b4a1ece":"24din","6e02de32e51527ba":"ej3ew","10f5736e8708d96d":"1ozac","57d8f1491c4f2ff5":"g8fl2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../img/icons.svg":"172kW"}],"02Y3B":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","../../img/icons.svg":"172kW","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0","1261a238363e9283":"hcYFm","996d41c64e831608":"9rL5U","2e6290dd1b4a1ece":"24din","6e02de32e51527ba":"ej3ew","10f5736e8708d96d":"1ozac","57d8f1491c4f2ff5":"g8fl2","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02Y3B":[function(require,module,exports) {
 module.exports = require("903412daf98d06a0").getBundleURL("hWUTQ") + "../img/chatgpt.3b03e9d1.png" + "?" + Date.now();
 
 },{"903412daf98d06a0":"lgJ39"}],"2UuD0":[function(require,module,exports) {
@@ -1080,12 +1079,12 @@ class Home extends (0, _pageViewJsDefault.default) {
         <!-- Slides -->
         <div class="swiper-slide carousel__slide">
           <div class="carousel__img-box">
-            <img src="./img/dashboard-2.png" alt="" />
+            <img src="" alt="" />
           </div>
         </div>
         <div class="swiper-slide carousel__slide">
           <div class="carousel__img-box">
-            <img src="./img/dashboard-1.png" alt="" />
+            <img src="" alt="" />
           </div>
         </div>
       </div>
@@ -1193,13 +1192,60 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageViewJs = require("./PageView.js");
 var _pageViewJsDefault = parcelHelpers.interopDefault(_pageViewJs);
+var _iconsSvg = require("../../img/icons.svg");
+var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class Projects extends (0, _pageViewJsDefault.default) {
     pageTitle = "All Projects";
-    _html = "Projects";
+    _html = `
+    <div class="projects page">
+      <h2 class="projects__title page-title">My works</h2>
+      <ul class="projects__list" data-js="projects-list">
+      </ul>
+    </div>`;
+    _init(data) {
+        this._renderProjects(data);
+    }
+    _renderProjects({ dashboards }) {
+        const list = document.querySelector('[data-js="projects-list"]');
+        dashboards.forEach((dash)=>{
+            const { themePhoto, title, desc, links } = dash;
+            const html = `
+      <li>
+        <div class="project">
+          <a href="#" class="project__image-link">
+            <img src=${themePhoto.src} alt=${themePhoto.alt} />
+          </a>
+          <div class="project__info-box">
+            <p class="project__title">${title}</p>
+            <p class="project__desc">${desc}</p>
+            <div class="project__links">
+              <a href=${links.live} class="project__btn btn btn--cta"
+                >Try it Live
+                <svg class="icon">
+                  <use
+                    xlink:href="${(0, _iconsSvgDefault.default)}#icon-external-link"
+                  ></use>
+                </svg>
+              </a>
+              <a href=${links.source} class="project__btn btn btn--secondary"
+                >View source
+                <svg class="icon">
+                  <use
+                    xlink:href="${(0, _iconsSvgDefault.default)}#icon-external-link"
+                  ></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </li>`;
+            list.insertAdjacentHTML("beforeend", html);
+        });
+    }
 }
 exports.default = new Projects();
 
-},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"Y4A21":[function(require,module,exports) {
+},{"./PageView.js":"4GbzM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../../img/icons.svg":"172kW"}],"Y4A21":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "data", ()=>data);
@@ -1211,6 +1257,14 @@ const data = {
             img: {
                 src: new URL(require("1f08950f2eb04bd")),
                 alt: "KPI Dashboard for Northwind Traders"
+            },
+            themePhoto: {
+                src: new URL(require("e307ec587f040a33")),
+                alt: "Container ship in the middle of the sea"
+            },
+            links: {
+                live: "#",
+                source: "#"
             }
         },
         {
@@ -1219,17 +1273,31 @@ const data = {
             img: {
                 src: new URL(require("1c2e699c5a7321bd")),
                 alt: ""
+            },
+            themePhoto: {
+                src: new URL(require("cbd26efe6341a6f9")),
+                alt: "Passenger with suitcase walking through airport, standing passenger aircraft visible in background."
+            },
+            links: {
+                live: "#",
+                source: "#"
             }
         }
     ]
 };
 
-},{"1f08950f2eb04bd":"hM4mM","1c2e699c5a7321bd":"7f4jB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"hM4mM":[function(require,module,exports) {
+},{"1f08950f2eb04bd":"hM4mM","1c2e699c5a7321bd":"7f4jB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","e307ec587f040a33":"3Nek8","cbd26efe6341a6f9":"gTvnl"}],"hM4mM":[function(require,module,exports) {
 module.exports = require("78e6bb86eeace5bb").getBundleURL("hWUTQ") + "../img/dashboard-2.f3e0a563.png" + "?" + Date.now();
 
 },{"78e6bb86eeace5bb":"lgJ39"}],"7f4jB":[function(require,module,exports) {
 module.exports = require("df04a522cf66af73").getBundleURL("hWUTQ") + "../img/dashboard-1.9db7b5f9.png" + "?" + Date.now();
 
-},{"df04a522cf66af73":"lgJ39"}]},["f0HGD","aenu9"], "aenu9", "parcelRequirec63f")
+},{"df04a522cf66af73":"lgJ39"}],"3Nek8":[function(require,module,exports) {
+module.exports = require("e03704a413cc4cb0").getBundleURL("hWUTQ") + "../projects/northwind-photo.3ca44ba7.jpeg" + "?" + Date.now();
+
+},{"e03704a413cc4cb0":"lgJ39"}],"gTvnl":[function(require,module,exports) {
+module.exports = require("31d1dd6ef80fc78b").getBundleURL("hWUTQ") + "../projects/airlinepassengers-photo.ad6fd32a.jpeg" + "?" + Date.now();
+
+},{"31d1dd6ef80fc78b":"lgJ39"}]},["f0HGD","aenu9"], "aenu9", "parcelRequirec63f")
 
 //# sourceMappingURL=controller.min.e37f48ea.js.map

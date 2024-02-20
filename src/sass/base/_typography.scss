@@ -1,4 +1,5 @@
 @use '../abstracts/colors' as c;
+@use '../abstracts/breakpoints' as b;
 
 html {
   font-size: 62.5%;
@@ -35,4 +36,55 @@ h3 {
 p {
   font-size: clamp(1.5rem, 1rem + 0.4vw, 2.3rem);
   line-height: 1.5;
+}
+
+// Titles
+
+.page-title {
+  position: relative;
+  margin-bottom: 1em;
+  padding-bottom: 15px;
+  color: c.$third-color-dark;
+  text-transform: capitalize;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5em;
+  text-shadow: 2px 2px 5px rgba($color: c.$third-color-dark, $alpha: 0.2);
+
+  @media screen and (min-width: b.$large) {
+    grid-column: 1/3;
+    grid-row: 1/2;
+  }
+  @media screen and (min-width: b.$x-large) {
+    margin-bottom: 2vw;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 55px;
+    background-color: c.$third-color;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    height: 1px;
+    width: 100%;
+
+    background-color: c.$third-color;
+  }
+}
+
+.section-title {
+  margin-bottom: 1em;
+  color: c.$third-color-dark;
+  text-shadow: 2px 2px 5px rgba($color: c.$third-color-dark, $alpha: 0.1);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
 }

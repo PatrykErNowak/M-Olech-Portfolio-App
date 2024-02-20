@@ -4,7 +4,6 @@ import { changePageAnimation as anime, initAnimation } from '../config.js';
  * Parent class for all pages views. Is responsible for rendering and handling animations.
  */
 export default class PageView {
-  // _mainTitle = 'M-OLECH';
   _mainTitle = document.title;
   _parentElement = document.querySelector('#root');
 
