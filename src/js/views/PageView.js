@@ -37,9 +37,6 @@ export default class PageView {
   }
 
   _initAnimation() {
-    const isMobile = window.navigator.userAgentData.mobile;
-
-    if (isMobile) return;
     const gif = document.querySelector('.js-gif');
     // Stop playing gif
     gif.src = '';

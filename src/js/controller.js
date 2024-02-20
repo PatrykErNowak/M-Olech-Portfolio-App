@@ -23,9 +23,13 @@ const urlRoutes = {
 const controlURLPageRender = function (isInit = false) {
   const location = window.location.pathname;
   const page = urlRoutes[location] || urlRoutes[404];
-  const isMobile = window.navigator.userAgentData.mobile;
+  const isMobile =
+    window.navigator.userAgentData?.mobile ||
+    window.matchMedia('(max-width: 768px)').matches;
 
-  if (isInit || isMobile) {
+  console.log(isMobile);
+
+  if (isInit && !isMobile) {
     page.initRender(model.data);
   } else {
     page.postRender(model.data);

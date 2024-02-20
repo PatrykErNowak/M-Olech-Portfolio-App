@@ -605,8 +605,9 @@ var _modelJs = require("./model.js");
  */ const controlURLPageRender = function(isInit = false) {
     const location = window.location.pathname;
     const page = urlRoutes[location] || urlRoutes[404];
-    const isMobile = window.navigator.userAgentData.mobile;
-    if (isInit || isMobile) page.initRender(_modelJs.data);
+    const isMobile = window.navigator.userAgentData?.mobile || window.matchMedia("(max-width: 768px)").matches;
+    console.log(isMobile);
+    if (isInit && !isMobile) page.initRender(_modelJs.data);
     else page.postRender(_modelJs.data);
 };
 /**
@@ -685,8 +686,6 @@ class PageView {
         document.title = this.pageTitle + " | " + this._mainTitle;
     }
     _initAnimation() {
-        const isMobile = window.navigator.userAgentData.mobile;
-        if (isMobile) return;
         const gif = document.querySelector(".js-gif");
         // Stop playing gif
         gif.src = "";
