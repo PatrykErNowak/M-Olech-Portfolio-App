@@ -1137,7 +1137,7 @@ class Home extends (0, _pageViewJsDefault.default) {
       <img src="${src}" alt="${alt}" />
       </div>
       </div>`;
-            swiperWrapper.insertAdjacentHTML("afterbegin", html);
+            swiperWrapper.insertAdjacentHTML("beforeend", html);
         });
     }
     _createSwiper({ dashboards }) {
@@ -1217,7 +1217,7 @@ class Projects extends (0, _pageViewJsDefault.default) {
             const html = `
       <li>
         <div class="project">
-          <a href="#" class="project__image-link">
+          <a href=${links.live} class="project__image-link">
             <img src=${themePhoto.src} alt=${themePhoto.alt} />
           </a>
           <div class="project__info-box">
@@ -1260,7 +1260,7 @@ const data = {
             title: "Northwind Traders",
             desc: "A top-level KPI dashboard made to help Northwind Traders' executives quickly understand the company's performance in key areas.",
             img: {
-                src: new URL(require("1f08950f2eb04bd")),
+                src: new URL(require("37c8c8957d05875d")),
                 alt: "KPI Dashboard for Northwind Traders"
             },
             themePhoto: {
@@ -1268,41 +1268,63 @@ const data = {
                 alt: "Container ship in the middle of the sea"
             },
             links: {
-                live: "#",
-                source: "#"
+                live: "https://app.powerbi.com/view?r=eyJrIjoiM2JiMGI0NzYtMDA3ZS00ZTJlLTgwNDktZDZlNGYzNDllYzBmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+                source: "https://www.mavenanalytics.io/challenges/maven-northwind-challenge/24"
             }
         },
         {
             title: "Airline Passengers Satisfaction",
             desc: "Report based on passenger survey results prepared to recommend a data-driven strategy for an airline to increase their customer satisfaction ratings.",
             img: {
-                src: new URL(require("1c2e699c5a7321bd")),
+                src: new URL(require("232e9c9c47511ce3")),
                 alt: ""
             },
             themePhoto: {
                 src: new URL(require("cbd26efe6341a6f9")),
-                alt: "Passenger with suitcase walking through airport, standing passenger aircraft visible in background."
+                alt: "Passenger with suitcase walking through the airport, standing passenger aircraft visible in background."
             },
             links: {
-                live: "#",
-                source: "#"
+                live: "https://app.powerbi.com/view?r=eyJrIjoiNWI3ZDhlN2MtY2M3MS00YWMzLTg0NDYtNTcyMzQ4ZGZiMDUyIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+                source: "https://www.mavenanalytics.io/challenges/maven-airlines-challenge/7"
+            }
+        },
+        {
+            title: "Tour de France",
+            desc: "The infographic-style dashboard designed to educate new viewers, highlight the magnitude of the event, and build anticipation for Tour de France.",
+            img: {
+                src: new URL(require("ce1c5761bb634e4f")),
+                alt: ""
+            },
+            themePhoto: {
+                src: new URL(require("285b0fefe327c108")),
+                alt: "Cyclists racing down the road"
+            },
+            links: {
+                live: "https://app.powerbi.com/view?r=eyJrIjoiMThkNWM5YTMtYWE5OS00NjQwLTkwYjEtOGQ1MzA5NzBiYmYzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
+                source: "https://www.mavenanalytics.io/challenges/maven-tour-de-france-challenge/25"
             }
         }
     ]
 };
 
-},{"1f08950f2eb04bd":"hM4mM","1c2e699c5a7321bd":"7f4jB","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","e307ec587f040a33":"6NUkf","cbd26efe6341a6f9":"iZgDB"}],"hM4mM":[function(require,module,exports) {
-module.exports = require("78e6bb86eeace5bb").getBundleURL("hWUTQ") + "../img/dashboard-2.f3e0a563.png" + "?" + Date.now();
-
-},{"78e6bb86eeace5bb":"lgJ39"}],"7f4jB":[function(require,module,exports) {
-module.exports = require("df04a522cf66af73").getBundleURL("hWUTQ") + "../img/dashboard-1.9db7b5f9.png" + "?" + Date.now();
-
-},{"df04a522cf66af73":"lgJ39"}],"6NUkf":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","e307ec587f040a33":"6NUkf","cbd26efe6341a6f9":"iZgDB","285b0fefe327c108":"5xMgD","ce1c5761bb634e4f":"2pI8j","37c8c8957d05875d":"lwubm","232e9c9c47511ce3":"dTDsA"}],"6NUkf":[function(require,module,exports) {
 module.exports = require("408879d02b4e2843").getBundleURL("hWUTQ") + "../img/northwind-photo.3ca44ba7.jpeg" + "?" + Date.now();
 
 },{"408879d02b4e2843":"lgJ39"}],"iZgDB":[function(require,module,exports) {
 module.exports = require("1bdb34679d014ccc").getBundleURL("hWUTQ") + "../img/airlinepassengers-photo.ad6fd32a.jpeg" + "?" + Date.now();
 
-},{"1bdb34679d014ccc":"lgJ39"}]},["f0HGD","aenu9"], "aenu9", "parcelRequirec63f")
+},{"1bdb34679d014ccc":"lgJ39"}],"5xMgD":[function(require,module,exports) {
+module.exports = require("6f1fbd3fc24b0e26").getBundleURL("hWUTQ") + "../img/tourdefrance-photo.db3ac49e.jpeg" + "?" + Date.now();
+
+},{"6f1fbd3fc24b0e26":"lgJ39"}],"2pI8j":[function(require,module,exports) {
+module.exports = require("ba0524c29249200c").getBundleURL("hWUTQ") + "../img/tourdefrance-dashboard.a40d0dea.jpeg" + "?" + Date.now();
+
+},{"ba0524c29249200c":"lgJ39"}],"lwubm":[function(require,module,exports) {
+module.exports = require("987ef2e389f6d5d4").getBundleURL("hWUTQ") + "../img/northwind-dashboard.4ec75b8a.png" + "?" + Date.now();
+
+},{"987ef2e389f6d5d4":"lgJ39"}],"dTDsA":[function(require,module,exports) {
+module.exports = require("e4f7d197e838f4fd").getBundleURL("hWUTQ") + "../img/airlinepassengers-dashboard.a1456f5e.png" + "?" + Date.now();
+
+},{"e4f7d197e838f4fd":"lgJ39"}]},["f0HGD","aenu9"], "aenu9", "parcelRequirec63f")
 
 //# sourceMappingURL=controller.min.e37f48ea.js.map

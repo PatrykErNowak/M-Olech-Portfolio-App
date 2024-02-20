@@ -76,7 +76,7 @@ class Home extends PageView {
       </div>
       </div>`;
 
-      swiperWrapper.insertAdjacentHTML('afterbegin', html);
+      swiperWrapper.insertAdjacentHTML('beforeend', html);
     });
   }
   _createSwiper({ dashboards }) {
