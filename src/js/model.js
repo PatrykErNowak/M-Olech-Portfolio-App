@@ -5,7 +5,11 @@ export const data = {
       desc: "A top-level KPI dashboard made to help Northwind Traders' executives quickly understand the company's performance in key areas.",
       img: {
         src: new URL(
-          '../img/projects/northwind-dashboard.png',
+          '../img/projects/northwind-dashboard.jpg',
+          import.meta.url,
+        ),
+        srcMobile: new URL(
+          '../img/projects/northwind-dashboard-mobile.jpg',
           import.meta.url,
         ),
         alt: 'KPI Dashboard for Northwind Traders',
@@ -26,6 +30,10 @@ export const data = {
       img: {
         src: new URL(
           '../img/projects/airlinepassengers-dashboard.png',
+          import.meta.url,
+        ),
+        srcMobile: new URL(
+          '../img/projects/airlinepassengers-dashboard-mobile.png',
           import.meta.url,
         ),
         alt: 'Airline Passengers Satisfaction Dashboard',
@@ -49,6 +57,10 @@ export const data = {
       img: {
         src: new URL(
           '../img/projects/tourdefrance-dashboard.jpg',
+          import.meta.url,
+        ),
+        srcMobile: new URL(
+          '../img/projects/tourdefrance-dashboard-mobile.jpg',
           import.meta.url,
         ),
         alt: 'Tour de France Dashboard',

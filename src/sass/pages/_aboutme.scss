@@ -81,12 +81,14 @@ $interest-fivth: #f3c7b3;
     max-width: clamp(100px, 20vw, 150px);
     transition: filter 0.4s ease-in-out;
     &--green {
-      &:hover {
+      &:hover,
+      &:focus-within {
         filter: drop-shadow(0 0 15px #35e5d2);
       }
     }
     &--yellow {
-      &:hover {
+      &:hover,
+      &:focus-within {
         filter: drop-shadow(0 0 15px #fcbb75);
       }
     }
@@ -242,8 +244,11 @@ $interest-fivth: #f3c7b3;
       font-size: clamp(3rem, 2rem + 1vw, 4rem);
     }
 
-    &:hover .label {
-      transform: translate(-50%, -150%);
+    &:hover,
+    &:focus {
+      .label {
+        transform: translate(-50%, -150%);
+      }
     }
 
     .label {

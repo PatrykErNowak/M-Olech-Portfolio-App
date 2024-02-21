@@ -1,3 +1,12 @@
+// import Swiper JS
+import Swiper from 'swiper';
+import { Pagination, Autoplay, A11y } from 'swiper/modules';
+// import Swiper styles
+import 'swiper/swiper.min.css';
+import 'swiper/modules/autoplay.min.css';
+import 'swiper/modules/pagination.min.css';
+import 'swiper/modules/a11y.min.css';
+
 import PageView from './PageView.js';
 import {
   numericSystem,
@@ -39,7 +48,7 @@ class Home extends PageView {
       <a
         href="#"
         class="carousel-info__link btn btn--secondary btn--white js-info-btn"
-        >See more</a
+        >See Dashboard</a
       >
       <div class="carousel-info__counter">
         <p class="num-of-slide">
@@ -72,14 +81,19 @@ class Home extends PageView {
     swiperWrapper.innerHTML = '';
 
     //Add dashboards to swiper container
-    lastDashboards.forEach((dash) => {
+    lastDashboards.forEach((dash, i) => {
       const {
-        img: { src, alt },
+        img: { src, srcMobile, alt },
       } = dash;
       const html = `
       <div class="swiper-slide carousel__slide">
       <div class="carousel__img-box">
-      <img src="${src}" alt="${alt}" />
+      <img 
+        srcset="${srcMobile} 480w, ${src} 800w"
+        sizes="(max-width: 768px) 480px, 800px" 
+        src="${src}" 
+        alt="${alt}" ${i > 0 ? 'loading="lazy"' : ''}
+      />
       </div>
       </div>`;
 
@@ -107,8 +121,13 @@ class Home extends PageView {
     };
 
     const swiper = new Swiper('.swiper', {
+      modules: [Pagination, Autoplay, A11y],
       // Optional parameters
       ...swiperOptions,
+
+      a11y: {
+        enabled: true,
+      },
 
       pagination: {
         el: '.swiper-pagination',

@@ -41,5 +41,8 @@
     "removeEmptyAttributes": false,
     "removeRedundantAttributes": false,
     "removeComments": false
+  },
+  "dependencies": {
+    "swiper": "^11.0.6"
   }
 }

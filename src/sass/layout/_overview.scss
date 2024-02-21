@@ -48,7 +48,11 @@ $social-icon-size: clamp(3.8rem, 2rem + 1.6vw, 6rem);
       width: $social-icon-size;
       height: $social-icon-size;
       transition: fill v.$transition-dur ease-in-out;
-      &:hover {
+    }
+
+    a:hover,
+    a:focus {
+      .icon {
         fill: c.$third-color;
       }
     }

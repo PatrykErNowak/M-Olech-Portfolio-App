@@ -20,18 +20,18 @@ class About extends PageView {
 
       <div class="about__awards">
         <div class="about__award about__award--green">
-          <a href="https://certificates.mavenanalytics.io/6b1260fc-573f-4778-b275-14c20313ce83#gs.4mjpiq">
-            <img src=${new URL('../../img/chatgpt.png', import.meta.url)} alt="" />
+          <a href="https://certificates.mavenanalytics.io/6b1260fc-573f-4778-b275-14c20313ce83#gs.4mjpiq" aria-label="Check my Chat GPT Credential">
+            <img src=${new URL('../../img/chatgpt.png', import.meta.url)} alt="Chat GPT Credential" />
           </a>
         </div>
         <div class="about__award about__award--yellow">
-          <a href="https://www.udemy.com/certificate/UC-6e9bcea7-0975-482c-b89b-d360219c0580/">
-            <img src=${new URL('../../img/powerbi.png', import.meta.url)} alt="" />
+          <a href="https://www.udemy.com/certificate/UC-6e9bcea7-0975-482c-b89b-d360219c0580/" aria-label="Check my Power BI Credential">
+            <img src=${new URL('../../img/powerbi.png', import.meta.url)} alt="Power BI Credential" />
           </a>
         </div>
         <div class="about__award about__award--green">
-          <a href="https://certificates.mavenanalytics.io/28e48493-7c69-4ed4-a436-24e60fbc0f50#gs.4pb53r">
-            <img src=${new URL('../../img/thinking.png', import.meta.url)} alt="" />
+          <a href="https://certificates.mavenanalytics.io/28e48493-7c69-4ed4-a436-24e60fbc0f50#gs.4pb53r" aria-label="Check my Thinking Analyst Credential">
+            <img src=${new URL('../../img/thinking.png', import.meta.url)} alt="Thinking Analyst Credential" />
           </a>
         </div>
       </div>
@@ -50,7 +50,7 @@ class About extends PageView {
           <li class="timeline__item tech">Python</li>
         </ol>
       </section>
-      <a href="#page2" class="about__scroll-to scroll-to" data-scroll-to><svg class="icon">
+      <a href="#page2" class="about__scroll-to scroll-to" data-scroll-to aria-label="Scroll to next section"><svg class="icon">
       <use xlink:href="${icons}#icon-arrow-down"></use>
     </svg></a>
     </div>
@@ -104,15 +104,15 @@ class About extends PageView {
               <h3 class="about__section-title section-title">Languages</h3>
 
               <div class="about__languages">
-                <div class="about__language about__language--polish">
+                <div class="about__language about__language--polish" tabindex="1">
                   <p class="label">Polish<span>native</span></p>
                   <div class="skill"></div>
                 </div>
-                <div class="about__language about__language--english">
+                <div class="about__language about__language--english" tabindex="1">
                   <p class="label">english<span>c1</span></p>
                   <div class="skill"></div>
                 </div>
-                <div class="about__language about__language--french">
+                <div class="about__language about__language--french" tabindex="1">
                   <p class="label">french<span>a2</span></p>
                   <div class="skill"></div>
                 </div>

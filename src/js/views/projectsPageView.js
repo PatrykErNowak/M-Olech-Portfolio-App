@@ -23,7 +23,7 @@ class Projects extends PageView {
       const html = `
       <li>
         <div class="project">
-          <a href=${links.live} class="project__image-link">
+          <a href=${links.live} class="project__image-link" aria-label="Check it Live">
             <img src=${themePhoto.src} alt=${themePhoto.alt} />
           </a>
           <div class="project__info-box">

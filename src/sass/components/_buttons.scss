@@ -23,7 +23,7 @@ $btn-bg-color: rgba(c.$third-color, 0.4);
     letter-spacing: 1px;
     text-transform: uppercase;
     border: solid 1px $btn-border-color;
-    outline: transparent;
+
     transition:
       box-shadow v.$transition-dur ease-in-out,
       transform v.$transition-dur ease-in-out,
