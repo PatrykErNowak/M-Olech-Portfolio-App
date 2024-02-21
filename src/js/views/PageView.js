@@ -91,15 +91,17 @@ export default class PageView {
   static addHandlerChangePage(fn) {
     window.addEventListener('click', (e) => {
       const { target } = e;
+      const link = target.closest('a[data-link="changePage"]');
 
-      if (target.closest('a[data-link="changePage"]')) {
+      if (link) {
         e.preventDefault();
 
         fn(e);
 
-        document.querySelector('#root').scrollIntoView({
-          behavior: 'smooth',
-        });
+        if (link.getAttribute('data-scroll'))
+          document.querySelector('#root').scrollIntoView({
+            behavior: 'smooth',
+          });
       }
     });
   }

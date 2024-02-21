@@ -29,7 +29,7 @@ export const data = {
       desc: 'Report based on passenger survey results prepared to recommend a data-driven strategy for an airline to increase their customer satisfaction ratings.',
       img: {
         src: new URL(
-          '../img/projects/airlinepassengers-dashboard.png',
+          '../img/projects/airlinepassengers-dashboard.jpg',
           import.meta.url,
         ),
         srcMobile: new URL(
