@@ -9,16 +9,6 @@ export const numericSystem = [
   'VIII',
   'IX',
   'X',
-  'XI',
-  'XII',
-  'XIII',
-  'XIV',
-  'XV',
-  'XVI',
-  'XVII',
-  'XVIII',
-  'XIX',
-  'XX',
 ];
 
 export const swiperOptions = {
@@ -46,3 +36,6 @@ export const initAnimation = {
   otherElementsDelay: 1500, // ms
   mainContentDelay: 1500, // ms
 };
+
+// Number of displayed dashboards in home page
+export const numbOfDashs = 3;

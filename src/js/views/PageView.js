@@ -11,7 +11,7 @@ export default class PageView {
    * Render page and additional content received from object.
    * @param {object} data The data to be rendered (e.g. dashboards)
    */
-  _render(data) {
+  render(data) {
     this._parentElement.innerHTML = this._html;
 
     // Run additional init methods for page
@@ -20,15 +20,15 @@ export default class PageView {
   }
 
   initRender(data) {
-    this._render(data);
+    this.render(data);
     this._initAnimation();
   }
 
-  postRender(data) {
+  animatedRender(data) {
     this._parentElement.style.transition = `transform ${anime.duration}ms ${anime.timingFunction}`;
     this._parentElement.style.transform = 'translateX(100%)';
     setTimeout(() => {
-      this._render(data);
+      this.render(data);
       this._parentElement.style.transform = 'translateX(0)';
     }, anime.duration);
   }
@@ -94,7 +94,12 @@ export default class PageView {
 
       if (target.closest('a[data-link="changePage"]')) {
         e.preventDefault();
+
         fn(e);
+
+        document.querySelector('#root').scrollIntoView({
+          behavior: 'smooth',
+        });
       }
     });
   }

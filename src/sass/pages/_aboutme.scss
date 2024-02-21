@@ -315,7 +315,7 @@ $interest-fivth: #f3c7b3;
       left: 50%;
       transform: translate(-50%, -50%);
       color: #5a4924;
-      font-size: clamp(1.2rem, 0.5rem + 0.4vw, 2rem);
+      font-size: clamp(1rem, 0.5rem + 0.4vw, 2rem);
       font-weight: 700;
       text-align: center;
     }
@@ -338,7 +338,7 @@ $interest-fivth: #f3c7b3;
       padding: 16%;
       color: $interest-second;
       .label {
-        font-size: 1.1em;
+        font-size: 1.05em;
         @media screen and (min-height: b.$high-res) {
           font-size: 1.3em;
         }
@@ -350,7 +350,7 @@ $interest-fivth: #f3c7b3;
       padding: 13%;
       color: $interest-third;
       .label {
-        font-size: 1.05em;
+        font-size: 0.9em;
         @media screen and (min-height: b.$high-res) {
           font-size: 1.1em;
         }
@@ -362,7 +362,7 @@ $interest-fivth: #f3c7b3;
       padding: 10%;
       color: $interest-fourth;
       .label {
-        font-size: 1.03em;
+        font-size: 0.8em;
         @media screen and (min-height: b.$high-res) {
           font-size: 1.04em;
         }

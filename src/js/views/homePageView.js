@@ -3,6 +3,7 @@ import {
   numericSystem,
   swiperOptions,
   dashboardsBoxInfoAnimation as anime,
+  numbOfDashs,
 } from '../config.js';
 
 class Home extends PageView {
@@ -49,7 +50,13 @@ class Home extends PageView {
       </div>
     </div>
   </div>`;
+
+  _lastDashboards(dashboards) {
+    return dashboards.toReversed().slice(0, numbOfDashs);
+  }
   _renderDashboards({ dashboards }) {
+    const lastDashboards = this._lastDashboards(dashboards);
+
     const dashboardCounter = {
       actual: document.querySelector('.js-counter-actual'),
       ofAll: document.querySelector('.js-counter-of-all'),
@@ -59,13 +66,13 @@ class Home extends PageView {
     const { actual, ofAll } = dashboardCounter;
 
     actual.textContent = numericSystem[0];
-    ofAll.textContent = numericSystem[dashboards.length - 1];
+    ofAll.textContent = numericSystem[lastDashboards.length - 1];
 
     // Clear swiper container
     swiperWrapper.innerHTML = '';
 
     //Add dashboards to swiper container
-    dashboards.forEach((dash) => {
+    lastDashboards.forEach((dash) => {
       const {
         img: { src, alt },
       } = dash;
@@ -80,6 +87,7 @@ class Home extends PageView {
     });
   }
   _createSwiper({ dashboards }) {
+    const lastThreeDashs = this._lastDashboards(dashboards);
     const dashboardCounter = {
       actual: document.querySelector('.js-counter-actual'),
       ofAll: document.querySelector('.js-counter-of-all'),
@@ -123,9 +131,9 @@ class Home extends PageView {
       carouselAnimationHandle(actual, anime.name, anime.duration);
 
       setTimeout(() => {
-        infoTitle.textContent = dashboards[currentIndex].title;
-        infoDesc.textContent = dashboards[currentIndex].desc;
-        infoBtn.href = dashboards[currentIndex].links.live;
+        infoTitle.textContent = lastThreeDashs[currentIndex].title;
+        infoDesc.textContent = lastThreeDashs[currentIndex].desc;
+        infoBtn.href = lastThreeDashs[currentIndex].links.live;
         actual.textContent = numericSystem[currentIndex];
       }, anime.duration * 0.5);
     });

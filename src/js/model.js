@@ -28,7 +28,7 @@ export const data = {
           '../img/projects/airlinepassengers-dashboard.png',
           import.meta.url,
         ),
-        alt: '',
+        alt: 'Airline Passengers Satisfaction Dashboard',
       },
       themePhoto: {
         src: new URL(
@@ -51,7 +51,7 @@ export const data = {
           '../img/projects/tourdefrance-dashboard.jpg',
           import.meta.url,
         ),
-        alt: '',
+        alt: 'Tour de France Dashboard',
       },
       themePhoto: {
         src: new URL('../img/projects/tourdefrance-photo.jpg', import.meta.url),

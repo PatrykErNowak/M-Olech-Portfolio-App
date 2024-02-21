@@ -29,8 +29,10 @@ const controlURLPageRender = function (isInit = false) {
 
   if (isInit && !isMobile) {
     page.initRender(model.data);
+  } else if (isMobile) {
+    page.render(model.data);
   } else {
-    page.postRender(model.data);
+    page.animatedRender(model.data);
   }
 };
 

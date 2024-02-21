@@ -607,7 +607,8 @@ var _modelJs = require("./model.js");
     const page = urlRoutes[location] || urlRoutes[404];
     const isMobile = window.navigator.userAgentData?.mobile || window.matchMedia("(max-width: 768px)").matches;
     if (isInit && !isMobile) page.initRender(_modelJs.data);
-    else page.postRender(_modelJs.data);
+    else if (isMobile) page.render(_modelJs.data);
+    else page.animatedRender(_modelJs.data);
 };
 /**
  * Adds an entry to the browser's session history stack based on passed in Event Object
@@ -664,21 +665,21 @@ class PageView {
     /**
    * Render page and additional content received from object.
    * @param {object} data The data to be rendered (e.g. dashboards)
-   */ _render(data) {
+   */ render(data) {
         this._parentElement.innerHTML = this._html;
         // Run additional init methods for page
         this._init?.(data);
         this._updatePageTitle();
     }
     initRender(data) {
-        this._render(data);
+        this.render(data);
         this._initAnimation();
     }
-    postRender(data) {
+    animatedRender(data) {
         this._parentElement.style.transition = `transform ${(0, _configJs.changePageAnimation).duration}ms ${(0, _configJs.changePageAnimation).timingFunction}`;
         this._parentElement.style.transform = "translateX(100%)";
         setTimeout(()=>{
-            this._render(data);
+            this.render(data);
             this._parentElement.style.transform = "translateX(0)";
         }, (0, _configJs.changePageAnimation).duration);
     }
@@ -726,6 +727,9 @@ class PageView {
             if (target.closest('a[data-link="changePage"]')) {
                 e.preventDefault();
                 fn(e);
+                document.querySelector("#root").scrollIntoView({
+                    behavior: "smooth"
+                });
             }
         });
     }
@@ -745,6 +749,7 @@ parcelHelpers.export(exports, "swiperOptions", ()=>swiperOptions);
 parcelHelpers.export(exports, "dashboardsBoxInfoAnimation", ()=>dashboardsBoxInfoAnimation);
 parcelHelpers.export(exports, "changePageAnimation", ()=>changePageAnimation);
 parcelHelpers.export(exports, "initAnimation", ()=>initAnimation);
+parcelHelpers.export(exports, "numbOfDashs", ()=>numbOfDashs);
 const numericSystem = [
     "I",
     "II",
@@ -755,17 +760,7 @@ const numericSystem = [
     "VII",
     "VIII",
     "IX",
-    "X",
-    "XI",
-    "XII",
-    "XIII",
-    "XIV",
-    "XV",
-    "XVI",
-    "XVII",
-    "XVIII",
-    "XIX",
-    "XX"
+    "X"
 ];
 const swiperOptions = {
     loop: true,
@@ -789,6 +784,7 @@ const initAnimation = {
     otherElementsDelay: 1500,
     mainContentDelay: 1500
 };
+const numbOfDashs = 3;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -1117,7 +1113,11 @@ class Home extends (0, _pageViewJsDefault.default) {
       </div>
     </div>
   </div>`;
+    _lastDashboards(dashboards) {
+        return dashboards.toReversed().slice(0, (0, _configJs.numbOfDashs));
+    }
     _renderDashboards({ dashboards }) {
+        const lastDashboards = this._lastDashboards(dashboards);
         const dashboardCounter = {
             actual: document.querySelector(".js-counter-actual"),
             ofAll: document.querySelector(".js-counter-of-all")
@@ -1125,11 +1125,11 @@ class Home extends (0, _pageViewJsDefault.default) {
         const swiperWrapper = document.querySelector(".swiper-wrapper");
         const { actual, ofAll } = dashboardCounter;
         actual.textContent = (0, _configJs.numericSystem)[0];
-        ofAll.textContent = (0, _configJs.numericSystem)[dashboards.length - 1];
+        ofAll.textContent = (0, _configJs.numericSystem)[lastDashboards.length - 1];
         // Clear swiper container
         swiperWrapper.innerHTML = "";
         //Add dashboards to swiper container
-        dashboards.forEach((dash)=>{
+        lastDashboards.forEach((dash)=>{
             const { img: { src, alt } } = dash;
             const html = `
       <div class="swiper-slide carousel__slide">
@@ -1141,6 +1141,7 @@ class Home extends (0, _pageViewJsDefault.default) {
         });
     }
     _createSwiper({ dashboards }) {
+        const lastThreeDashs = this._lastDashboards(dashboards);
         const dashboardCounter = {
             actual: document.querySelector(".js-counter-actual"),
             ofAll: document.querySelector(".js-counter-of-all")
@@ -1178,9 +1179,9 @@ class Home extends (0, _pageViewJsDefault.default) {
             carouselAnimationHandle(infoBtn, (0, _configJs.dashboardsBoxInfoAnimation).name, (0, _configJs.dashboardsBoxInfoAnimation).duration);
             carouselAnimationHandle(actual, (0, _configJs.dashboardsBoxInfoAnimation).name, (0, _configJs.dashboardsBoxInfoAnimation).duration);
             setTimeout(()=>{
-                infoTitle.textContent = dashboards[currentIndex].title;
-                infoDesc.textContent = dashboards[currentIndex].desc;
-                infoBtn.href = dashboards[currentIndex].links.live;
+                infoTitle.textContent = lastThreeDashs[currentIndex].title;
+                infoDesc.textContent = lastThreeDashs[currentIndex].desc;
+                infoBtn.href = lastThreeDashs[currentIndex].links.live;
                 actual.textContent = (0, _configJs.numericSystem)[currentIndex];
             }, (0, _configJs.dashboardsBoxInfoAnimation).duration * 0.5);
         });
@@ -1277,7 +1278,7 @@ const data = {
             desc: "Report based on passenger survey results prepared to recommend a data-driven strategy for an airline to increase their customer satisfaction ratings.",
             img: {
                 src: new URL(require("232e9c9c47511ce3")),
-                alt: ""
+                alt: "Airline Passengers Satisfaction Dashboard"
             },
             themePhoto: {
                 src: new URL(require("cbd26efe6341a6f9")),
@@ -1293,7 +1294,7 @@ const data = {
             desc: "The infographic-style dashboard designed to educate new viewers, highlight the magnitude of the event, and build anticipation for Tour de France.",
             img: {
                 src: new URL(require("ce1c5761bb634e4f")),
-                alt: ""
+                alt: "Tour de France Dashboard"
             },
             themePhoto: {
                 src: new URL(require("285b0fefe327c108")),
