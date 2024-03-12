@@ -28,6 +28,11 @@
     <!-- JS -->
     <script type="module" src="./js/controller.js"></script>
   </head>
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-R9WWHNMECB"
+  ></script>
 
   <body>
     <div class="grid-mainpage">
@@ -170,5 +175,14 @@
         </div>
       </main>
     </div>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-R9WWHNMECB');
+    </script>
   </body>
 </html>
