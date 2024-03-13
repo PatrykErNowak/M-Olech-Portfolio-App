@@ -1,4 +1,4 @@
-import PageView from './PageView.js';
+import PageView from './PageView';
 import icons from '../../img/icons.svg';
 
 class About extends PageView {

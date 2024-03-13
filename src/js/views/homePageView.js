@@ -7,13 +7,13 @@ import 'swiper/modules/autoplay.min.css';
 import 'swiper/modules/pagination.min.css';
 import 'swiper/modules/a11y.min.css';
 
-import PageView from './PageView.js';
+import PageView from './PageView';
 import {
   numericSystem,
   swiperOptions,
   dashboardsBoxInfoAnimation as anime,
   numbOfDashs,
-} from '../config.js';
+} from '../config';
 
 class Home extends PageView {
   pageTitle = 'Home';

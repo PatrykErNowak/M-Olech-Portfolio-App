@@ -1,10 +1,10 @@
-import notFound404PageView from './views/404PageView.js';
-import aboutPageView from './views/aboutPageView.js';
-import homePageView from './views/homePageView.js';
-import allProjectsPageView from './views/projectsPageView.js';
-import PageView from './views/PageView.js';
+import notFound404PageView from './views/404PageView';
+import aboutPageView from './views/aboutPageView';
+import homePageView from './views/homePageView';
+import allProjectsPageView from './views/projectsPageView';
+import PageView from './views/PageView';
 
-import * as model from './model.js';
+import * as model from './model';
 
 /**
  * Contains all allowed pages for the site

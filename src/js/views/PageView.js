@@ -1,4 +1,4 @@
-import { changePageAnimation as anime, initAnimation } from '../config.js';
+import { changePageAnimation as anime, initAnimation } from '../config';
 
 /**
  * Parent class for all pages views. Is responsible for rendering and handling animations.
