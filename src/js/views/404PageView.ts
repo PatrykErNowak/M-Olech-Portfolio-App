@@ -20,5 +20,7 @@ class NotFound404 extends PageView {
   </div>
 </div>
 `;
+
+  _init() {}
 }
 export default new NotFound404();

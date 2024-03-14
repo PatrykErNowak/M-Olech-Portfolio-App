@@ -17,7 +17,7 @@ export default abstract class PageView {
     this._parentElement.innerHTML = this._html;
 
     // Run additional init methods for page
-    this._init?.(data);
+    this._init(data);
     this._updatePageTitle();
   }
 

@@ -626,7 +626,7 @@ const init = function() {
 };
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"1Xu4a","./views/aboutPageView":"d4vEX","./views/homePageView":"abVm0","./views/projectsPageView":"dy8QD","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"c2peq","./views/aboutPageView":"d4vEX","./views/homePageView":"abVm0","./views/projectsPageView":"dy8QD","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -656,7 +656,7 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}],"1Xu4a":[function(require,module,exports) {
+},{}],"c2peq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageView = require("./PageView");
@@ -664,8 +664,11 @@ var _pageViewDefault = parcelHelpers.interopDefault(_pageView);
 var _iconsSvg = require("../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class NotFound404 extends (0, _pageViewDefault.default) {
-    pageTitle = "404";
-    _html = `
+    _init() {}
+    constructor(...args){
+        super(...args);
+        this.pageTitle = "404";
+        this._html = `
   <div class="error-page">
   <div class='error'>
     <div class="error__illustration">
@@ -673,7 +676,7 @@ class NotFound404 extends (0, _pageViewDefault.default) {
         <p class="number">404</p>
         <p class="info">Page not found</p>
       </div>
-      <img src=${new URL(require("f992afeb4983abaa"))} class="error__img">
+      <img src=${new URL(require("a98fcdb879754c88"))} class="error__img">
       <a href='/' class="btn  btn--primary btn--primary-reversed error__btn" data-link="changePage">        <svg class="icon">
       <use xlink:href="${0, _iconsSvgDefault.default}#icon-arrow-left"></use>
     </svg> Back Home
@@ -682,10 +685,11 @@ class NotFound404 extends (0, _pageViewDefault.default) {
   </div>
 </div>
 `;
+    }
 }
 exports.default = new NotFound404();
 
-},{"./PageView":"3utRW","../../img/icons.svg":"172kW","f992afeb4983abaa":"lMTo7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3utRW":[function(require,module,exports) {
+},{"./PageView":"3utRW","../../img/icons.svg":"172kW","a98fcdb879754c88":"lMTo7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3utRW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _config = require("../config");
@@ -696,7 +700,7 @@ class PageView {
    */ render(data) {
         this._parentElement.innerHTML = this._html;
         // Run additional init methods for page
-        this._init?.(data);
+        this._init(data);
         this._updatePageTitle();
     }
     initRender(data) {
