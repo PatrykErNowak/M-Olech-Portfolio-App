@@ -142,13 +142,13 @@
       this[globalName] = mainExports;
     }
   }
-})({"f0HGD":[function(require,module,exports) {
+})({"bFEHs":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
 var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
-module.bundle.HMR_BUNDLE_ID = "d113fd8ce37f48ea";
+module.bundle.HMR_BUNDLE_ID = "e5b7b44562574b7f";
 "use strict";
 /* global HMR_HOST, HMR_PORT, HMR_ENV_HASH, HMR_SECURE, chrome, browser, __parcel__import__, __parcel__importScripts__, ServiceWorkerGlobalScope */ /*::
 import type {
@@ -578,7 +578,7 @@ function hmrAccept(bundle /*: ParcelRequire */ , id /*: string */ ) {
     });
 }
 
-},{}],"aenu9":[function(require,module,exports) {
+},{}],"jUFIE":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _404PageView = require("./views/404PageView");
 var _404PageViewDefault = parcelHelpers.interopDefault(_404PageView);
@@ -613,50 +613,19 @@ var _model = require("./model");
 /**
  * Adds an entry to the browser's session history stack based on passed in Event Object
  */ const controlURLRoute = function(event) {
-    event = event || window.event;
-    window.history.pushState({}, "", event.target.href);
+    if (event.target instanceof HTMLAnchorElement) window.history.pushState({}, "", event.target.href);
     controlURLPageRender();
 };
 const init = function() {
     controlURLPageRender(true);
     (0, _pageViewDefault.default).addHandlerChangePage(controlURLRoute);
     window.addEventListener("popstate", ()=>controlURLPageRender());
-    window.route = controlURLRoute;
+    // window.route = controlURLRoute;
     (0, _pageViewDefault.default).updateFooterYear();
 };
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"c2peq","./views/aboutPageView":"aAiyc","./views/homePageView":"aAcq3","./views/projectsPageView":"abNvX","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
-exports.interopDefault = function(a) {
-    return a && a.__esModule ? a : {
-        default: a
-    };
-};
-exports.defineInteropFlag = function(a) {
-    Object.defineProperty(a, "__esModule", {
-        value: true
-    });
-};
-exports.exportAll = function(source, dest) {
-    Object.keys(source).forEach(function(key) {
-        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
-        Object.defineProperty(dest, key, {
-            enumerable: true,
-            get: function() {
-                return source[key];
-            }
-        });
-    });
-    return dest;
-};
-exports.export = function(dest, destName, get) {
-    Object.defineProperty(dest, destName, {
-        enumerable: true,
-        get: get
-    });
-};
-
-},{}],"c2peq":[function(require,module,exports) {
+},{"./views/404PageView":"c2peq","./views/aboutPageView":"aAiyc","./views/homePageView":"aAcq3","./views/projectsPageView":"abNvX","./views/PageView":"3utRW","./model":"W3HEC","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"c2peq":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageView = require("./PageView");
@@ -689,7 +658,7 @@ class NotFound404 extends (0, _pageViewDefault.default) {
 }
 exports.default = new NotFound404();
 
-},{"./PageView":"3utRW","../../img/icons.svg":"172kW","a98fcdb879754c88":"lMTo7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3utRW":[function(require,module,exports) {
+},{"./PageView":"3utRW","../../img/icons.svg":"32x9F","a98fcdb879754c88":"3YBuu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3utRW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _config = require("../config");
@@ -781,7 +750,7 @@ class PageView {
 }
 exports.default = PageView;
 
-},{"../config":"adXZj","320b3bccbc3ce733":"euINo","a69b916d6d82e5db":"7Ls5e","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adXZj":[function(require,module,exports) {
+},{"../config":"adXZj","320b3bccbc3ce733":"ikp9K","a69b916d6d82e5db":"gvtGP","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adXZj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "numericSystem", ()=>numericSystem);
@@ -826,10 +795,40 @@ const initAnimation = {
 };
 const numbOfDashs = 3;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"euINo":[function(require,module,exports) {
-module.exports = require("2fef29f727ee99f7").getBundleURL("hWUTQ") + "../img/arrow-gif.3e92df1d.gif" + "?" + Date.now();
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"gkKU3":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, "__esModule", {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === "default" || key === "__esModule" || Object.prototype.hasOwnProperty.call(dest, key)) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
 
-},{"2fef29f727ee99f7":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{}],"ikp9K":[function(require,module,exports) {
+module.exports = require("52fcb4c9bf362568").getBundleURL("jIMrz") + "img/arrow-gif.3e92df1d.gif" + "?" + Date.now();
+
+},{"52fcb4c9bf362568":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {
@@ -864,16 +863,16 @@ exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
 exports.getOrigin = getOrigin;
 
-},{}],"7Ls5e":[function(require,module,exports) {
-module.exports = require("d3300cad8399870e").getBundleURL("hWUTQ") + "../img/arrow-gif.723a5389.png" + "?" + Date.now();
+},{}],"gvtGP":[function(require,module,exports) {
+module.exports = require("7535b385da23fe8e").getBundleURL("jIMrz") + "img/arrow-gif.723a5389.png" + "?" + Date.now();
 
-},{"d3300cad8399870e":"lgJ39"}],"172kW":[function(require,module,exports) {
-module.exports = require("ab13a26c8783cc56").getBundleURL("hWUTQ") + "../img/icons.21bad73c.svg" + "?" + Date.now();
+},{"7535b385da23fe8e":"lgJ39"}],"32x9F":[function(require,module,exports) {
+module.exports = require("c48cec0d555bdaa4").getBundleURL("jIMrz") + "img/icons.21bad73c.svg" + "?" + Date.now();
 
-},{"ab13a26c8783cc56":"lgJ39"}],"lMTo7":[function(require,module,exports) {
-module.exports = require("2e002c9883967473").getBundleURL("hWUTQ") + "../img/cat404.1575ddad.png" + "?" + Date.now();
+},{"c48cec0d555bdaa4":"lgJ39"}],"3YBuu":[function(require,module,exports) {
+module.exports = require("4b76a8320cfbb257").getBundleURL("jIMrz") + "img/cat404.1575ddad.png" + "?" + Date.now();
 
-},{"2e002c9883967473":"lgJ39"}],"aAiyc":[function(require,module,exports) {
+},{"4b76a8320cfbb257":"lgJ39"}],"aAiyc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageView = require("./PageView");
@@ -1053,31 +1052,31 @@ class About extends (0, _pageViewDefault.default) {
 }
 exports.default = new About();
 
-},{"./PageView":"3utRW","../../img/icons.svg":"172kW","e07d10f8aba92676":"02Y3B","53cc05dede6fc141":"2UuD0","570649b1e037ecce":"hcYFm","1ddc7f4bf96daf01":"fbTUq","de34617051cc4e0a":"inMSq","5b9a34160e297d11":"2EYd5","da0dd52c7e5fa6c2":"gaS6A","e893e6d9f57df392":"gsYdf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02Y3B":[function(require,module,exports) {
-module.exports = require("903412daf98d06a0").getBundleURL("hWUTQ") + "../img/chatgpt.3b03e9d1.png" + "?" + Date.now();
+},{"./PageView":"3utRW","../../img/icons.svg":"32x9F","e07d10f8aba92676":"bTEwL","53cc05dede6fc141":"1OmD2","570649b1e037ecce":"77K42","1ddc7f4bf96daf01":"afMPg","de34617051cc4e0a":"ianPn","5b9a34160e297d11":"kvojN","da0dd52c7e5fa6c2":"1RHwZ","e893e6d9f57df392":"4qPlS","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"bTEwL":[function(require,module,exports) {
+module.exports = require("d0859eddac6c7ef0").getBundleURL("jIMrz") + "img/chatgpt.3b03e9d1.png" + "?" + Date.now();
 
-},{"903412daf98d06a0":"lgJ39"}],"2UuD0":[function(require,module,exports) {
-module.exports = require("140c5ea83a822196").getBundleURL("hWUTQ") + "../img/powerbi.410fd3cf.png" + "?" + Date.now();
+},{"d0859eddac6c7ef0":"lgJ39"}],"1OmD2":[function(require,module,exports) {
+module.exports = require("be9d2d3943b9ed93").getBundleURL("jIMrz") + "img/powerbi.410fd3cf.png" + "?" + Date.now();
 
-},{"140c5ea83a822196":"lgJ39"}],"hcYFm":[function(require,module,exports) {
-module.exports = require("3006cc1a55dbafb7").getBundleURL("hWUTQ") + "../img/thinking.9303d4a7.png" + "?" + Date.now();
+},{"be9d2d3943b9ed93":"lgJ39"}],"77K42":[function(require,module,exports) {
+module.exports = require("f5b6f9339a11bcf").getBundleURL("jIMrz") + "img/thinking.9303d4a7.png" + "?" + Date.now();
 
-},{"3006cc1a55dbafb7":"lgJ39"}],"fbTUq":[function(require,module,exports) {
-module.exports = require("933ff0766fad0c48").getBundleURL("hWUTQ") + "../img/comunicative.7c593272.webp" + "?" + Date.now();
+},{"f5b6f9339a11bcf":"lgJ39"}],"afMPg":[function(require,module,exports) {
+module.exports = require("5e3f739caaa0534d").getBundleURL("jIMrz") + "img/comunicative.7c593272.webp" + "?" + Date.now();
 
-},{"933ff0766fad0c48":"lgJ39"}],"inMSq":[function(require,module,exports) {
-module.exports = require("6082b67e3ebeb3ca").getBundleURL("hWUTQ") + "../img/reliable.801ff512.webp" + "?" + Date.now();
+},{"5e3f739caaa0534d":"lgJ39"}],"ianPn":[function(require,module,exports) {
+module.exports = require("fbcb06a80edf0b0").getBundleURL("jIMrz") + "img/reliable.801ff512.webp" + "?" + Date.now();
 
-},{"6082b67e3ebeb3ca":"lgJ39"}],"2EYd5":[function(require,module,exports) {
-module.exports = require("ee5b50a6c73cf0f8").getBundleURL("hWUTQ") + "../img/experimental.b0a963d0.webp" + "?" + Date.now();
+},{"fbcb06a80edf0b0":"lgJ39"}],"kvojN":[function(require,module,exports) {
+module.exports = require("8efb98374d5057be").getBundleURL("jIMrz") + "img/experimental.b0a963d0.webp" + "?" + Date.now();
 
-},{"ee5b50a6c73cf0f8":"lgJ39"}],"gaS6A":[function(require,module,exports) {
-module.exports = require("b13bf0683c64fe6e").getBundleURL("hWUTQ") + "../img/logic.1ade26f0.webp" + "?" + Date.now();
+},{"8efb98374d5057be":"lgJ39"}],"1RHwZ":[function(require,module,exports) {
+module.exports = require("48e0bffae6f05edc").getBundleURL("jIMrz") + "img/logic.1ade26f0.webp" + "?" + Date.now();
 
-},{"b13bf0683c64fe6e":"lgJ39"}],"gsYdf":[function(require,module,exports) {
-module.exports = require("e1292226620c99b1").getBundleURL("hWUTQ") + "../img/active.c56b2b34.webp" + "?" + Date.now();
+},{"48e0bffae6f05edc":"lgJ39"}],"4qPlS":[function(require,module,exports) {
+module.exports = require("927cb72c218278a8").getBundleURL("jIMrz") + "img/active.c56b2b34.webp" + "?" + Date.now();
 
-},{"e1292226620c99b1":"lgJ39"}],"aAcq3":[function(require,module,exports) {
+},{"927cb72c218278a8":"lgJ39"}],"aAcq3":[function(require,module,exports) {
 // import Swiper JS
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -9238,7 +9237,7 @@ class Projects extends (0, _pageViewDefault.default) {
 }
 exports.default = new Projects();
 
-},{"./PageView":"3utRW","../../img/icons.svg":"172kW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"W3HEC":[function(require,module,exports) {
+},{"./PageView":"3utRW","../../img/icons.svg":"32x9F","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"W3HEC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "data", ()=>data);
@@ -9298,33 +9297,33 @@ const data = {
     ]
 };
 
-},{"aa79d17622d5369b":"mlg5B","5171cdf8f0af9c83":"i4UjO","dcd0133bbcc3de5b":"6NUkf","d8caefe49265c0ab":"kyP3D","b3760635f2e3a3c2":"hHLwF","f77724054f063868":"iZgDB","d31c091b9bd727a7":"2pI8j","d5063d1ff816a1e5":"5Y2hM","c2859540036606eb":"5xMgD","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"mlg5B":[function(require,module,exports) {
-module.exports = require("38ffeef5dd680b76").getBundleURL("hWUTQ") + "../img/northwind-dashboard.20935954.jpeg" + "?" + Date.now();
+},{"aa79d17622d5369b":"h1Sil","5171cdf8f0af9c83":"5Ctyz","dcd0133bbcc3de5b":"5SyeX","d8caefe49265c0ab":"jg2CT","b3760635f2e3a3c2":"6ogbn","f77724054f063868":"lXTy0","d31c091b9bd727a7":"675uD","d5063d1ff816a1e5":"5RNGD","c2859540036606eb":"knZVh","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"h1Sil":[function(require,module,exports) {
+module.exports = require("e8547335c1dbc79c").getBundleURL("jIMrz") + "img/northwind-dashboard.20935954.jpeg" + "?" + Date.now();
 
-},{"38ffeef5dd680b76":"lgJ39"}],"i4UjO":[function(require,module,exports) {
-module.exports = require("bd7bd35545e3b607").getBundleURL("hWUTQ") + "../img/northwind-dashboard-mobile.4b162392.jpeg" + "?" + Date.now();
+},{"e8547335c1dbc79c":"lgJ39"}],"5Ctyz":[function(require,module,exports) {
+module.exports = require("908593285b74c6d7").getBundleURL("jIMrz") + "img/northwind-dashboard-mobile.4b162392.jpeg" + "?" + Date.now();
 
-},{"bd7bd35545e3b607":"lgJ39"}],"6NUkf":[function(require,module,exports) {
-module.exports = require("408879d02b4e2843").getBundleURL("hWUTQ") + "../img/northwind-photo.3ca44ba7.jpeg" + "?" + Date.now();
+},{"908593285b74c6d7":"lgJ39"}],"5SyeX":[function(require,module,exports) {
+module.exports = require("13625931ee95afd7").getBundleURL("jIMrz") + "img/northwind-photo.3ca44ba7.jpeg" + "?" + Date.now();
 
-},{"408879d02b4e2843":"lgJ39"}],"kyP3D":[function(require,module,exports) {
-module.exports = require("9bc8f6b5bd4b8670").getBundleURL("hWUTQ") + "../img/airlinepassengers-dashboard.60ea301c.jpeg" + "?" + Date.now();
+},{"13625931ee95afd7":"lgJ39"}],"jg2CT":[function(require,module,exports) {
+module.exports = require("5556477f7c86ee7").getBundleURL("jIMrz") + "img/airlinepassengers-dashboard.60ea301c.jpeg" + "?" + Date.now();
 
-},{"9bc8f6b5bd4b8670":"lgJ39"}],"hHLwF":[function(require,module,exports) {
-module.exports = require("6c706c5e6c333e40").getBundleURL("hWUTQ") + "../img/airlinepassengers-dashboard-mobile.684b7ca5.png" + "?" + Date.now();
+},{"5556477f7c86ee7":"lgJ39"}],"6ogbn":[function(require,module,exports) {
+module.exports = require("4485befeab519931").getBundleURL("jIMrz") + "img/airlinepassengers-dashboard-mobile.684b7ca5.png" + "?" + Date.now();
 
-},{"6c706c5e6c333e40":"lgJ39"}],"iZgDB":[function(require,module,exports) {
-module.exports = require("1bdb34679d014ccc").getBundleURL("hWUTQ") + "../img/airlinepassengers-photo.ad6fd32a.jpeg" + "?" + Date.now();
+},{"4485befeab519931":"lgJ39"}],"lXTy0":[function(require,module,exports) {
+module.exports = require("d65726280f2bcea7").getBundleURL("jIMrz") + "img/airlinepassengers-photo.ad6fd32a.jpeg" + "?" + Date.now();
 
-},{"1bdb34679d014ccc":"lgJ39"}],"2pI8j":[function(require,module,exports) {
-module.exports = require("ba0524c29249200c").getBundleURL("hWUTQ") + "../img/tourdefrance-dashboard.a40d0dea.jpeg" + "?" + Date.now();
+},{"d65726280f2bcea7":"lgJ39"}],"675uD":[function(require,module,exports) {
+module.exports = require("22276efa5a3e537c").getBundleURL("jIMrz") + "img/tourdefrance-dashboard.a40d0dea.jpeg" + "?" + Date.now();
 
-},{"ba0524c29249200c":"lgJ39"}],"5Y2hM":[function(require,module,exports) {
-module.exports = require("69f4e2a8ea30cf86").getBundleURL("hWUTQ") + "../img/tourdefrance-dashboard-mobile.64997459.jpeg" + "?" + Date.now();
+},{"22276efa5a3e537c":"lgJ39"}],"5RNGD":[function(require,module,exports) {
+module.exports = require("cb46dda98035565d").getBundleURL("jIMrz") + "img/tourdefrance-dashboard-mobile.64997459.jpeg" + "?" + Date.now();
 
-},{"69f4e2a8ea30cf86":"lgJ39"}],"5xMgD":[function(require,module,exports) {
-module.exports = require("6f1fbd3fc24b0e26").getBundleURL("hWUTQ") + "../img/tourdefrance-photo.db3ac49e.jpeg" + "?" + Date.now();
+},{"cb46dda98035565d":"lgJ39"}],"knZVh":[function(require,module,exports) {
+module.exports = require("78c0cf4d32574d76").getBundleURL("jIMrz") + "img/tourdefrance-photo.db3ac49e.jpeg" + "?" + Date.now();
 
-},{"6f1fbd3fc24b0e26":"lgJ39"}]},["f0HGD","aenu9"], "aenu9", "parcelRequirec63f")
+},{"78c0cf4d32574d76":"lgJ39"}]},["bFEHs","jUFIE"], "jUFIE", "parcelRequirec63f")
 
-//# sourceMappingURL=controller.min.e37f48ea.js.map
+//# sourceMappingURL=index.62574b7f.js.map
