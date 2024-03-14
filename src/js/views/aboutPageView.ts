@@ -154,17 +154,17 @@ class About extends PageView {
   _init() {
     this._scrollToNextPage();
   }
-  _scrollToNextPage() {
+  private _scrollToNextPage() {
     this._parentElement.addEventListener('click', (e) => {
       const { target } = e;
 
-      if (target.closest('a[data-scroll-to]')) {
+      if (target instanceof Element && target.closest('a[data-scroll-to]')) {
         e.preventDefault();
-        const pageTarget = target
-          .closest('a[data-scroll-to]')
-          .getAttribute('href');
-        const page = document.querySelector(pageTarget);
+        const pageTarget = target.closest('a[data-scroll-to]')?.getAttribute('href');
 
+        if (!pageTarget) return;
+
+        const page = document.querySelector(pageTarget) as HTMLBodyElement;
         page.scrollIntoView({
           behavior: 'smooth',
         });

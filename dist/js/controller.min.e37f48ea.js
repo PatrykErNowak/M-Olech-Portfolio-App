@@ -626,7 +626,7 @@ const init = function() {
 };
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"c2peq","./views/aboutPageView":"d4vEX","./views/homePageView":"abVm0","./views/projectsPageView":"dy8QD","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"c2peq","./views/aboutPageView":"aAiyc","./views/homePageView":"abVm0","./views/projectsPageView":"dy8QD","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -873,7 +873,7 @@ module.exports = require("ab13a26c8783cc56").getBundleURL("hWUTQ") + "../img/ico
 },{"ab13a26c8783cc56":"lgJ39"}],"lMTo7":[function(require,module,exports) {
 module.exports = require("2e002c9883967473").getBundleURL("hWUTQ") + "../img/cat404.1575ddad.png" + "?" + Date.now();
 
-},{"2e002c9883967473":"lgJ39"}],"d4vEX":[function(require,module,exports) {
+},{"2e002c9883967473":"lgJ39"}],"aAiyc":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageView = require("./PageView");
@@ -881,8 +881,27 @@ var _pageViewDefault = parcelHelpers.interopDefault(_pageView);
 var _iconsSvg = require("../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class About extends (0, _pageViewDefault.default) {
-    pageTitle = "About Me";
-    _html = `
+    _init() {
+        this._scrollToNextPage();
+    }
+    _scrollToNextPage() {
+        this._parentElement.addEventListener("click", (e)=>{
+            const { target } = e;
+            if (target instanceof Element && target.closest("a[data-scroll-to]")) {
+                e.preventDefault();
+                const pageTarget = target.closest("a[data-scroll-to]")?.getAttribute("href");
+                if (!pageTarget) return;
+                const page = document.querySelector(pageTarget);
+                page.scrollIntoView({
+                    behavior: "smooth"
+                });
+            }
+        });
+    }
+    constructor(...args){
+        super(...args);
+        this.pageTitle = "About Me";
+        this._html = `
   <div class="about">
     <div class="about__first-page page"> 
       <h2 class="about__title page-title">About Me</h2>
@@ -900,17 +919,17 @@ class About extends (0, _pageViewDefault.default) {
       <div class="about__awards">
         <div class="about__award about__award--green">
           <a href="https://certificates.mavenanalytics.io/6b1260fc-573f-4778-b275-14c20313ce83#gs.4mjpiq" aria-label="Check my Chat GPT Credential">
-            <img src=${new URL(require("5a47699ce8b33375"))} alt="Chat GPT Credential" />
+            <img src=${new URL(require("e07d10f8aba92676"))} alt="Chat GPT Credential" />
           </a>
         </div>
         <div class="about__award about__award--yellow">
           <a href="https://www.udemy.com/certificate/UC-6e9bcea7-0975-482c-b89b-d360219c0580/" aria-label="Check my Power BI Credential">
-            <img src=${new URL(require("b7f31b1dd2aba51b"))} alt="Power BI Credential" />
+            <img src=${new URL(require("53cc05dede6fc141"))} alt="Power BI Credential" />
           </a>
         </div>
         <div class="about__award about__award--green">
           <a href="https://certificates.mavenanalytics.io/28e48493-7c69-4ed4-a436-24e60fbc0f50#gs.4pb53r" aria-label="Check my Thinking Analyst Credential">
-            <img src=${new URL(require("1261a238363e9283"))} alt="Thinking Analyst Credential" />
+            <img src=${new URL(require("570649b1e037ecce"))} alt="Thinking Analyst Credential" />
           </a>
         </div>
       </div>
@@ -940,7 +959,7 @@ class About extends (0, _pageViewDefault.default) {
                 <li class="about__qualities__item">
                   <img
                     class="about__qualities__image"
-                    src=${new URL(require("996d41c64e831608"))}
+                    src=${new URL(require("1ddc7f4bf96daf01"))}
                     alt=""
                   />
                   <p class="about__qualities__text">communicative</p>
@@ -948,7 +967,7 @@ class About extends (0, _pageViewDefault.default) {
                 <li class="about__qualities__item">
                   <img
                     class="about__qualities__image"
-                    src=${new URL(require("2e6290dd1b4a1ece"))}
+                    src=${new URL(require("de34617051cc4e0a"))}
                     alt=""
                   />
                   <p class="about__qualities__text">reliable</p>
@@ -956,7 +975,7 @@ class About extends (0, _pageViewDefault.default) {
                 <li class="about__qualities__item">
                   <img
                     class="about__qualities__image"
-                    src=${new URL(require("6e02de32e51527ba"))}
+                    src=${new URL(require("5b9a34160e297d11"))}
                     alt=""
                   />
                   <p class="about__qualities__text">experimental</p>
@@ -964,7 +983,7 @@ class About extends (0, _pageViewDefault.default) {
                 <li class="about__qualities__item">
                   <img
                     class="about__qualities__image"
-                    src=${new URL(require("10f5736e8708d96d"))}
+                    src=${new URL(require("da0dd52c7e5fa6c2"))}
                     alt=""
                   />
                   <p class="about__qualities__text">logic</p>
@@ -972,7 +991,7 @@ class About extends (0, _pageViewDefault.default) {
                 <li class="about__qualities__item">
                   <img
                     class="about__qualities__image"
-                    src=${new URL(require("57d8f1491c4f2ff5"))}
+                    src=${new URL(require("e893e6d9f57df392"))}
                     alt=""
                   />
                   <p class="about__qualities__text">active</p>
@@ -1030,26 +1049,11 @@ class About extends (0, _pageViewDefault.default) {
           </div>
   </div>
   `;
-    _init() {
-        this._scrollToNextPage();
-    }
-    _scrollToNextPage() {
-        this._parentElement.addEventListener("click", (e)=>{
-            const { target } = e;
-            if (target.closest("a[data-scroll-to]")) {
-                e.preventDefault();
-                const pageTarget = target.closest("a[data-scroll-to]").getAttribute("href");
-                const page = document.querySelector(pageTarget);
-                page.scrollIntoView({
-                    behavior: "smooth"
-                });
-            }
-        });
     }
 }
 exports.default = new About();
 
-},{"./PageView":"3utRW","../../img/icons.svg":"172kW","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0","1261a238363e9283":"hcYFm","996d41c64e831608":"fbTUq","2e6290dd1b4a1ece":"inMSq","6e02de32e51527ba":"2EYd5","10f5736e8708d96d":"gaS6A","57d8f1491c4f2ff5":"gsYdf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02Y3B":[function(require,module,exports) {
+},{"./PageView":"3utRW","../../img/icons.svg":"172kW","e07d10f8aba92676":"02Y3B","53cc05dede6fc141":"2UuD0","570649b1e037ecce":"hcYFm","1ddc7f4bf96daf01":"fbTUq","de34617051cc4e0a":"inMSq","5b9a34160e297d11":"2EYd5","da0dd52c7e5fa6c2":"gaS6A","e893e6d9f57df392":"gsYdf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02Y3B":[function(require,module,exports) {
 module.exports = require("903412daf98d06a0").getBundleURL("hWUTQ") + "../img/chatgpt.3b03e9d1.png" + "?" + Date.now();
 
 },{"903412daf98d06a0":"lgJ39"}],"2UuD0":[function(require,module,exports) {
