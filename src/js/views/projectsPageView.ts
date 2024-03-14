@@ -1,5 +1,6 @@
 import PageView from './PageView';
 import icons from '../../img/icons.svg';
+import { Data } from '../model';
 
 class Projects extends PageView {
   pageTitle = 'All Projects';
@@ -11,11 +12,11 @@ class Projects extends PageView {
       </ul>
     </div>`;
 
-  _init(data) {
+  _init(data: Data) {
     this._renderProjects(data);
   }
-  _renderProjects({ dashboards }) {
-    const list = document.querySelector('[data-js="projects-list"]');
+  _renderProjects({ dashboards }: Data) {
+    const list = document.querySelector('[data-js="projects-list"]') as HTMLUListElement;
 
     dashboards.forEach((dash) => {
       const { themePhoto, title, desc, links } = dash;

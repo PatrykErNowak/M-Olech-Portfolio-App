@@ -626,7 +626,7 @@ const init = function() {
 };
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"c2peq","./views/aboutPageView":"aAiyc","./views/homePageView":"abVm0","./views/projectsPageView":"dy8QD","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"c2peq","./views/aboutPageView":"aAiyc","./views/homePageView":"abVm0","./views/projectsPageView":"abNvX","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -9171,7 +9171,7 @@ function EffectCards(_ref) {
     });
 }
 
-},{"../shared/create-shadow.mjs":"bWkQq","../shared/effect-init.mjs":"88TTi","../shared/effect-target.mjs":"3jkAD","../shared/effect-virtual-transition-end.mjs":"dzFvU","../shared/utils.mjs":"9mU7V","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eFTGe":[function() {},{}],"gCEvf":[function() {},{}],"jHq3j":[function() {},{}],"iQ5us":[function() {},{}],"dy8QD":[function(require,module,exports) {
+},{"../shared/create-shadow.mjs":"bWkQq","../shared/effect-init.mjs":"88TTi","../shared/effect-target.mjs":"3jkAD","../shared/effect-virtual-transition-end.mjs":"dzFvU","../shared/utils.mjs":"9mU7V","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"eFTGe":[function() {},{}],"gCEvf":[function() {},{}],"jHq3j":[function() {},{}],"iQ5us":[function() {},{}],"abNvX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageView = require("./PageView");
@@ -9179,13 +9179,6 @@ var _pageViewDefault = parcelHelpers.interopDefault(_pageView);
 var _iconsSvg = require("../../img/icons.svg");
 var _iconsSvgDefault = parcelHelpers.interopDefault(_iconsSvg);
 class Projects extends (0, _pageViewDefault.default) {
-    pageTitle = "All Projects";
-    _html = `
-    <div class="projects page">
-      <h2 class="projects__title page-title">My works</h2>
-      <ul class="projects__list" data-js="projects-list">
-      </ul>
-    </div>`;
     _init(data) {
         this._renderProjects(data);
     }
@@ -9225,6 +9218,16 @@ class Projects extends (0, _pageViewDefault.default) {
       </li>`;
             list.insertAdjacentHTML("beforeend", html);
         });
+    }
+    constructor(...args){
+        super(...args);
+        this.pageTitle = "All Projects";
+        this._html = `
+    <div class="projects page">
+      <h2 class="projects__title page-title">My works</h2>
+      <ul class="projects__list" data-js="projects-list">
+      </ul>
+    </div>`;
     }
 }
 exports.default = new Projects();
