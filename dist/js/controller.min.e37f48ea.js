@@ -626,7 +626,7 @@ const init = function() {
 };
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"1Xu4a","./views/aboutPageView":"d4vEX","./views/homePageView":"abVm0","./views/projectsPageView":"dy8QD","./views/PageView":"4GbzM","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"1Xu4a","./views/aboutPageView":"d4vEX","./views/homePageView":"abVm0","./views/projectsPageView":"dy8QD","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -685,54 +685,11 @@ class NotFound404 extends (0, _pageViewDefault.default) {
 }
 exports.default = new NotFound404();
 
-},{"../../img/icons.svg":"172kW","f992afeb4983abaa":"lMTo7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./PageView":"4GbzM"}],"172kW":[function(require,module,exports) {
-module.exports = require("ab13a26c8783cc56").getBundleURL("hWUTQ") + "../img/icons.21bad73c.svg" + "?" + Date.now();
-
-},{"ab13a26c8783cc56":"lgJ39"}],"lgJ39":[function(require,module,exports) {
-"use strict";
-var bundleURL = {};
-function getBundleURLCached(id) {
-    var value = bundleURL[id];
-    if (!value) {
-        value = getBundleURL();
-        bundleURL[id] = value;
-    }
-    return value;
-}
-function getBundleURL() {
-    try {
-        throw new Error();
-    } catch (err) {
-        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
-        if (matches) // The first two stack frames will be this function and getBundleURLCached.
-        // Use the 3rd one, which will be a runtime in the original bundle.
-        return getBaseURL(matches[2]);
-    }
-    return "/";
-}
-function getBaseURL(url) {
-    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
-}
-// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
-function getOrigin(url) {
-    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
-    if (!matches) throw new Error("Origin not found");
-    return matches[0];
-}
-exports.getBundleURL = getBundleURLCached;
-exports.getBaseURL = getBaseURL;
-exports.getOrigin = getOrigin;
-
-},{}],"lMTo7":[function(require,module,exports) {
-module.exports = require("2e002c9883967473").getBundleURL("hWUTQ") + "../img/cat404.1575ddad.png" + "?" + Date.now();
-
-},{"2e002c9883967473":"lgJ39"}],"4GbzM":[function(require,module,exports) {
+},{"./PageView":"3utRW","../../img/icons.svg":"172kW","f992afeb4983abaa":"lMTo7","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"3utRW":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _config = require("../config");
 class PageView {
-    _mainTitle = document.title;
-    _parentElement = document.querySelector("#root");
     /**
    * Render page and additional content received from object.
    * @param {object} data The data to be rendered (e.g. dashboards)
@@ -763,13 +720,13 @@ class PageView {
         gif.src = "";
         const gifAnimation = function(delay = 0) {
             //Delay
-            setTimeout(()=>gif.src = new URL(require("7ab1481618936942")), delay);
+            setTimeout(()=>gif.src = `${new URL(require("320b3bccbc3ce733"))}`, delay);
             //Stop After
-            setTimeout(()=>gif.src = new URL(require("8301c89008fcf430")), delay + 3000);
+            setTimeout(()=>gif.src = `${new URL(require("a69b916d6d82e5db"))}`, delay + 3000);
         };
         const displayGifAnimationOnce = function(e) {
             const { target } = e;
-            if (!target.classList.contains("slide-in-right")) return;
+            if (target instanceof Element && !target.classList.contains("slide-in-right")) return;
             this.removeEventListener("animationend", displayGifAnimationOnce);
             this.classList.remove("slide-in-right");
             gifAnimation(0);
@@ -795,31 +752,32 @@ class PageView {
     static addHandlerChangePage(fn) {
         window.addEventListener("click", (e)=>{
             const { target } = e;
-            const link = target.closest('a[data-link="changePage"]');
+            const link = target instanceof Element && target.closest('a[data-link="changePage"]');
             if (link) {
                 e.preventDefault();
                 fn(e);
-                if (link.getAttribute("data-scroll")) document.querySelector("#root").scrollIntoView({
-                    behavior: "smooth"
-                });
+                if (link.getAttribute("data-scroll")) {
+                    const contentContainer = document.querySelector("#root");
+                    contentContainer.scrollIntoView({
+                        behavior: "smooth"
+                    });
+                }
             }
         });
     }
     static updateFooterYear() {
         const span = document.querySelector('[data-js="footer-year"]');
-        const acutalYear = new Date().getFullYear();
+        const acutalYear = String(new Date().getFullYear());
         span.innerHTML = acutalYear;
+    }
+    constructor(){
+        this._mainTitle = document.title;
+        this._parentElement = document.querySelector("#root");
     }
 }
 exports.default = PageView;
 
-},{"7ab1481618936942":"euINo","8301c89008fcf430":"7Ls5e","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","../config":"adXZj"}],"euINo":[function(require,module,exports) {
-module.exports = require("2fef29f727ee99f7").getBundleURL("hWUTQ") + "../img/arrow-gif.3e92df1d.gif" + "?" + Date.now();
-
-},{"2fef29f727ee99f7":"lgJ39"}],"7Ls5e":[function(require,module,exports) {
-module.exports = require("d3300cad8399870e").getBundleURL("hWUTQ") + "../img/arrow-gif.723a5389.png" + "?" + Date.now();
-
-},{"d3300cad8399870e":"lgJ39"}],"adXZj":[function(require,module,exports) {
+},{"../config":"adXZj","320b3bccbc3ce733":"euINo","a69b916d6d82e5db":"7Ls5e","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"adXZj":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "numericSystem", ()=>numericSystem);
@@ -864,7 +822,54 @@ const initAnimation = {
 };
 const numbOfDashs = 3;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"d4vEX":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"euINo":[function(require,module,exports) {
+module.exports = require("2fef29f727ee99f7").getBundleURL("hWUTQ") + "../img/arrow-gif.3e92df1d.gif" + "?" + Date.now();
+
+},{"2fef29f727ee99f7":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+"use strict";
+var bundleURL = {};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ("" + err.stack).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return "/";
+}
+function getBaseURL(url) {
+    return ("" + url).replace(/^((?:https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/.+)\/[^/]+$/, "$1") + "/";
+}
+// TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ("" + url).match(/(https?|file|ftp|(chrome|moz|safari-web)-extension):\/\/[^/]+/);
+    if (!matches) throw new Error("Origin not found");
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
+
+},{}],"7Ls5e":[function(require,module,exports) {
+module.exports = require("d3300cad8399870e").getBundleURL("hWUTQ") + "../img/arrow-gif.723a5389.png" + "?" + Date.now();
+
+},{"d3300cad8399870e":"lgJ39"}],"172kW":[function(require,module,exports) {
+module.exports = require("ab13a26c8783cc56").getBundleURL("hWUTQ") + "../img/icons.21bad73c.svg" + "?" + Date.now();
+
+},{"ab13a26c8783cc56":"lgJ39"}],"lMTo7":[function(require,module,exports) {
+module.exports = require("2e002c9883967473").getBundleURL("hWUTQ") + "../img/cat404.1575ddad.png" + "?" + Date.now();
+
+},{"2e002c9883967473":"lgJ39"}],"d4vEX":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _pageView = require("./PageView");
@@ -1040,7 +1045,7 @@ class About extends (0, _pageViewDefault.default) {
 }
 exports.default = new About();
 
-},{"../../img/icons.svg":"172kW","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0","1261a238363e9283":"hcYFm","996d41c64e831608":"fbTUq","2e6290dd1b4a1ece":"inMSq","6e02de32e51527ba":"2EYd5","10f5736e8708d96d":"gaS6A","57d8f1491c4f2ff5":"gsYdf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./PageView":"4GbzM"}],"02Y3B":[function(require,module,exports) {
+},{"./PageView":"3utRW","../../img/icons.svg":"172kW","5a47699ce8b33375":"02Y3B","b7f31b1dd2aba51b":"2UuD0","1261a238363e9283":"hcYFm","996d41c64e831608":"fbTUq","2e6290dd1b4a1ece":"inMSq","6e02de32e51527ba":"2EYd5","10f5736e8708d96d":"gaS6A","57d8f1491c4f2ff5":"gsYdf","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"02Y3B":[function(require,module,exports) {
 module.exports = require("903412daf98d06a0").getBundleURL("hWUTQ") + "../img/chatgpt.3b03e9d1.png" + "?" + Date.now();
 
 },{"903412daf98d06a0":"lgJ39"}],"2UuD0":[function(require,module,exports) {
@@ -1216,7 +1221,7 @@ class Home extends (0, _pageViewDefault.default) {
 }
 exports.default = new Home();
 
-},{"swiper":"iM6UL","swiper/modules":"9ktz6","swiper/swiper.min.css":"eFTGe","swiper/modules/autoplay.min.css":"gCEvf","swiper/modules/pagination.min.css":"jHq3j","swiper/modules/a11y.min.css":"iQ5us","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./PageView":"4GbzM","../config":"adXZj"}],"iM6UL":[function(require,module,exports) {
+},{"swiper":"iM6UL","swiper/modules":"9ktz6","swiper/swiper.min.css":"eFTGe","swiper/modules/autoplay.min.css":"gCEvf","swiper/modules/pagination.min.css":"jHq3j","swiper/modules/a11y.min.css":"iQ5us","./PageView":"3utRW","../config":"adXZj","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"iM6UL":[function(require,module,exports) {
 /**
  * Swiper 11.0.6
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -9216,7 +9221,7 @@ class Projects extends (0, _pageViewDefault.default) {
 }
 exports.default = new Projects();
 
-},{"../../img/icons.svg":"172kW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./PageView":"4GbzM"}],"W3HEC":[function(require,module,exports) {
+},{"./PageView":"3utRW","../../img/icons.svg":"172kW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"W3HEC":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "data", ()=>data);
