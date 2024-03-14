@@ -8,12 +8,8 @@ import 'swiper/modules/pagination.min.css';
 import 'swiper/modules/a11y.min.css';
 
 import PageView from './PageView';
-import {
-  numericSystem,
-  swiperOptions,
-  dashboardsBoxInfoAnimation as anime,
-  numbOfDashs,
-} from '../config';
+import { numericSystem, swiperOptions, dashboardsBoxInfoAnimation as anime, numbOfDashs } from '../config';
+import { Dashboard, Data } from '../model';
 
 class Home extends PageView {
   pageTitle = 'Home';
@@ -60,18 +56,19 @@ class Home extends PageView {
     </div>
   </div>`;
 
-  _lastDashboards(dashboards) {
-    return dashboards.toReversed().slice(0, numbOfDashs);
+  private _lastDashboards(dashboards: Dashboard[]): Dashboard[] {
+    const copyDashs = [...dashboards];
+    return copyDashs.reverse().slice(0, numbOfDashs);
   }
-  _renderDashboards({ dashboards }) {
+  private _renderDashboards({ dashboards }: Data) {
     const lastDashboards = this._lastDashboards(dashboards);
 
     const dashboardCounter = {
-      actual: document.querySelector('.js-counter-actual'),
-      ofAll: document.querySelector('.js-counter-of-all'),
+      actual: document.querySelector('.js-counter-actual') as HTMLSpanElement,
+      ofAll: document.querySelector('.js-counter-of-all') as HTMLSpanElement,
     };
 
-    const swiperWrapper = document.querySelector('.swiper-wrapper');
+    const swiperWrapper = document.querySelector('.swiper-wrapper') as HTMLBodyElement;
     const { actual, ofAll } = dashboardCounter;
 
     actual.textContent = numericSystem[0];
@@ -100,19 +97,19 @@ class Home extends PageView {
       swiperWrapper.insertAdjacentHTML('beforeend', html);
     });
   }
-  _createSwiper({ dashboards }) {
+  private _createSwiper({ dashboards }: Data) {
     const lastThreeDashs = this._lastDashboards(dashboards);
     const dashboardCounter = {
-      actual: document.querySelector('.js-counter-actual'),
-      ofAll: document.querySelector('.js-counter-of-all'),
+      actual: document.querySelector('.js-counter-actual') as HTMLSpanElement,
+      ofAll: document.querySelector('.js-counter-of-all') as HTMLSpanElement,
     };
     const dashboardInfo = {
-      title: document.querySelector('.js-info-title'),
-      desc: document.querySelector('.js-info-desc'),
-      btn: document.querySelector('.js-info-btn'),
+      title: document.querySelector('.js-info-title') as HTMLHeadingElement,
+      desc: document.querySelector('.js-info-desc') as HTMLParagraphElement,
+      btn: document.querySelector('.js-info-btn') as HTMLAnchorElement,
     };
 
-    const carouselAnimationHandle = function (element, animeClass, duration) {
+    const carouselAnimationHandle = function (element: HTMLElement, animeClass: string, duration: number) {
       element.classList.add(animeClass);
       element.style.animationDuration = duration + 'ms';
       element.addEventListener('animationend', () => {
@@ -158,7 +155,7 @@ class Home extends PageView {
     });
   }
 
-  _init(data) {
+  _init(data: Data) {
     this._renderDashboards(data);
     this._createSwiper(data);
   }

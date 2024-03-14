@@ -626,7 +626,7 @@ const init = function() {
 };
 init();
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"c2peq","./views/aboutPageView":"aAiyc","./views/homePageView":"abVm0","./views/projectsPageView":"abNvX","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","./views/404PageView":"c2peq","./views/aboutPageView":"aAiyc","./views/homePageView":"aAcq3","./views/projectsPageView":"abNvX","./views/PageView":"3utRW","./model":"W3HEC"}],"gkKU3":[function(require,module,exports) {
 exports.interopDefault = function(a) {
     return a && a.__esModule ? a : {
         default: a
@@ -1077,7 +1077,7 @@ module.exports = require("b13bf0683c64fe6e").getBundleURL("hWUTQ") + "../img/log
 },{"b13bf0683c64fe6e":"lgJ39"}],"gsYdf":[function(require,module,exports) {
 module.exports = require("e1292226620c99b1").getBundleURL("hWUTQ") + "../img/active.c56b2b34.webp" + "?" + Date.now();
 
-},{"e1292226620c99b1":"lgJ39"}],"abVm0":[function(require,module,exports) {
+},{"e1292226620c99b1":"lgJ39"}],"aAcq3":[function(require,module,exports) {
 // import Swiper JS
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
@@ -1093,51 +1093,11 @@ var _pageView = require("./PageView");
 var _pageViewDefault = parcelHelpers.interopDefault(_pageView);
 var _config = require("../config");
 class Home extends (0, _pageViewDefault.default) {
-    pageTitle = "Home";
-    _html = `
-  <div class="carousel-box">
-    <div class="swiper carousel">
-      <!-- Additional required wrapper -->
-      <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide carousel__slide">
-          <div class="carousel__img-box">
-            <img src="" alt="" />
-          </div>
-        </div>
-        <div class="swiper-slide carousel__slide">
-          <div class="carousel__img-box">
-            <img src="" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  
-    <div class="carousel-info">
-      <h2 class="carousel-info__title js-info-title">
-        Northwind Traders
-      </h2>
-      <p class="carousel-info__desc js-info-desc">
-        A top-level KPI dashboard made to help Northwind Traders'
-        executives quickly understand the company's performance in key
-        areas.
-      </p>
-      <a
-        href="#"
-        class="carousel-info__link btn btn--secondary btn--white js-info-btn"
-        >See Dashboard</a
-      >
-      <div class="carousel-info__counter">
-        <p class="num-of-slide">
-          <span class="js-counter-actual"></span> /
-          <span class="js-counter-of-all">II</span>
-        </p>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </div>`;
     _lastDashboards(dashboards) {
-        return dashboards.toReversed().slice(0, (0, _config.numbOfDashs));
+        const copyDashs = [
+            ...dashboards
+        ];
+        return copyDashs.reverse().slice(0, (0, _config.numbOfDashs));
     }
     _renderDashboards({ dashboards }) {
         const lastDashboards = this._lastDashboards(dashboards);
@@ -1225,6 +1185,52 @@ class Home extends (0, _pageViewDefault.default) {
     _init(data) {
         this._renderDashboards(data);
         this._createSwiper(data);
+    }
+    constructor(...args){
+        super(...args);
+        this.pageTitle = "Home";
+        this._html = `
+  <div class="carousel-box">
+    <div class="swiper carousel">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide carousel__slide">
+          <div class="carousel__img-box">
+            <img src="" alt="" />
+          </div>
+        </div>
+        <div class="swiper-slide carousel__slide">
+          <div class="carousel__img-box">
+            <img src="" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="carousel-info">
+      <h2 class="carousel-info__title js-info-title">
+        Northwind Traders
+      </h2>
+      <p class="carousel-info__desc js-info-desc">
+        A top-level KPI dashboard made to help Northwind Traders'
+        executives quickly understand the company's performance in key
+        areas.
+      </p>
+      <a
+        href="#"
+        class="carousel-info__link btn btn--secondary btn--white js-info-btn"
+        >See Dashboard</a
+      >
+      <div class="carousel-info__counter">
+        <p class="num-of-slide">
+          <span class="js-counter-actual"></span> /
+          <span class="js-counter-of-all">II</span>
+        </p>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </div>`;
     }
 }
 exports.default = new Home();
@@ -9270,23 +9276,6 @@ const data = {
             links: {
                 live: "https://app.powerbi.com/view?r=eyJrIjoiNWI3ZDhlN2MtY2M3MS00YWMzLTg0NDYtNTcyMzQ4ZGZiMDUyIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
                 source: "https://www.mavenanalytics.io/challenges/maven-airlines-challenge/7"
-            }
-        },
-        {
-            title: "Tour de France",
-            desc: "The infographic-style dashboard designed to educate new viewers, highlight the magnitude of the event, and build anticipation for Tour de France.",
-            img: {
-                src: new URL(require("d31c091b9bd727a7")),
-                srcMobile: new URL(require("d5063d1ff816a1e5")),
-                alt: "Tour de France Dashboard"
-            },
-            themePhoto: {
-                src: new URL(require("c2859540036606eb")),
-                alt: "Cyclists racing down the road"
-            },
-            links: {
-                live: "https://app.powerbi.com/view?r=eyJrIjoiMThkNWM5YTMtYWE5OS00NjQwLTkwYjEtOGQ1MzA5NzBiYmYzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9",
-                source: "https://www.mavenanalytics.io/challenges/maven-tour-de-france-challenge/25"
             }
         },
         {

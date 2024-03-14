@@ -1,21 +1,23 @@
+export interface Dashboard {
+  title: string;
+  desc: string;
+  img: {
+    src: URL;
+    srcMobile: URL;
+    alt: string;
+  };
+  themePhoto: {
+    src: URL;
+    alt: string;
+  };
+  links: {
+    live: string;
+    source: string;
+  };
+}
+
 export interface Data {
-  dashboards: {
-    title: string;
-    desc: string;
-    img: {
-      src: URL;
-      srcMobile: URL;
-      alt: string;
-    };
-    themePhoto: {
-      src: URL;
-      alt: string;
-    };
-    links: {
-      live: string;
-      source: string;
-    };
-  }[];
+  dashboards: Dashboard[];
 }
 
 export const data: Data = {
@@ -52,23 +54,6 @@ export const data: Data = {
       links: {
         live: 'https://app.powerbi.com/view?r=eyJrIjoiNWI3ZDhlN2MtY2M3MS00YWMzLTg0NDYtNTcyMzQ4ZGZiMDUyIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9',
         source: 'https://www.mavenanalytics.io/challenges/maven-airlines-challenge/7',
-      },
-    },
-    {
-      title: 'Tour de France',
-      desc: 'The infographic-style dashboard designed to educate new viewers, highlight the magnitude of the event, and build anticipation for Tour de France.',
-      img: {
-        src: new URL('../img/projects/tourdefrance-dashboard.jpg', import.meta.url),
-        srcMobile: new URL('../img/projects/tourdefrance-dashboard-mobile.jpg', import.meta.url),
-        alt: 'Tour de France Dashboard',
-      },
-      themePhoto: {
-        src: new URL('../img/projects/tourdefrance-photo.jpg', import.meta.url),
-        alt: 'Cyclists racing down the road',
-      },
-      links: {
-        live: 'https://app.powerbi.com/view?r=eyJrIjoiMThkNWM5YTMtYWE5OS00NjQwLTkwYjEtOGQ1MzA5NzBiYmYzIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9',
-        source: 'https://www.mavenanalytics.io/challenges/maven-tour-de-france-challenge/25',
       },
     },
     {
