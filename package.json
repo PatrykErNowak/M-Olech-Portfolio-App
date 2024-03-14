@@ -25,7 +25,7 @@
   },
   "parcel-namer-custom": {
     ".scss$": "css/[name].min.[hash].[type]",
-    ".js$": "js/[name].min.[hash].[type]",
+    ".ts$": "js/[name].min.[hash].[type]",
     ".png$|.jpg$|.svg$|.jpg2$|.gif$|.bmp$|.webm$|.webp$": "img/[name].[hash].[type]"
   },
   "htmlnano": {
